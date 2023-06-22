@@ -1,0 +1,163 @@
+// --white:#fff;
+// --black:#040415 ;
+// --blue: #2EAAED ;
+// --light-blue: ;
+// --yellow:#FFC71F ;
+// --border:#E7E7E7 ;
+// --text-color: rgba(71, 72, 71, 0.6);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+.localbooks {
+    padding: 38px 33px;
+    .bookstore {
+        .bookheading {
+            margin-bottom: 22px;
+            h2 {
+                color: #000;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 25.83px;
+                font-family: "Raleway";
+                margin-bottom: 14px;
+            }
+            h6 {
+                color: #ffc71f;
+                font-size: 14px;
+                font-family: "DM Sans";
+                font-weight: 700;
+                line-height: 18px;
+
+                span {
+                    margin-right: 9px;
+                }
+            }
+        }
+        .input_feild {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 34px;
+            .input_group {
+                display: flex;
+                border: 1px solid #E7E7E7;
+                height: 50px;
+                padding: 0px 0px 0px 18px;
+                border-radius: 14px;
+                overflow: hidden;
+                width: calc(100% - 64px);
+                background-color: #fff;
+                input {
+                    height: 50px;
+                    padding-left: 14px;
+                    outline: none;
+                    border: 0;
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+
+            .filter_icon {
+                background-color: #2eaaed;
+                border-radius: 14px;
+                border: 2px solid #000;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .card_sec {
+        .cardinfo {
+            margin-bottom: 33px;
+            h6 {
+                font-weight: 700;
+                white-space: nowrap;
+                font-size: 16px;
+                line-height: 21px;
+                font-family: "DM Sans";
+                color: #040415;
+                margin-bottom: 9px;
+                span {
+                    padding-right: 9px;
+                }
+            }
+            p {
+                color: rgba(71, 72, 71, 0.6);
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 25px;
+                font-family: "DM Sans";
+            }
+        }
+
+        .share_btn {
+            display: flex;
+            justify-content: center;
+            margin-bottom:18px;
+            a {
+                background-color: #2eaaed;
+                text-align: center;
+                border: 2px solid #000;
+                text-decoration: none;
+                color: #fff;
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+                font-family: "DM Sans";
+                line-height: 18px;
+                width: 86%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+            &:hover{
+                background-color: transparent;
+                color: #2eaaed;
+                border: 2px solid #2eaaed;
+            }
+            }
+        }
+        .apply_btn {
+            display: flex;
+            justify-content: center;
+            margin-bottom:18px;
+            a {
+                background-color: #ffc71f;                text-align: center;
+                border: 2px solid #000;
+                text-decoration: none;
+                color: #000;
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+                font-family: "DM Sans";
+                line-height: 18px;
+                width: 86%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+            &:hover{
+                background-color: transparent;
+                color: #ffc71f;
+                border: 2px solid #ffc71f;
+            }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 1200px) and (max-width: 1400px) {
+    .cardinfo {
+        padding: 40px;
+    }
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .cardinfo {
+        padding: 10px;
+    }
+}

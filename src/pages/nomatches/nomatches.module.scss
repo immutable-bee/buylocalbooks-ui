@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+.localbooks {
+    padding: 38px 33px;
+    .bookstore {
+        .bookheading {
+            margin-bottom: 22px;
+            h2 {
+                color: #000;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 25.83px;
+                font-family: "Raleway";
+                margin-bottom: 14px;
+            }
+            h6 {
+                color: #ffc71f;
+                font-size: 14px;
+                font-family: "DM Sans";
+                font-weight: 700;
+                line-height: 18px;
+
+                span {
+                    margin-right: 9px;
+                }
+            }
+        }
+        .input_feild {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 34px;
+
+            .input_group {
+                display: flex;
+                border: 1px solid rgba(71, 72, 71, 0.6);
+                height: 50px;
+                padding: 0px 0px 0px 18px;
+                border-radius: 14px;
+                overflow: hidden;
+                width: calc(100% - 64px);
+                background-color: #fff;
+                input {
+                    height: 50px;
+                    padding-left: 14px;
+                    outline: none;
+                    border: 0;
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+            .filter_icon {
+                background-color: #2eaaed;
+                border-radius: 14px;
+                border: 2px solid #000;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .no_matches {
+            border: 2px solid #000;
+            background: #eaeaea;
+            box-shadow: 10px 10px 30px 14px rgba(0, 0, 0, 0.03);
+            border-radius: 20px;
+            padding: 23px 22px;
+            margin-bottom: 39px;
+            .emoji {
+                text-align: center;
+                margin-bottom: 18px;
+                Image {
+                }
+            }
+            .matches_info {
+                h4 {
+                    font-family: "DM Sans";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 18px;
+                    text-align: center;
+                    color: #000000;
+                    margin-bottom: 9px;
+                }
+                p {
+                    font-family: "DM Sans";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 19px;
+                    text-align: center;
+                    color: rgba(0, 0, 0, 0.9);
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        .store_lifepi {
+            margin-bottom: 13px;
+            display: flex;
+            justify-content: space-between;
+            h5 {
+                font-family: "DM Sans";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 21px;
+                color: #040415;
+            }
+            h6 {
+                font-family: "DM Sans";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 17px;
+                text-align: right;
+                color: #ffc71f;
+            }
+        }
+        .store_settle {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #e7e7e7;
+            border-radius: 14px;
+            padding: 25px 13px;
+            margin-bottom: 12px;
+            .store_settle_content {
+                // display: flex;
+                .store_settle_img {
+                    background: #d0efff;
+                    border-radius: 8px;
+                    padding: 12px 12px;
+                    width: 47px;
+                    height: 47px;
+                }
+                .store_info {
+                    p {
+                        font-family: "DM Sans";
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 13px;
+                        line-height: 17px;
+                        display: flex;
+                        align-items: center;
+                        color: rgba(71, 72, 71, 0.96);
+                        margin-bottom: 8px;
+                        
+                    }
+                    h6 {
+                        font-family: "DM Sans";
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 12px;
+                        line-height: 16px;
+                        display: flex;
+                        align-items: center;
+                        color: #2eaaed;
+                    }
+                }
+            }
+            .stores_icon {
+                // display: flex;
+                // justify-content: end;
+                // gap: 9px;
+                .attacjment_icon {
+                    background-color: #ffc71f;
+                    border: 1px solid #000000;
+                    border-radius: 6px;
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    padding: 6px;
+                    margin-bottom: 10px;
+                    transition: all .5S ease;
+                    &:hover{
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: 375px) {
+    .stores_icon {
+        display: flex;
+        justify-content: end;
+        gap: 9px;
+    }
+    .store_settle_content {
+        display: flex;
+    }
+    .store_settle_img {
+        margin-right: 11px;
+    }
+}

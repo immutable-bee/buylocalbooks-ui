@@ -1,0 +1,181 @@
+// --white:#fff;
+// --black:#040415 ;
+// --blue: #2EAAED ;
+// --light-blue: ;
+// --yellow:#FFC71F ;
+// --border:#E7E7E7 ;
+// --text-color: rgba(71, 72, 71, 0.6);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+.localbooks {
+    padding: 38px 33px;
+    .bookstore {
+        .bookheading {
+            margin-bottom: 22px;
+            h2 {
+                color: #000;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 25.83px;
+                font-family: "Raleway";
+                margin-bottom: 14px;
+            }
+            h6 {
+                color: #ffc71f;
+                font-size: 14px;
+                font-family: "DM Sans";
+                font-weight: 700;
+                line-height: 18px;
+
+                span {
+                    margin-right: 9px;
+                }
+            }
+        }
+        .input_feild {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 34px;
+            .input_group {
+                display: flex;
+                border: 1px solid rgba(71, 72, 71, 0.6);
+                height: 50px;
+                padding: 0px 0px 0px 18px;
+                border-radius: 14px;
+                overflow: hidden;
+                width: calc(100% - 64px);
+                background-color: #fff;
+                input {
+                    height: 50px;
+                    padding-left: 14px;
+                    outline: none;
+                    border: 0;
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+
+            .filter_icon {
+                background-color: #2eaaed;
+                border-radius: 14px;
+                border: 2px solid #000;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .near_bookstore {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            h4 {
+                font-family: "Dm Sans";
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 21px;
+                color: #040415;
+               
+            }
+            p {
+                font-family: "Dm Sans";
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 17px;
+                color: #ffc71f;
+            }
+        }
+        .slide_component{
+            width:calc(100% + 29px);
+        }
+        .recently_booksinfo{
+            margin-bottom: 12px;
+           
+        .recently_books {
+            display: flex;
+            background: #FFFFFF;
+            border: 1px solid #E7E7E7;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            padding: 13px;
+            align-items: center;
+            .book_image {
+                background-color: #d0efff;
+                width: 47px;
+                height: 47px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                margin-right: 11px;
+            }
+            .recently_info {
+               
+                h6 {
+                    font-family: "DM Sans";
+                    font-size: 13px;
+                    line-height: 17px;
+                    font-weight: 500;
+                    color: rgba(71, 72, 71, 0.96);
+                    margin-bottom: 8px;
+                }
+                p {
+                    font-family: "DM Sans";
+                    font-size: 12px;
+                    line-height: 16px;
+                    font-weight: 400;
+                    color: rgba(0, 0, 0, 0.4);
+                }
+            }
+        }
+    }
+    a{
+        border: 1px solid #000;
+        height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffc71f;
+        border-radius: 20px;
+        margin-top: 39px;
+        text-decoration: none;
+        transition: all .5s ease;
+    .become_member{
+       
+        
+            text-decoration: none;
+          
+            h5{
+                font-family: 'DM Sans';
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 18px;
+                text-align: center;
+                color: #000000;
+                margin-bottom: 11px;
+            }
+            p{
+                font-family: 'DM Sans';
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 16px;
+                text-align: center;
+                color: rgba(0, 0, 0, 0.9);
+            }
+        }
+        &:hover{
+            background-color: transparent;
+        }
+    }
+    }
+}
+
+@media all and (min-width:768px) {
+    .slide_component{
+        width: 100%!important;
+    }
+}
