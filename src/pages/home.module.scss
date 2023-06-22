@@ -1,10 +1,4 @@
-// --white:#fff;
-// --black:#040415 ;
-// --blue: #2EAAED ;
-// --light-blue: ;
-// --yellow:#FFC71F ;
-// --border:#E7E7E7 ;
-// --text-color: rgba(71, 72, 71, 0.6);
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
 .localbooks {
@@ -65,6 +59,14 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                transition: all 0.5 s ease;
+                &:hover{
+                    background-color: transparent;
+                    img{
+                        filter: invert(1);
+                    }
+                }
+               
             }
         }
     }
@@ -116,8 +118,8 @@
                 transition: all 0.5s ease;
             &:hover{
                 background-color: transparent;
-                color: #2eaaed;
-                border: 2px solid #2eaaed;
+                color: #000;
+                border: 2px solid #000;
             }
             }
         }
@@ -143,8 +145,8 @@
                 transition: all 0.5s ease;
             &:hover{
                 background-color: transparent;
-                color: #ffc71f;
-                border: 2px solid #ffc71f;
+                color: #000;
+                border: 2px solid #000;
             }
             }
         }

@@ -58,7 +58,7 @@
             .tofriend {
                 label {
                     position: relative;
-                    width: 100%;
+                    // width: 100%;
                     input {
                         position: absolute;
                         bottom: 0;
@@ -106,8 +106,8 @@
             white-space: nowrap;
             &:hover {
                 background-color: transparent;
-                color: #ffc71f;
-                border: 2px solid #ffc71f;
+                color: #000;
+                border: 2px solid #000;
             }
         }
     }
@@ -148,6 +148,19 @@
         }
     }
 }
+@media all and (min-width:767px) and (max-width){
+    .pickup_btn {
+        .tofriend {
+            label {
+                width: 66%, im !important;
+                input {
+                    width: 66%!important;
+                }
+            }
+        }
+}
+}
+
 @media only screen and (min-width:375px){
     .submit_btn {
         button {
@@ -155,3 +168,4 @@
         }
 }
 }
+

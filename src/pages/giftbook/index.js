@@ -33,7 +33,7 @@ const giftbook = () => {
                         </div>
                         <div className='col-12 col-md-6 col-lg-4 px-0 px-md-2'>
 
-                            <div className={styles.gift_row}>
+                            <a className={styles.gift_row}>
                                 <div className={styles.profile_icon}>
                                     <Image
                                         src="./images/icons/profile-icon.svg"
@@ -46,11 +46,11 @@ const giftbook = () => {
                                     <h4>To a friend</h4>
                                     <p className='m-0'>Purchase a book for a friend to pick up or deliver</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div className='col-12 col-md-6 col-lg-4 px-0 px-md-2'>
 
-                            <div className={styles.gift_row1}>
+                            <a className={styles.gift_row1}>
                                 <div className={styles.profile_icon}>
                                     <Image
                                         src="./images/icons/pay-icon.svg"
@@ -63,7 +63,7 @@ const giftbook = () => {
                                     <h4>Pay it forward</h4>
                                     <p className='m-0'>Purchase a book and the next person to request to buy the book will receive the book free of charge.</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 

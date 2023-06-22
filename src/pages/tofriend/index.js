@@ -217,12 +217,16 @@ const Tofriend = () => {
                             </div>
 
 
+                        
+
+
+
 
                             <div className='col-6 col-md-3 col-lg-2 ps-0'>
                                 <div className={styles.pickup_btn}>
                                     <div className={styles.tofriend}>
                                         <label class={styles.custom_radio}>
-                                            <input type="radio" name="radio" checked />
+                                            <input type="radio" name="checkbox" checked />
 
                                             <button className='rounded-pill'><span> <Image
                                                 src="./images/icons/download.svg"
@@ -240,7 +244,7 @@ const Tofriend = () => {
                                 <div className={styles.pickup_btn}>
                                     <div className={styles.tofriend}>
                                         <label class={styles.custom_radio}>
-                                            <input type="radio" name="radio" checked />
+                                            <input type="radio" name="checkbox"  />
 
                                             <button className='rounded-pill'><span> <Image
                                                 src="./images/icons/delivery-icon.svg"
@@ -295,7 +299,7 @@ const Tofriend = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-12 col-md-5 px-0'>
+                        <div className='col-12 col-md-3 px-0'>
                             <div className={styles.submit_btn}>
                                 <button type="button" className='rounded-pill'>Gift Book</button>
                             </div>

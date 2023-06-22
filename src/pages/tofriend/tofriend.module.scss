@@ -107,7 +107,7 @@
             .tofriend {
                 label {
                     position: relative;
-                    width: 100%;
+                    // width: 100%;
                     input {
                         position: absolute;
                         bottom: 0;
@@ -155,8 +155,8 @@
             white-space: nowrap;
             &:hover {
                 background-color: transparent;
-                color: #ffc71f;
-                border: 2px solid #ffc71f;
+                color: #000;
+                border: 2px solid #000;
             }
         }
     }
@@ -208,7 +208,7 @@
             }
         }
     }
-    .pickup_btn.tofriend label { input[type="radio"] + button {
+    .pickup_btn input[type="radio"] + button {
         border: 2px solid #e9e9e9;
         background-color: transparent;
         span {

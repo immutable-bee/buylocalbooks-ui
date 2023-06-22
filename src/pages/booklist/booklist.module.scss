@@ -65,6 +65,13 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                transition: all 0.5 s ease;
+                &:hover{
+                    background-color: transparent;
+                    img{
+                        filter: invert(1);
+                    }
+                }
             }
         }
 

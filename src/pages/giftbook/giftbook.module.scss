@@ -37,6 +37,12 @@
         padding: 18px 19px;
         border: 2px solid #000000;
         border-radius: 20px;
+        text-decoration: none;
+        transition: all .5s ease;
+        cursor: pointer;
+        &:hover{
+            background-color: transparent;
+        }
         .profile_icon {
             width: 20%;
             height: 49px;
@@ -78,6 +84,20 @@
         padding: 18px 19px;
         border: 2px solid #000000;
         border-radius: 20px;
+        text-decoration: none;
+        transition: all .5s ease;
+        cursor: pointer;
+        &:hover{
+            background-color: transparent;
+            .profile_info {
+                h4{
+                    color: black;
+                }
+                p{
+                    color: black;
+                }
+            }
+        }
         .profile_icon {
             width: 20%;
             height: 49px;
