@@ -45,7 +45,7 @@ const Payforward = () => {
                                     <label class={styles.custom_radio}>
                                         <input type="radio" name="radio" checked />
 
-                                        <button className='rounded-pill'>
+                                        <button className={`rounded-pill ${styles.dark_color}`}>
                                             <span>
                                                 <Image
                                                     src="./images/icons/white-user-icon.svg"
@@ -63,7 +63,7 @@ const Payforward = () => {
                                     <label class={styles.custom_radio}>
                                         <input type="radio" name="radio" />
 
-                                        <button className='rounded-pill'>
+                                        <button className={`rounded-pill ${styles.dark_color}`}>
                                             <span>
                                                 <Image
                                                     src="./images/icons/light-pay-icon.svg"

@@ -172,7 +172,7 @@ const Buyrequest = () => {
                                         <label class={styles.custom_radio}>
                                             <input type="radio" name="radio" checked />
 
-                                            <button className='rounded-pill'><span> <Image
+                                            <button className={`rounded-pill ${styles.dark_color}`}><span> <Image
                                                 src="./images/icons/download.svg"
                                                 width={15}
                                                 height={14}
@@ -190,7 +190,7 @@ const Buyrequest = () => {
                                         <label class={styles.custom_radio}>
                                             <input type="radio" name="radio" checked />
 
-                                            <button className='rounded-pill'><span> <Image
+                                            <button className={`rounded-pill ${styles.dark_color}`}><span> <Image
                                                 src="./images/icons/delivery-icon.svg"
                                                 width={15}
                                                 height={14}
@@ -218,7 +218,7 @@ const Buyrequest = () => {
                         </div>
                         <div className='col-12 col-md-3 px-0'>
                             <div className={styles.submit_btn}>
-                                <button type="button" className='rounded-pill'>Submit Request</button>
+                                <button type="button" className={`rounded-pill ${styles.dark_color}`}>Submit Request</button>
                             </div>
                         </div>
                     </div>

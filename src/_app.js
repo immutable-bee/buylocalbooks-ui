@@ -10,7 +10,9 @@ function MyApp({ Component, pageProps }) {
         margin: 0;
         font-family: Lobster;
       }
-
+      .rounded-pill {
+        color: #000 !important;
+      }
       * {
         box-sizing: border-box;
       }

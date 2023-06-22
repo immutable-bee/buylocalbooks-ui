@@ -109,12 +109,12 @@ const Home = () => {
               <div className='col-12 col-md-4 col-lg-3 px-0 px-md-2 px-md-2'>
 
                 <div className={styles.share_btn}>
-                  <Link href="" className='rounded-pill '>Share this Page</Link>
+                  <Link href="" className={`rounded-pill ${styles.dark_color}`}>Share this Page</Link>
                 </div>
               </div>
               <div className='col-12 col-md-4 col-lg-3 px-0 px-md-2 px-md-2'>
                 <div className={styles.apply_btn}>
-                  <Link href="" className='rounded-pill'>Apply Now</Link>
+                  <Link href="" className={`rounded-pill ${styles.dark_color}`}>Apply Now</Link>
                 </div>
               </div>
             </div>

@@ -131,10 +131,10 @@ const membershipdetail = () => {
                         <div className='col-md-12 px-0'>
                             <div className={styles.gift_btns}>
                                 <div className={styles.gift_btn1}>
-                                    <button type='btn' className='rounded-pill'>Gift</button>
+                                    <button type='btn' className={`rounded-pill ${styles.dark_color}`}>Gift</button>
                                 </div>
                                 <div className={styles.request_btn}>
-                                    <button type='btn' className='rounded-pill'>Request to Buy</button>
+                                    <button type='btn' className={`rounded-pill ${styles.dark_color}`}>Request to Buy</button>
                                 </div>
                             </div>
                         </div>

@@ -43,7 +43,7 @@ const Tofriend = () => {
                                     <label class={styles.custom_radio}>
                                         <input type="radio" name="radio" checked />
 
-                                        <button className='rounded-pill'>
+                                        <button className={`rounded-pill ${styles.dark_color}`}>
                                             <span>
                                                 <Image
                                                     src="./images/icons/white-user-icon.svg"
@@ -61,7 +61,7 @@ const Tofriend = () => {
                                     <label class={styles.custom_radio}>
                                         <input type="radio" name="radio" />
 
-                                        <button className='rounded-pill'>
+                                        <button className={`rounded-pill ${styles.dark_color}`}>
                                             <span>
                                                 <Image
                                                     src="./images/icons/light-pay-icon.svg"
@@ -228,7 +228,7 @@ const Tofriend = () => {
                                         <label class={styles.custom_radio}>
                                             <input type="radio" name="checkbox" checked />
 
-                                            <button className='rounded-pill'><span> <Image
+                                            <button className={`rounded-pill ${styles.dark_color}`}><span> <Image
                                                 src="./images/icons/download.svg"
                                                 width={15}
                                                 height={14}
@@ -246,7 +246,7 @@ const Tofriend = () => {
                                         <label class={styles.custom_radio}>
                                             <input type="radio" name="checkbox"  />
 
-                                            <button className='rounded-pill'><span> <Image
+                                            <button className={`rounded-pill ${styles.dark_color}`}><span> <Image
                                                 src="./images/icons/delivery-icon.svg"
                                                 width={15}
                                                 height={14}
@@ -301,7 +301,7 @@ const Tofriend = () => {
                         </div>
                         <div className='col-12 col-md-3 px-0'>
                             <div className={styles.submit_btn}>
-                                <button type="button" className='rounded-pill'>Gift Book</button>
+                                <button type="button" className={`rounded-pill ${styles.dark_color}`}>Gift Book</button>
                             </div>
                         </div>
                     </div>
