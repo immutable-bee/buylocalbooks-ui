@@ -17,7 +17,7 @@ const Home = () => {
               <Link href="/giftbook">Gift Book</Link>
               <Link href="/membarshipoption">Membership Options</Link>
               <Link href="/member">Member</Link>
-              <Link href="/membershipdetail">Membership Detail</Link>
+              <Link href="/membershipdetail">Membership View</Link>
               <Link href="/nomatches">No Search Results</Link>
               <Link href="/payforward">Pay Forward</Link>
               <Link href="/tofriend">To Friend</Link>
