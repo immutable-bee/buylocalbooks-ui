@@ -2,7 +2,7 @@
  import React from "react";
  import { useEffect } from "react";
  import bootstrap from "bootstrap";
- export default function giftoptionmodal() {
+ const giftoptionmodal = () => {
     return (
        <div className="d-flex 
    justify-content-center align-items-center">
@@ -42,5 +42,7 @@
        </div>
      );
    }
+
+export default giftoptionmodal;
 
 
