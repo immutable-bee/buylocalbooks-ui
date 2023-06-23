@@ -124,7 +124,7 @@ const Home = () => {
                         alt="Picture of the author"
                       />
                     </span>
-                    Doo you own bookstore?
+                    Do you own bookstore?
                   </h6>
                   <p>
                     Apply to become a member of the booksellers network to reach
