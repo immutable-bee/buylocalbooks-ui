@@ -9,6 +9,19 @@ const Home = () => {
       <section className={styles.localbooks}>
         <div className={styles.bookstore}>
           <div className="container">
+            {/* For dev purposes only, remove once proper routing is in place */}
+            <div id={styles.devNavBar}>
+              <Link href="/bookdetail">Book Detail</Link>
+              <Link href="/booklist">Book List</Link>
+              <Link href="/buyrequest">Buy Request</Link>
+              <Link href="/giftbook">Gift Book</Link>
+              <Link href="/membarshipoption">Membership Options</Link>
+              <Link href="/member">Member</Link>
+              <Link href="/membershipdetail">Membership Detail</Link>
+              <Link href="/nomatches">No Search Results</Link>
+              <Link href="/payforward">Pay Forward</Link>
+              <Link href="/tofriend">To Friend</Link>
+            </div>
             <div className="row">
               <div className="col-12 col-md-6 col-lg-8 px-0 px-md-2">
                 <div className={styles.bookheading}>
