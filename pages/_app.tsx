@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/App.css";
 import { MantineProvider } from "@mantine/core";
-import TableDataProvider from "../context/TableDataContext";
+
 import { AppProps } from "next/app";
 
 import { useRouter } from "next/router";
@@ -89,9 +89,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           withGlobalStyles
           withNormalizeCSS
         >
-          <TableDataProvider>
+         
             <Component {...pageProps} />
-          </TableDataProvider>
+         
         </MantineProvider>
       </div>
     </React.StrictMode>
