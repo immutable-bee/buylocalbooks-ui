@@ -53,17 +53,22 @@ const Bookfound = () => {
                     <span className="mx-3 text-2xl font-bold">Buylocalbooks</span>
                   </h2>
                 </div>
-                <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">
+                {/* <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">
                   <span className="">
                     <Image src="./images/location.svg" alt="icon" width={10}
                       height={12} />
                   </span>
                   <span className="px-2 font-serif">Your Zip Code</span>
-                </h6>
+                </h6> */}
+                <div class="flex items-center border-2 border-gray-300 py-2 h-[50px] rounded-2xl pl-3">
+                <Image src="./images/location.svg" alt="icon" width={14}
+                      height={16} />
+                  {/* <img alt="icon" loading="lazy" width="15" height="14" decoding="async" data-nimg="1" class="mx-[6px] h-4 w-4" style="color:transparent" src="./images/search-iconn.svg"> */}
+                    <input type="text" placeholder="Your Zip Code" class="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 py-2" /></div>
               </div>
 
               <div className="flex  sm:!pt-0 !pt-4">
-                <div className="flex items-center border-2 border-gray-300 h-[50px] rounded-2xl pl-3">
+                <div className="flex items-center border-2 py-2 border-gray-300 h-[50px] rounded-2xl pl-3">
                   <Image
                     src="./images/search-iconn.svg"
                     width={15}
@@ -74,7 +79,7 @@ const Bookfound = () => {
                   <input
                     type="text"
                     placeholder="Search Your Book"
-                    className="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 py-[16px]"
+                    className="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 py-2"
                   />
                 </div>
 
