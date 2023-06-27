@@ -6,30 +6,21 @@ import "bootstrap/dist/css/bootstrap.css";
 // import Modal from "src/components/Modal";
 
 const Payforward = () => {
+  const [isFriendSelected, setFriendSelected] = useState(true);
   const [showModal, setShowModal] = useState(false);
   return (
     <div className="container mx-auto px-3 pt-10">
       <div>
         <div>
           <div>
-            <div>
-              <div>
-                <h2 className="flex">
-                  <Link href="/">
-                    <span className="">
-                      <img
-                        src="./images/icons/back-arrow.svg"
-                        alt="back_arrow"
-                      />
-                    </span>
-                  </Link>
-                  <span className="mx-3 text-xl font-bold">
-                    {" "}
-                    Gift a Book
-                  </span>
-                </h2>
-              </div>
-            </div>
+            <h2 className="flex">
+              <Link href="/">
+                <span className="">
+                  <img src="./images/icons/back-arrow.svg" alt="back_arrow" />
+                </span>
+              </Link>
+              <span className="mx-3 text-xl font-bold"> Gift a Book</span>
+            </h2>
           </div>
 
           <div>
@@ -51,14 +42,23 @@ const Payforward = () => {
                     <input type="radio" name="radio" className="sr-only" />
 
                     <div className="ml-2">
-                      <button className="text-white font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3 border bg-sky-400 border-black">
+                      <button
+                        className={` font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3 ${
+                          isFriendSelected
+                            ? "bg-sky-500 border border-black text-white"
+                            : "border-gray-700 border text-gray-800"
+                        }`}
+                        onClick={() => setFriendSelected(true)}
+                      >
                         <span className="mx-1 text-gray-600">
                           <img
                             src="./images/icons/white-user-icon.svg"
                             alt="icon"
                           />
                         </span>
-                        <span className="mx-1 text-sm sm:text-xs">To a friend</span>
+                        <span className="mx-1 text-sm sm:text-xs">
+                          To a friend
+                        </span>
                       </button>
                     </div>
                   </label>
@@ -69,14 +69,23 @@ const Payforward = () => {
                     <input type="radio" name="radio" className="sr-only" />
 
                     <div className="ml-2 sm:!my-0 !my-4">
-                      <button className="text-black font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3 border border-gray-400">
+                      <button
+                        className={` font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3  ${
+                          isFriendSelected
+                          ? "border-gray-700 border text-gray-800"
+                          : "bg-sky-500 border border-black text-white"
+                        }`}
+                        onClick={() => setFriendSelected(false)}
+                      >
                         {/* <span className="mx-1 text-gray-600">
                           <img
                             src="./images/icons/light-pay-icon.svg"
                             alt="icon"
                           />
                         </span> */}
-                        <span className="mx-1 text-sm sm:text-xs">Pay It Forword</span>
+                        <span className="mx-1 text-sm sm:text-xs">
+                          Pay It Forword
+                        </span>
                       </button>
                     </div>
                   </label>

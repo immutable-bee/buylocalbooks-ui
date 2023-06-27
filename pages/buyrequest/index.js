@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./buyrequest.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 const Buyrequest = () => {
+  const [isPickupSelected, setPickupSelected ] = useState(true);
   return (
     <div className="container mx-auto px-3 pt-10">
       <div>
@@ -16,7 +17,7 @@ const Buyrequest = () => {
               />
             </span>
           </Link>
-          <span className="mx-3 text-2xl font-semibold"> Request to Buy</span>
+          <span className="mx-3 text-2xl font-bold"> Request to Buy</span>
         </h2>
       </div>
 
@@ -135,8 +136,10 @@ const Buyrequest = () => {
 
         <div className="flex  mt-3">
           <div className="">
-            <button className="rounded-full flex items-center px-[24px] py-3 !border !border-gray-500">
-              <span className="mx-1 text-gray-800">
+            <button className={`rounded-full flex items-center font-semibold px-[24px] py-3  ${isPickupSelected ? 'bg-sky-500 border border-black text-white' : 'border-gray-700 border text-gray-800'}`}
+          onClick={ () => setPickupSelected(true)}
+        >
+              <span className="mx-1 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -152,12 +155,14 @@ const Buyrequest = () => {
                   />
                 </svg>
               </span>
-              <span className="mx-1 sm:text-[13px] text-gray-400">Pickup</span>
+              <span className="mx-1 sm:text-[13px]">Pickup</span>
             </button>
           </div>
 
           <div className="mx-10 mb-0">
-            <button className="bg-sky-500 text-white rounded-full flex px-[24px] py-3 border border-black">
+            <button className={` rounded-full flex font-semibold px-[24px] py-3 border ${isPickupSelected ?  'border-gray-700 border text-gray-800' : 'bg-sky-500 border border-black text-white' }`}
+          onClick={ () => setPickupSelected(false)}
+        >
               <span className="mx-1 text-gray-500">
                 <img src="./images/icons/delivery-icon.svg" alt="icon" />
               </span>

@@ -1,9 +1,10 @@
-import React from "react";
-import styles from "./member.module.scss";
+import React, {useState} from "react";
+// import styles from "./buyrequest.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 const Member = () => {
+  const [isNationalSelected, setNationalSelected ] = useState(true);
   return (
     <div>
       <div className="bg-yellow-400 h-40 px-16 pt-10">
@@ -59,7 +60,9 @@ const Member = () => {
             </div>
             <div className="flex justify-center mt-3">
               <div>
-                <button className="border border-black  mx-1 text-[13px] bg-sky-500 font-semibold rounded-full py-[17px] flex px-[29px]">
+                <button className={` mx-1 text-[13px] font-semibold rounded-full py-[17px] flex px-[29px]  ${isNationalSelected ? 'bg-sky-500 border border-black text-white' : 'border-gray-700 border text-gray-800'}`}
+          onClick={ () => setNationalSelected(true)}
+        >
                   <span>
                     <img
                       src="./images/icons/server-icon.svg"
@@ -67,11 +70,13 @@ const Member = () => {
                       className="px-2"
                     />
                   </span>
-                  <span className="text-white"> National</span>
+                  <span className=""> National</span>
                 </button>
               </div>
               <div>
-                <button className="border border-gray-300  mx-1 bg-white rounded-full py-[17px] items-center flex text-[13px] font-bold text-black px-[29px]">
+                <button className={` mx-1  rounded-full py-[17px] items-center flex text-[13px] font-bold  px-[29px]  ${isNationalSelected ? 'border-gray-700 border text-gray-800' : 'bg-sky-500 border border-black text-white'}`}
+          onClick={ () => setNationalSelected(false)}
+        >
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

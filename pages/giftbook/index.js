@@ -28,7 +28,7 @@ const giftbook = () => {
         <div className="flex flex-wrap mt-3">
           <div>
             <a>
-              <div className="py-3 sm:h-[104px] h-[114px] p-[10px] flex bg-yellow-400 hover:bg-white sm:rounded-2xl rounded-3xl items-start sm:w-[310px] sm::border border-2 border-black">
+              <div className="py-3 sm:h-[104px] h-[114px] p-[10px] flex bg-yellow-400 sm:rounded-2xl rounded-3xl items-start sm:w-[310px] sm::border border-2 border-black">
                 <div className="mx-2 bg-yellow-300 rounded-lg px-[16px] py-[15px]">
                   <img
                     src="./images/icons/profile-icon.svg"
@@ -48,7 +48,7 @@ const giftbook = () => {
 
           <div>
             <a>
-              <div className="py-3 sm:h-[104px] h-[114px] p-[10px] sm:mx-3 sm:!my-0 !my-5 flex bg-sky-500 hover:bg-white sm:rounded-2xl rounded-3xl items-start sm:w-[310px] sm::border border-2 border-black">
+              <div className="py-3 sm:h-[104px] h-[114px] p-[10px] sm:mx-3 sm:!my-0 !my-5 flex bg-sky-500 sm:rounded-2xl rounded-3xl items-start sm:w-[310px] sm::border border-2 border-black">
                 <div className="mx-2 bg-sky-300 rounded-lg px-[16px] py-[15px]">
                   <img
                     src="./images/icons/pay-icon.svg"

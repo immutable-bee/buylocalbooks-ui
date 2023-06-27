@@ -112,7 +112,7 @@ const Home = () => {
         </div>
 
         <div className="flex flex-wrap sm:justify-start justify-center pt-10">
-          <div className="py-3 px-4 w-full sm:w-64 shadow rounded mr-4 my-2">
+          <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
             <h6 className="flex items-center">
               <span>
                 <img
@@ -136,7 +136,7 @@ const Home = () => {
               appreciate books and quality service.
             </p>
           </div>
-          <div className="py-3 px-4 w-full sm:w-64 shadow rounded mr-4 my-2">
+          <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
             <h6 className="flex items-center">
               <span>
                 <img src="./images/book-icon.svg" alt="icon" className="w-4" />
@@ -155,7 +155,7 @@ const Home = () => {
               seek out the book on your behalf.
             </p>
           </div>
-          <div className="py-3 px-4 w-full sm:w-64 shadow rounded mr-4 my-2">
+          <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
             <h6 className="flex items-center">
               <span>
                 <img src="./images/home.svg" alt="icon" className="w-4" />

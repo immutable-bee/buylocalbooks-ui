@@ -5,7 +5,7 @@ import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 const Tofriend = () => {
   const [isPickupSelected, setPickupSelected ] = useState(true);
-  const [isFriendSelected, setFriendSelected ] = useState(true);
+
 
 
 
@@ -34,40 +34,48 @@ const Tofriend = () => {
             </span>
           </h3>
         </div>
-        <div className="flex pt-2">
-          <div>
-            <label>
-             
 
-              <div className="">
-                <button className={`bg-sky-500 text-white rounded-full flex px-[32px] py-3 border border-black ${isFriendSelected ? 'border-gray-500' : 'bg-sky-500 border border-black text-white'}`}
+        <div className="sm:flex pt-2">
+                <div>
+                  <label>
+                    <input type="radio" name="radio" className="sr-only" />
+
+                    <div className="ml-2">
+                      <button className={` font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3 border  border-black ${isFriendSelected ? 'bg-sky-500 border border-black text-white' : 'border-gray-700 border text-gray-800'}`}
           onClick={() => setFriendSelected(true)}>
-                  <span className="mx-1">
-                    <img src="./images/icons/white-user-icon.svg" alt="icon" />
-                  </span>
-                  <span className="mx-2 font-semibold text-[13px]">
-                    To a friend
-                  </span>
-                </button>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label>
-             
+                        <span className="mx-1 text-gray-600">
+                          <img
+                            src="./images/icons/white-user-icon.svg"
+                            alt="icon"
+                          />
+                        </span>
+                        <span className="mx-1 text-sm sm:text-xs">To a friend</span>
+                      </button>
+                    </div>
+                  </label>
+                </div>
 
-              <div className="ml-2">
-                <button className={`text-black font-semibold rounded-full flex px-[18px] text-[13px] py-3 border border-gray-400 ${isFriendSelected ? 'border-gray-500' : 'bg-sky-500 border border-black text-white'}`}
+                <div>
+                  <label>
+                    <input type="radio" name="radio" className="sr-only" />
+
+                    <div className="ml-2 sm:!my-0 !my-4">
+                      <button className={` font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3  ${isFriendSelected ? 'border-gray-700 border text-gray-800' : 'bg-sky-500 border border-black text-white'}`}
           onClick={() => setFriendSelected(false)}>
-                  <span className="mx-1">
-                    <img src="./images/icons/light-pay-icon.svg" alt="icon" />
-                  </span>
-                  <span className="mx-1 text-xs">Pay It Forword</span>
-                </button>
+                        {/* <span className="mx-1 text-gray-600">
+                          <img
+                            src="./images/icons/light-pay-icon.svg"
+                            alt="icon"
+                          />
+                        </span> */}
+                        <span className="mx-1 text-sm sm:text-xs">Pay It Forword</span>
+                      </button>
+                    </div>
+                  </label>
+                </div>
               </div>
-            </label>
-          </div>
-        </div>
+    
+      
       </div>
 
       <div className="pt-10">

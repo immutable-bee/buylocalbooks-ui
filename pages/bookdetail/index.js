@@ -78,7 +78,7 @@ const Bookdetail = () => {
 
       <div className="sm:max-w-[390px] w-full">
         <div>
-          <div className="mt-40">
+          <div className="sm:mt-40 mt-20">
             <p className="text-center text-gray-400 text-[14px] sm:!text-[13px] leading-6">
               Inquire with the bookstore for more details or become a member to
               access all books details at a click of a button!
@@ -87,7 +87,7 @@ const Bookdetail = () => {
         </div>
 
         <div>
-          <div className="mt-8">
+          <div className="my-8">
             <div className="border border-black rounded-3xl w-80 bg-yellow-400 py-3 sm:mx-0 mx-auto">
               <Link href="" className="no-underline">
                 <h5 className=" text-center text-base text-black font-semibold">
