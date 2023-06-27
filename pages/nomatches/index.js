@@ -23,9 +23,20 @@ const nomatches = () => {
       <section>
         <div className="container mx-auto px-3 pt-10">
           <div>
-          <div className="sm:flex items-center justify-between px-2 pt-2">
+            <div className="sm:flex items-center justify-between px-2 pt-2">
               <div className="">
-                <h2 className="text-2xl font-bold">Buylocalbooks.com</h2>
+                <h2 className="flex items-center">
+                  <Link href="/">
+                    <span className="">
+                      <img
+                        src="./images/icons/back-arrow.svg"
+                        alt="Picture of the author"
+                      />
+                    </span>
+                  </Link>
+                  <span className="mx-3 text-[22px] font-bold">Buylocalbooks</span>
+                </h2>
+
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold text-[13px]">
                   <span className="">
                     <img src="./images/location.svg" alt="icon" />
@@ -48,14 +59,18 @@ const nomatches = () => {
                   />
                 </div>
 
-              <div className="">
-              <button
-                  type="button"
-                  className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
-                >
-                  <img src="./images/filter.svg"  alt="icon" className="w-5 h-5 " />
-                </button>
-              </div>
+                <div className="">
+                  <button
+                    type="button"
+                    className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
+                  >
+                    <img
+                      src="./images/filter.svg"
+                      alt="icon"
+                      className="w-5 h-5 "
+                    />
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -94,54 +109,52 @@ const nomatches = () => {
                 </div>
               </div>
 
-          <div className="">
-          {data.map((data, i) => {
-                return (
-                  <div className="border border-gray-400 mb-3 rounded-2xl my-1 justify-between w-full flex items-center py-3 px-3">
-                    <div className="flex items-start">
-                      <div className="bg-sky-200 p-[12px] rounded-lg ">
-                        <img
-                          src="./images/icons/stores-icon.svg"
-                          alt="stores_icon"
-                        />
+              <div className="">
+                {data.map((data, i) => {
+                  return (
+                    <div className="border border-gray-400 mb-3 rounded-2xl my-1 justify-between w-full flex items-center py-3 px-3">
+                      <div className="flex items-start">
+                        <div className="bg-sky-200 p-[12px] rounded-lg ">
+                          <img
+                            src="./images/icons/stores-icon.svg"
+                            alt="stores_icon"
+                          />
+                        </div>
+
+                        <div className="mx-3 ">
+                          <p className="my-2 mb-0 text-xs text-gray-500 font-semibold">
+                            {data.name}
+                          </p>
+                          <h6 className="my-2 mb-0 text-sky-500 text-xs">
+                            {data.email}
+                          </h6>
+                        </div>
                       </div>
 
-                      <div className="mx-3 ">
-                        <p className="my-2 mb-0 text-xs text-gray-500 font-semibold">
-                          {data.name}
-                        </p>
-                        <h6 className="my-2 mb-0 text-sky-500 text-xs">
-                          {data.email}
-                        </h6>
+                      <div className="flex items-center justify-end">
+                        <div>
+                          <button className="bg-yellow-400 mx-1 p-[12px] border border-black rounded-lg ">
+                            <img
+                              src="./images/icons/black-attachment-icon.svg"
+                              className="w-4"
+                              alt="Attachment_icon"
+                            />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-yellow-400 mx-1 p-[12px] border border-black rounded-lg ">
+                            <img
+                              src="./images/icons/black-call-icon.svg"
+                              className="w-4"
+                              alt="call_icon"
+                            />
+                          </button>
+                        </div>
                       </div>
                     </div>
-
-                    <div className="flex items-center justify-end">
-                      <div>
-                        <button className="bg-yellow-400 mx-1 p-[12px] border border-black rounded-lg ">
-                          <img
-                            src="./images/icons/black-attachment-icon.svg"
-                            className="w-4"
-                            alt="Attachment_icon"
-                          />
-                        </button>
-                      </div>
-                      <div>
-                        <button className="bg-yellow-400 mx-1 p-[12px] border border-black rounded-lg ">
-                          <img
-                            src="./images/icons/black-call-icon.svg"
-                            className="w-4"
-                            alt="call_icon"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-
-
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

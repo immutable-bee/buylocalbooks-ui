@@ -7,7 +7,7 @@ const Member = () => {
   const [isNationalSelected, setNationalSelected ] = useState(true);
   return (
     <div>
-      <div className="bg-yellow-400 h-40 px-16 pt-10">
+      <div className="bg-yellow-400 h-40 !px-4 sm:!px-16 !pt-4 sm:!pt-10">
         <div className="">
           <Link href="/">
             <img src="./images/icons/arrow-back-btn.svg" alt="icon" />

@@ -26,9 +26,19 @@ const Booklist = () => {
           <div>
             <div className="sm:flex items-center justify-between pt-2">
               <div className="">
-                <h2 className="text-xl font-serif font-bold">
-                  Buylocalbooks.com
-                </h2>
+              <div className="pt-10">
+        <h2 className="flex items-center">
+          <Link href="/">
+            <span className="">
+              <img
+                src="./images/icons/back-arrow.svg"
+                alt="Picture of the author"
+              />
+            </span>
+          </Link>
+          <span className="mx-3 text-[22px] font-bold">Buylocalbooks</span>
+        </h2>
+      </div>
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">
                   <span className="">
                     <img src="./images/location.svg" alt="icon" />
@@ -120,7 +130,18 @@ const Booklist = () => {
               </div>
             </div>
             <div>
-           
+              <div className="my-8">
+                <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
+                  <Link href="" className="no-underline">
+                    <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
+                      Become a Member
+                    </h5>
+                    <p className="font-serif no-underline text-xs mb-0 text-center pt-1 text-black">
+                      Discover format, notes, price and more!
+                    </p>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
