@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import MembershipModal from "@/components/MembershipModal";
 const Member = () => {
   const [isNationalSelected, setNationalSelected] = useState(true);
+  const [showModal, setShowModal] = useState(true);
+  const [isMember, setIsMember] = useState(true);
   return (
     <div>
       <div className="bg-yellow-400 h-40 !px-4 sm:!px-16 !pt-8 sm:!pt-10">
@@ -80,11 +83,10 @@ const Member = () => {
 
                   <div className="sm:ml-2">
                     <button
-                      className={` font-bold rounded-full flex justify-center w-full sm:!w-40 text-[13px] py-3 border  border-black  ${
-                        isNationalSelected
+                      className={` font-bold rounded-full flex justify-center w-full sm:!w-40 text-[13px] py-3 border  border-black  ${isNationalSelected
                           ? "bg-sky-500 border border-black text-white"
                           : "border-gray-700 border text-gray-800"
-                      }`}
+                        }`}
                       onClick={() => setNationalSelected(true)}
                     >
                       <span>
@@ -108,11 +110,10 @@ const Member = () => {
 
                   <div className="sm:ml-2 sm:!my-0 !my-4">
                     <button
-                      className={` font-bold rounded-full flex justify-center w-full sm:!w-40 text-[13px] py-3  ${
-                        isNationalSelected
+                      className={` font-bold rounded-full flex justify-center w-full sm:!w-40 text-[13px] py-3  ${isNationalSelected
                           ? "border-gray-700 border text-gray-800"
                           : "bg-sky-500 border border-black text-white"
-                      }`}
+                        }`}
                       onClick={() => setNationalSelected(false)}
                     >
                       <span>
@@ -144,9 +145,29 @@ const Member = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
-            <Link href="" className="no-underline">
-              <button className="border border-black  mx-1 bg-yellow-400 text-gray-700 !font-bold text-sm mt-8 rounded-full py-[16px] flex px-[32px]">
+          <MembershipModal
+            isOpen={showModal}
+            onRequestClose={() => setShowModal(false)}
+
+            nextDueDate="2023-07-26" // replace with actual data
+            nextAmountDue="10.99" // replace with actual data
+          />
+          {isMember ? (
+            <div className="flex justify-center w-full">
+              <Link href="" className="no-underline w-[90%]">
+                <button onClick={() => setShowModal(true)} className="border flex justify-center w-full border-black  mx-1 bg-yellow-400 text-gray-700 !font-bold text-sm mt-8 rounded-full py-[16px]  px-[32px]">
+
+                  Manage Membership
+                </button>
+              </Link>
+            </div>
+          ) : (
+            ''
+          )}
+
+          <div className="flex justify-center w-full">
+            <Link href="" className="no-underline w-[90%]">
+              <button className="border flex justify-center w-full border-black  mx-1 bg-yellow-400 text-gray-700 !font-bold text-sm mt-8 rounded-full py-[16px]  px-[32px]">
                 Share BuyLocalBooks.com
               </button>
             </Link>

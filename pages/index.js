@@ -93,7 +93,7 @@ const Home = () => {
               </div>
 
               <div className="flex  sm:!pt-0 !pt-4">
-                <div className="flex border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
+                <div className="flex border sm:border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
                   <Image
                     src="./images/search-iconn.svg"
                     width={15}
@@ -111,7 +111,7 @@ const Home = () => {
                 <div className="">
                   <button
                     type="button"
-                    className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
+                    className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border sm:border-2 border-black"
                   >
                     <Image
                       src="./images/filter.svg"
@@ -179,35 +179,42 @@ const Home = () => {
               seek out the book on your behalf.
             </p>
           </div>
-          <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
-            <h6 className="flex items-center">
-              <span>
-                <Image
-                  width={14}
-                  height={14}
-                  src="./images/home.svg"
-                  alt="icon"
-                  className="w-4"
-                />
-              </span>
-              <span className="px-2 font-bold text-sm">
-                {" "}
-                Do you own bookstore?
-              </span>
-            </h6>
-            <p className="text-gray-500 font-normal text-[13px] leading-6">
-              Apply to become a member of the booksellers network to reach more
-              aspiring readers that are community driven.
-            </p>
-          </div>
-
-          <div className="sm:flex text-center py-5 w-screen">
-            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-sky-500 text-white font-bold">
-              Share this Page
-            </button>
-            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border-2 border-black text-xs sm:text-sm sm:mx-10 bg-yellow-400 text-gray-900 font-bold hover:bg-white">
+          <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2 flex flex-col justify-between">
+            <div>
+              <h6 className="flex items-center">
+                <span>
+                  <Image
+                    width={14}
+                    height={14}
+                    src="./images/home.svg"
+                    alt="icon"
+                    className="w-4"
+                  />
+                </span>
+                <span className="px-2 font-bold text-sm">
+                  {" "}
+                  Do you own bookstore?
+                </span>
+              </h6>
+              <p className="text-gray-500 font-normal text-[13px] leading-6">
+                Apply to become a member of the booksellers network to reach more
+                aspiring readers that are community driven.
+              </p>
+            </div>
+            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 border-black text-xs sm:text-sm mx-auto bg-yellow-400 text-black font-semibold hover:bg-white">
               Apply Now
             </button>
+          </div>
+
+
+          <div className="sm:flex text-center py-5 w-screen">
+            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-sky-500 text-white font-semibold">
+              Share this Page
+            </button>
+            <button className="sm:ml-2 duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-yellow-400 font-semibold">
+              Become a Member
+            </button>
+
           </div>
         </div>
       </section>
