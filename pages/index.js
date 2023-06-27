@@ -3,6 +3,7 @@ import styles from "./home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import LocationDisplay from "../components/LocationDisplay";
 const Home = () => {
   return (
     <>
@@ -79,17 +80,7 @@ const Home = () => {
             <div className="sm:flex items-center justify-between px-2 pt-2">
               <div className="">
                 <h2 className="text-2xl font-bold">Buylocalbooks.com</h2>
-                <h6 className="flex items-center text-yellow-400 pt-1 font-semibold text-[13px]">
-                  <span className="">
-                    <Image
-                      src="./images/location.svg"
-                      alt="icon"
-                      width={10}
-                      height={12}
-                    />
-                  </span>
-                  <span className="px-2">Your Zip Code</span>
-                </h6>
+                <LocationDisplay />
               </div>
 
               <div className="flex  sm:!pt-0 !pt-4">
@@ -197,15 +188,14 @@ const Home = () => {
                 </span>
               </h6>
               <p className="text-gray-500 font-normal text-[13px] leading-6">
-                Apply to become a member of the booksellers network to reach more
-                aspiring readers that are community driven.
+                Apply to become a member of the booksellers network to reach
+                more aspiring readers that are community driven.
               </p>
             </div>
             <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 border-black text-xs sm:text-sm mx-auto bg-yellow-400 text-black font-semibold hover:bg-white">
               Apply Now
             </button>
           </div>
-
 
           <div className="sm:flex text-center py-5 w-screen">
             <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-sky-500 text-white font-semibold">
@@ -214,7 +204,6 @@ const Home = () => {
             <button className="sm:ml-2 duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-yellow-400 font-semibold">
               Become a Member
             </button>
-
           </div>
         </div>
       </section>
