@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import MembershipModal from "@/components/MembershipModal";
 const Member = () => {
   const [isNationalSelected, setNationalSelected] = useState(true);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [isMember, setIsMember] = useState(true);
   return (
     <div>
