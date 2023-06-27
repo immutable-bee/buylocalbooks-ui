@@ -15,6 +15,11 @@ const Home = () => {
                   Book Detail
                 </button>
               </Link>
+              <Link href="/bookstoredetail">
+                <button className="mx-2 text-sm text-blue-600 underline">
+                  Bookstore Detail
+                </button>
+              </Link>
 
               <Link href="/booklist">
                 <button className="mx-2 text-sm text-blue-600 underline">
@@ -197,10 +202,10 @@ const Home = () => {
           </div>
 
           <div className="sm:flex text-center py-5 w-screen">
-            <button className="rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-sky-500 text-white font-bold">
+            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-sky-500 text-white font-bold">
               Share this Page
             </button>
-            <button className="rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border-2 border-black text-xs sm:text-sm sm:mx-10 bg-yellow-400 text-gray-900 font-bold hover:bg-white">
+            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border-2 border-black text-xs sm:text-sm sm:mx-10 bg-yellow-400 text-gray-900 font-bold hover:bg-white">
               Apply Now
             </button>
           </div>
