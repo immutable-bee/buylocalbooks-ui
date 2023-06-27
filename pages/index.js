@@ -6,8 +6,6 @@ import "bootstrap/dist/css/bootstrap.css";
 const Home = () => {
   return (
     <>
-    
-    
       <section className="container mx-auto px-3 sm:pt-10 pt-4">
         <div>
           <div>
@@ -78,7 +76,12 @@ const Home = () => {
                 <h2 className="text-2xl font-bold">Buylocalbooks.com</h2>
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold text-[13px]">
                   <span className="">
-                    <img src="./images/location.svg" alt="icon" />
+                    <Image
+                      src="./images/location.svg"
+                      alt="icon"
+                      width={10}
+                      height={12}
+                    />
                   </span>
                   <span className="px-2">Your Zip Code</span>
                 </h6>
@@ -86,8 +89,10 @@ const Home = () => {
 
               <div className="flex  sm:!pt-0 !pt-4">
                 <div className="flex border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
-                  <img
+                  <Image
                     src="./images/search-iconn.svg"
+                    width={15}
+                    height={14}
                     alt="icon"
                     className="mx-[6px] w-4"
                   />
@@ -98,14 +103,20 @@ const Home = () => {
                   />
                 </div>
 
-              <div className="">
-              <button
-                  type="button"
-                  className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
-                >
-                  <img src="./images/filter.svg"  alt="icon" className="w-5 h-5 " />
-                </button>
-              </div>
+                <div className="">
+                  <button
+                    type="button"
+                    className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
+                  >
+                    <Image
+                      src="./images/filter.svg"
+                      width={15}
+                      height={14}
+                      alt="icon"
+                      className="w-5 h-5 "
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -115,8 +126,10 @@ const Home = () => {
           <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
             <h6 className="flex items-center">
               <span>
-                <img
+                <Image
                   src="./images/message-icon.svg"
+                  width={14}
+                  height={14}
                   alt="icon"
                   className="w-4"
                 />
@@ -139,7 +152,13 @@ const Home = () => {
           <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
             <h6 className="flex items-center">
               <span>
-                <img src="./images/book-icon.svg" alt="icon" className="w-4" />
+                <Image
+                  src="./images/book-icon.svg"
+                  alt="icon"
+                  className="w-4"
+                  width={14}
+                  height={14}
+                />
               </span>
               <span className="px-2 font-bold text-sm">
                 How do you buy books?
@@ -158,7 +177,13 @@ const Home = () => {
           <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
             <h6 className="flex items-center">
               <span>
-                <img src="./images/home.svg" alt="icon" className="w-4" />
+                <Image
+                  width={14}
+                  height={14}
+                  src="./images/home.svg"
+                  alt="icon"
+                  className="w-4"
+                />
               </span>
               <span className="px-2 font-bold text-sm">
                 {" "}

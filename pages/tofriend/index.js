@@ -13,8 +13,10 @@ const Tofriend = () => {
         <h2 className="flex items-center">
           <Link href="/">
             <span>
-              <img
+              <Image
                 src="./images/icons/back-arrow.svg"
+                width={24}
+                height={24}
                 alt="Picture of the author"
               />
             </span>
@@ -28,7 +30,12 @@ const Tofriend = () => {
           <h3 className=" text-base font-semibold flex items-center">
             Gift Options
             <span className="ml-2">
-              <img src="./images/icons/important-icon.svg" alt="back_arrow" />
+              <Image
+                src="./images/icons/important-icon.svg"
+                width={15}
+                height={15}
+                alt="back_arrow"
+              />
             </span>
           </h3>
         </div>
@@ -48,7 +55,12 @@ const Tofriend = () => {
                   onClick={() => setFriendSelected(true)}
                 >
                   <span className="mx-1 text-gray-600">
-                    <img src="./images/icons/white-user-icon.svg" alt="icon" />
+                    <Image
+                      src="./images/icons/white-user-icon.svg"
+                      width={16}
+                      height={16}
+                      alt="icon"
+                    />
                   </span>
                   <span className="mx-1 text-sm sm:text-xs">To a friend</span>
                 </button>
@@ -94,9 +106,11 @@ const Tofriend = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 w-full">
-            <img
+            <Image
               src="./images/icons/user-icon.svg"
               alt="icon"
+              width={15}
+              height={14}
               className="mx-[6px]"
             />
             <input
@@ -107,10 +121,12 @@ const Tofriend = () => {
           </div>
 
           <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 w-full">
-            <img
-              src="./images/icons/aadhar-icon.svg"
+            <Image
+              src="./images/icons/call-icon.svg"
+              width={15}
+              height={14}
+              className="img-fluid"
               alt="icon"
-              className="mx-[6px]"
             />
             <input
               type="text"
@@ -119,16 +135,18 @@ const Tofriend = () => {
             />
           </div>
 
-          <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 w-full">
-            <img
-              src="./images/icons/aadhar-icon.svg"
+          <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 py-1 pl-3 w-full">
+            <Image
+              src="./images/icons/email-icon.svg"
+              width={15}
+              height={14}
+              className="img-fluid"
               alt="icon"
-              className="mx-[6px]"
             />
             <input
               type="text"
               placeholder="Your friend Email"
-              className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[16px] w-full"
+              className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[12px] w-full"
             />
           </div>
         </div>
@@ -140,48 +158,56 @@ const Tofriend = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 w-full">
-            <img
+          <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 py-1 w-full">
+            <Image
               src="./images/icons/user-icon.svg"
+              width={15}
+              height={14}
               alt="icon"
               className="mx-[6px]"
             />
             <input
               type="text"
               placeholder="CardHolder Home"
-              className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[16px] w-full"
+              className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[12px] w-full"
             />
           </div>
 
-          <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 w-full">
-            <img
+          <div className="flex !border !border-gray-400 rounded-xl mr-3 py-1 my-2 pl-3 w-full">
+            <Image
               src="./images/icons/aadhar-icon.svg"
+              width={15}
+              height={14}
               alt="icon"
               className="mx-[6px]"
             />
             <input
               type="text"
               placeholder="Card Number"
-              className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[16px] w-full"
+              className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[12px] w-full"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3  w-full">
+            <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 pl-3 py-1 w-full">
               <img
                 src="./images/icons/calender.svg"
+                width={15}
+                height={14}
                 alt="icon"
                 className="mx-[6px]"
               />
               <input
                 type="text"
                 placeholder="Expiracy"
-                className=" placeholder-gray-700 text-[14px] px-[6px] rounded-xl focus:outline-none py-[16px] w-full"
+                className=" placeholder-gray-700 text-[14px] px-[6px] rounded-xl focus:outline-none py-[12px] w-full"
               />
             </div>
 
             <div className="flex !border !border-gray-400 rounded-xl mr-3 my-2 py-1 pl-3  w-full">
-              <img
+              <Image
                 src="./images/icons/hash-icon.svg"
+                width={15}
+                height={14}
                 alt="icon"
                 className="mx-[6px]"
               />
@@ -195,25 +221,11 @@ const Tofriend = () => {
         </div>
       </div>
 
-      <div className="pt-5">
-        <h6 className="font-bold">Note</h6>
-        <div className="flex !border py-1 !border-gray-400 rounded-xl mr-6 my-2 w-full sm:w-[300px] pl-3">
-          <img
-            src="./images/icons/blue-message-icon.svg"
-            alt="icon"
-            className="mx-[6px]"
-          />
-          <input
-            type="text"
-            placeholder="Add a note"
-            className=" placeholder-gray-700 text-[14px] px-[6px] focus:outline-none rounded-xl py-[12px] w-full"
-          />
-        </div>
-      </div>
+    
 
-      <div className="pt-14">
+      <div className="pt-8">
         <div>
-          <h4 className="text-base font-semibold">Pick up or Delivery</h4>
+          <h4 className="text-base font-bold">Pick up or Delivery</h4>
         </div>
         <div className="sm:flex mt-3">
           <div className="">
@@ -257,7 +269,7 @@ const Tofriend = () => {
 
               <div className="ml-2 sm:!my-0 !my-4">
                 <button
-                    className={` font-bold rounded-full flex !w-full sm:!w-32 justify-center text-[13px] py-3 ${
+                  className={` font-bold rounded-full flex !w-full sm:!w-32 justify-center text-[13px] py-3 ${
                     isPickupSelected
                       ? "border-gray-500 border"
                       : "bg-sky-500 border border-black text-white"
@@ -280,16 +292,18 @@ const Tofriend = () => {
 
       <div className="mt-12">
         <h6 className="font-bold">Note</h6>
-        <div className="flex mt-3 py-1 !border !border-gray-400 !border-solid rounded-xl mr-6 my-3 w-full sm:w-[300px] pl-3">
-          <img
+        <div className="flex mt-3 py-1 !border !border-gray-400 !border-solid rounded-xl mr-6 my-3 w-full sm:w-[450px] pl-3">
+          <Image
             src="./images/icons/blue-message-icon.svg"
+            width={15}
+            height={14}
             alt="icon"
             className="mx-[6px]"
           />
           <input
             type="text"
             placeholder="Add a note"
-            className="text-[14px] px-[6px] focus:outline-none rounded-xl py-[12px]  w-full"
+            className="text-[14px] px-[6px] focus:outline-none rounded-xl py-[12px] placeholder-gray-700  w-full"
           />
         </div>
       </div>

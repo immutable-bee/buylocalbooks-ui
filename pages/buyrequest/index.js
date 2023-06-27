@@ -1,18 +1,20 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./buyrequest.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 const Buyrequest = () => {
-  const [isPickupSelected, setPickupSelected ] = useState(true);
+  const [isPickupSelected, setPickupSelected] = useState(true);
   return (
     <div className="container mx-auto px-3 pt-10">
       <div>
         <h2 className="flex items-center">
           <Link href="/">
             <span>
-              <img
+              <Image
                 src="./images/icons/back-arrow.svg"
+                width={24}
+                height={24}
                 alt="Picture of the author"
               />
             </span>
@@ -28,8 +30,10 @@ const Buyrequest = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 mt-3 gap-3">
           <div className="flex !border !border-gray-500 rounded-xl py-1 px-3 w-full">
-            <img
+            <Image
               src="./images/icons/user-icon.svg"
+              width={15}
+              height={14}
               alt="icon"
               className="mx-[6px]"
             />
@@ -41,21 +45,26 @@ const Buyrequest = () => {
           </div>
 
           <div className="flex !border !border-gray-500 rounded-xl py-1 px-3 w-full">
-            <img
+            <Image
               src="./images/icons/email-icon.svg"
+              width={15}
+              height={14}
               alt="icon"
               className="mx-[6px]"
             />
             <input
               type="text"
               placeholder="Your Email"
+
               className="text-[14px] rounded-xl w-full px-[6px] focus:outline-none py-[12px]"
             />
           </div>
 
           <div className="flex !border !border-gray-500 rounded-xl  py-1 px-3 w-full ">
-            <img
+            <Image
               src="./images/icons/call-icon.svg"
+              width={15}
+              height={14}
               alt="icon"
               className="mx-[6px]"
             />
@@ -75,8 +84,10 @@ const Buyrequest = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 mt-3 gap-3">
           <div className="flex !border !border-gray-500 rounded-xl py-1 px-3 w-full">
-            <img
+            <Image
               src="./images/icons/user-icon.svg"
+              width={15}
+              height={14}
               alt="icon"
               className="mx-[6px]"
             />
@@ -88,9 +99,11 @@ const Buyrequest = () => {
           </div>
 
           <div className="flex !border !border-gray-500 rounded-xl py-1 px-3 w-full">
-            <img
+            <Image
               src="./images/icons/aadhar-icon.svg"
               alt="icon"
+              width={15}
+              height={14}
               className="mx-[6px]"
             />
             <input
@@ -101,9 +114,11 @@ const Buyrequest = () => {
           </div>
           <div className="grid grid-cols-2 !sm:mt-0  gap-3">
             <div className="flex !border !border-gray-500 rounded-xl py-1 px-3 w-full">
-              <img
+              <Image
                 src="./images/icons/calender.svg"
                 alt="icon"
+                width={15}
+                height={14}
                 className="mx-[6px]"
               />
               <input
@@ -114,8 +129,10 @@ const Buyrequest = () => {
             </div>
 
             <div className="flex !border !border-gray-500 rounded-xl py-1 px-3 w-full">
-              <img
+              <Image
                 src="./images/icons/hash-icon.svg"
+                width={15}
+                height={14}
                 alt="icon"
                 className="mx-[6px]"
               />
@@ -175,7 +192,7 @@ const Buyrequest = () => {
 
               <div className="ml-2 sm:!my-0 !my-4">
                 <button
-                    className={` font-bold rounded-full flex !w-full sm:!w-32 justify-center text-[13px] py-3 ${
+                  className={` font-bold rounded-full flex !w-full sm:!w-32 justify-center text-[13px] py-3 ${
                     isPickupSelected
                       ? "border-gray-500 border"
                       : "bg-sky-500 border border-black text-white"
@@ -183,7 +200,7 @@ const Buyrequest = () => {
                   onClick={() => setPickupSelected(false)}
                 >
                   {/* <span className="mx-1 text-gray-600">
-                          <img
+                          <Image
                             src="./images/icons/light-pay-icon.svg"
                             alt="icon"
                           />

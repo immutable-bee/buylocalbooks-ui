@@ -28,8 +28,10 @@ const nomatches = () => {
                 <h2 className="flex items-center">
                   <Link href="/">
                     <span className="">
-                      <img
+                      <Image
                         src="./images/icons/back-arrow.svg"
+                        width={24}
+                        height={24}
                         alt="Picture of the author"
                       />
                     </span>
@@ -39,7 +41,12 @@ const nomatches = () => {
 
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold text-[13px]">
                   <span className="">
-                    <img src="./images/location.svg" alt="icon" />
+                    <Image
+                      src="./images/location.svg"
+                      width={10}
+                      height={12}
+                      alt="icon"
+                    />
                   </span>
                   <span className="px-2">Your Zip Code</span>
                 </h6>
@@ -47,8 +54,10 @@ const nomatches = () => {
 
               <div className="flex  sm:!pt-0 !pt-4">
                 <div className="flex border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
-                  <img
+                  <Image
                     src="./images/search-iconn.svg"
+                    width={15}
+                    height={14}
                     alt="icon"
                     className="mx-[6px] w-4"
                   />
@@ -64,8 +73,10 @@ const nomatches = () => {
                     type="button"
                     className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
                   >
-                    <img
+                    <Image
                       src="./images/filter.svg"
+                      width={15}
+                      height={14}
                       alt="icon"
                       className="w-5 h-5 "
                     />
@@ -76,8 +87,10 @@ const nomatches = () => {
 
             <div className="border-2 text-center mx-auto border-black bg-gray-100 mb-0 rounded-3xl py-4 px-3 mt-4">
               <div>
-                <img
+                <Image
                   src="./images/icons/emoji_icon.svg"
+                  width={29}
+                  height={19}
                   alt="icon"
                   className="mx-auto mb-4"
                 />
@@ -115,8 +128,10 @@ const nomatches = () => {
                     <div className="border border-gray-400 mb-3 rounded-2xl my-1 justify-between w-full flex items-center py-3 px-3">
                       <div className="flex items-start">
                         <div className="bg-sky-200 p-[12px] rounded-lg ">
-                          <img
+                          <Image
                             src="./images/icons/stores-icon.svg"
+                            width={23}
+                            height={23}
                             alt="stores_icon"
                           />
                         </div>
@@ -134,18 +149,22 @@ const nomatches = () => {
                       <div className="flex items-center justify-end">
                         <div>
                           <button className="bg-yellow-400 mx-1 p-[12px] border border-black rounded-lg ">
-                            <img
+                            <Image
                               src="./images/icons/black-attachment-icon.svg"
                               className="w-4"
+                              width={17}
+                              height={17}
                               alt="Attachment_icon"
                             />
                           </button>
                         </div>
                         <div>
                           <button className="bg-yellow-400 mx-1 p-[12px] border border-black rounded-lg ">
-                            <img
+                            <Image
                               src="./images/icons/black-call-icon.svg"
                               className="w-4"
+                              width={17}
+                              height={17}
                               alt="call_icon"
                             />
                           </button>

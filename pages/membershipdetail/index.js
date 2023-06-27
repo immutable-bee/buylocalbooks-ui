@@ -10,8 +10,10 @@ const membershipdetail = () => {
         <h2 className="flex items-center">
           <Link href="/">
             <span className="">
-              <img
+              <Image
                 src="./images/icons/back-arrow.svg"
+                width={24}
+                height={24}
                 alt="Picture of the author"
               />
             </span>
@@ -25,8 +27,10 @@ const membershipdetail = () => {
           <h3 className="text-base font-bold">Author</h3>
           <div className="flex pt-1">
             <div className="bg-sky-50 rounded-2xl p-[28px]">
-              <img
+              <Image
                 src="./images/icons/stamp-icon.svg"
+                width={51}
+                height={51}
                 alt="Picture of the author"
               />
             </div>
@@ -62,8 +66,10 @@ const membershipdetail = () => {
           <h3 className="pt-4 text-base font-bold">Bookstore Details</h3>
           <div className="flex">
             <div className="pr-2">
-              <img
+              <Image
                 src="./images/icons/bookstore-img.svg"
+                width={102}
+                height={102}
                 alt="books_img"
                 className=""
               />
@@ -72,17 +78,21 @@ const membershipdetail = () => {
               <h5 className="text-sm font-semibold mb-0">Yann Martel</h5>
               <label className="text-sm text-gray-400 py-2">Washington</label>
               <p className="flex text-sm text-sky-500 mb-2">
-                <img
+                <Image
                   src="./images/icons/call-icon.svg"
                   alt="call_icon"
+                  width={15}
+                  height={15}
                   className="px-1"
                 />
                 <span className="px-1 font-semibold">(603) 555-0123</span>
               </p>
 
               <p className="flex text-sm text-sky-500">
-                <img
+                <Image
                   src="./images/icons/attachment-icon.svg"
+                  width={15}
+                  height={15}
                   alt="call_icon"
                   className="px-1"
                 />

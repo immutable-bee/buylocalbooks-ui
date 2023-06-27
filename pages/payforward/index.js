@@ -16,7 +16,12 @@ const Payforward = () => {
             <h2 className="flex">
               <Link href="/">
                 <span className="">
-                  <img src="./images/icons/back-arrow.svg" alt="back_arrow" />
+                  <Image
+                    src="./images/icons/back-arrow.svg"
+                    width={24}
+                    height={24}
+                    alt="back_arrow"
+                  />
                 </span>
               </Link>
               <span className="mx-3 text-xl font-bold"> Gift a Book</span>
@@ -29,7 +34,9 @@ const Payforward = () => {
                 <h3 className=" text-sm font-bold flex items-center">
                   Gift Options
                   <span className="ml-2">
-                    <img
+                    <Image
+                      width={15}
+                      height={15}
                       src="./images/icons/important-icon.svg"
                       alt="back_arrow"
                     />
@@ -51,8 +58,10 @@ const Payforward = () => {
                         onClick={() => setFriendSelected(true)}
                       >
                         <span className="mx-1 text-gray-600">
-                          <img
+                          <Image
                             src="./images/icons/white-user-icon.svg"
+                            width={16}
+                            height={16}
                             alt="icon"
                           />
                         </span>
@@ -72,8 +81,8 @@ const Payforward = () => {
                       <button
                         className={` font-bold rounded-full flex justify-center w-full sm:!w-44 text-[13px] py-3  ${
                           isFriendSelected
-                          ? "border-gray-700 border text-gray-800"
-                          : "bg-sky-500 border border-black text-white"
+                            ? "border-gray-700 border text-gray-800"
+                            : "bg-sky-500 border border-black text-white"
                         }`}
                         onClick={() => setFriendSelected(false)}
                       >
@@ -104,8 +113,10 @@ const Payforward = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 mt-3 gap-3">
                 <div className="flex py-1 !border !border-gray-400 rounded-xl px-3 w-full">
-                  <img
+                  <Image
                     src="./images/icons/user-icon.svg"
+                    width={15}
+                    height={14}
                     alt="icon"
                     className="mx-[6px]"
                   />
@@ -117,8 +128,10 @@ const Payforward = () => {
                 </div>
 
                 <div className="flex py-1 !border !border-gray-400 rounded-xl px-3 w-full">
-                  <img
+                  <Image
                     src="./images/icons/aadhar-icon.svg"
+                    width={15}
+                    height={14}
                     alt="icon"
                     className="mx-[6px]"
                   />
@@ -130,8 +143,10 @@ const Payforward = () => {
                 </div>
                 <div className="grid grid-cols-2 !sm:mt-0  gap-3">
                   <div className="flex py-1 !border !border-gray-400 rounded-xl px-3 w-full">
-                    <img
+                    <Image
                       src="./images/icons/calender.svg"
+                      width={15}
+                      height={14}
                       alt="icon"
                       className="mx-[6px]"
                     />
@@ -143,8 +158,10 @@ const Payforward = () => {
                   </div>
 
                   <div className="flex py-1 !border !border-gray-400 rounded-xl px-3 w-full">
-                    <img
+                    <Image
                       src="./images/icons/hash-icon.svg"
+                      width={15}
+                      height={14}
                       alt="icon"
                       className="mx-[6px]"
                     />
@@ -162,8 +179,10 @@ const Payforward = () => {
           <div className="mt-12">
             <h6 className="font-bold">Note</h6>
             <div className="flex py-1 !border !border-gray-400 !border-solid rounded-xl mr-6 my-3 w-full sm:w-[300px] pl-3">
-              <img
+              <Image
                 src="./images/icons/blue-message-icon.svg"
+                width={15}
+                height={14}
                 alt="icon"
                 className="mx-[6px]"
               />
@@ -208,7 +227,6 @@ const Payforward = () => {
               </button>
             </div>
           </div>
-      
         </div>
       </div>
     </div>

@@ -9,13 +9,17 @@ const Membarshipoption = () => {
       <div className="flex justify-end">
         <Link href="/">
           <button type="button">
-            <img src="./images/icons/close-icon.svg" alt="icon" />
+            <Image src="./images/icons/close-icon.svg" alt="icon"    width={31}
+            height={31} />
+         
           </button>
         </Link>
       </div>
       <div className="text-center mx-auto">
         <div>
-          <img
+          <Image
+            width={133}
+            height={133}
             src="./images/icons/welcome-img.svg"
             alt="icon"
             className="mx-auto"
@@ -38,23 +42,35 @@ const Membarshipoption = () => {
         <div>
           <div className="flex items-center my-1">
             <div className="flex items-center">
-              <img src="./images/icons/check-icon.svg" alt="icon" className="w-4"/>
+              <Image
+                src="./images/icons/check-icon.svg"
+                width={14}
+                height={14}
+                alt="icon"
+                className="w-4"
+              />
             </div>
             <div className="my-1">
-            <p className="px-2 mb-0 text-xs">
-              Newsletter about independent bookstores in the U.S.
-            </p>
-          </div>
+              <p className="px-2 mb-0 text-xs">
+                Newsletter about independent bookstores in the U.S.
+              </p>
+            </div>
           </div>
           <div className="flex items-center my-1">
             <div className="flex items-center">
-              <img src="./images/icons/check-icon.svg" alt="icon" className="w-4"/>
+              <Image
+                src="./images/icons/check-icon.svg"
+                width={18}
+                height={14}
+                alt="icon"
+                className="w-4"
+              />
             </div>
             <div className="my-1">
-            <p className="px-2 mb-0 text-xs">
-              View format, condition notes and price
-            </p>
-          </div>
+              <p className="px-2 mb-0 text-xs">
+                View format, condition notes and price
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -67,43 +83,63 @@ const Membarshipoption = () => {
         <div>
           <div className="flex items-center my-1">
             <div className="flex items-center">
-              <img src="./images/icons/white-check.svg" alt="icon"  className="w-4"/>
+              <Image
+                src="./images/icons/white-check.svg"
+                width={19}
+                height={14}
+                alt="icon"
+                className="w-4"
+              />
             </div>
             <div className="my-1">
-            <p className="px-2 mb-0 text-xs">
-              Newsletter about independent bookstores in the U.S.
-            </p>
-          </div>
+              <p className="px-2 mb-0 text-xs">
+                Newsletter about independent bookstores in the U.S.
+              </p>
+            </div>
           </div>
           <div className="flex items-center my-1">
             <div className="flex items-center">
-              <img src="./images/icons/white-check.svg" alt="icon"  className="w-4"/>
+              <Image
+                src="./images/icons/white-check.svg"
+                width={14}
+                height={14}
+                alt="icon"
+                className="w-4"
+              />
             </div>
             <div className="my-1">
-            <p className="px-2 mb-0 text-xs">
-              View format, condition notes and price
-            </p>
-          </div>
+              <p className="px-2 mb-0 text-xs">
+                View format, condition notes and price
+              </p>
+            </div>
           </div>
           <div className="flex items-center my-1">
             <div className="flex items-center">
-              <img src="./images/icons/white-check.svg" alt="icon"  className="w-4"/>
+              <Image
+                src="./images/icons/white-check.svg"
+                width={14}
+                height={14}
+                alt="icon"
+                className="w-4"
+              />
             </div>
             <div className="my-1">
-            <p className="px-2 mb-0 text-xs">
-              Request to buy books online
-            </p>
-          </div>
+              <p className="px-2 mb-0 text-xs">Request to buy books online</p>
+            </div>
           </div>
           <div className="flex items-center my-1">
             <div className="flex items-center">
-              <img src="./images/icons/white-check.svg" alt="icon"  className="w-4"/>
+              <Image
+                src="./images/icons/white-check.svg"
+                width={14}
+                height={14}
+                alt="icon"
+                className="w-4"
+              />
             </div>
             <div className="my-1">
-            <p className="px-2 mb-0 text-xs">
-              Request to buy books online
-            </p>
-          </div>
+              <p className="px-2 mb-0 text-xs">Request to buy books online</p>
+            </div>
           </div>
         </div>
       </div>

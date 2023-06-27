@@ -30,8 +30,10 @@ const Booklist = () => {
         <h2 className="flex items-center">
           <Link href="/">
             <span className="">
-              <img
+              <Image
                 src="./images/icons/back-arrow.svg"
+                width={24}
+                height={24}
                 alt="Picture of the author"
               />
             </span>
@@ -41,7 +43,8 @@ const Booklist = () => {
       </div>
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">
                   <span className="">
-                    <img src="./images/location.svg" alt="icon" />
+                    <Image src="./images/location.svg" alt="icon"                         width={10}
+                        height={12} />
                   </span>
                   <span className="px-2 font-serif">Your Zip Code</span>
                 </h6>
@@ -49,8 +52,10 @@ const Booklist = () => {
 
               <div className="flex  sm:!pt-0 !pt-4">
                 <div className="flex items-center border-2 border-gray-300 h-[50px] rounded-2xl pl-3">
-                  <img
+                  <Image
                     src="./images/search-iconn.svg"
+                    width={15}
+                    height={14}
                     alt="icon"
                     className="mx-[6px] h-4 w-4"
                   />
@@ -66,8 +71,10 @@ const Booklist = () => {
                     type="button"
                     className="bg-sky-500  ml-2 rounded-2xl w-[50px] h-[50px] flex items-center justify-center border-2 border-black"
                   >
-                    <img
+                    <Image
                       src="./images/filter.svg"
+                      width={15}
+                      height={14}
                       alt="icon"
                       className="w-5 h-5 "
                     />
@@ -110,8 +117,10 @@ const Booklist = () => {
                     <div>
                       <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
                         <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
-                          <img
+                          <Image
                             src="./images/icons/recently-book1.svg"
+                            width={23}
+                            height={23}
                             alt="icon"
                           />
                         </div>

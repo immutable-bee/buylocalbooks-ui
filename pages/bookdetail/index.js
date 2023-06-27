@@ -10,8 +10,10 @@ const Bookdetail = () => {
         <h2 className="flex items-center">
           <Link href="/">
             <span className="">
-              <img
+              <Image
                 src="./images/icons/back-arrow.svg"
+                width={24}
+                height={24}
                 alt="Picture of the author"
               />
             </span>
@@ -25,8 +27,10 @@ const Bookdetail = () => {
           <h3 className="text-base font-bold">Author</h3>
           <div className="flex pt-[6px]">
             <div className="bg-sky-50 rounded-2xl p-[26px]">
-              <img
+              <Image
                 src="./images/icons/stamp-icon.svg"
+                width={51}
+                height={51}
                 alt="Picture of the author"
               />
             </div>
@@ -43,9 +47,11 @@ const Bookdetail = () => {
           </h3>
           <div className="flex pt-[6px]">
             <div className="pr-2">
-              <img
+              <Image
+                width={102}
+                height={102}
                 src="./images/icons/bookstore-img.svg"
-                alt="books_img"
+                alt="books_Image"
                 className=""
               />
             </div>
@@ -55,8 +61,10 @@ const Bookdetail = () => {
                 Washington
               </label>
               <p className="flex text-sm text-sky-500 font-semibold my-1 mb-0 ">
-                <img
+                <Image
                   src="./images/icons/call-icon.svg"
+                  width={15}
+                  height={15}
                   alt="call_icon"
                   className="pr-2"
                 />
@@ -64,12 +72,16 @@ const Bookdetail = () => {
               </p>
 
               <p className="font-normal flex text-sm text-sky-500 my-2 mb-0">
-                <img
+                <Image
                   src="./images/icons/attachment-icon.svg"
+                  width={15}
+                  height={15}
                   alt="call_icon"
                   className="pr-2 "
                 />
-                <span className=" mb-0 font-semibold ">bookstoreseattle.com</span>
+                <span className=" mb-0 font-semibold ">
+                  bookstoreseattle.com
+                </span>
               </p>
             </div>
           </div>
@@ -87,18 +99,18 @@ const Bookdetail = () => {
         </div>
 
         <div>
-        <div className="my-8">
-                <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
-                  <Link href="" className="no-underline">
-                    <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
-                      Become a Member
-                    </h5>
-                    <p className="font-serif no-underline text-xs mb-0 text-center pt-1 text-black">
-                      Discover format, notes, price and more!
-                    </p>
-                  </Link>
-                </div>
-              </div>
+          <div className="my-8">
+            <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
+              <Link href="" className="no-underline">
+                <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
+                  Become a Member
+                </h5>
+                <p className="font-serif no-underline text-xs mb-0 text-center pt-1 text-black">
+                  Discover format, notes, price and more!
+                </p>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
