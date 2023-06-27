@@ -16,7 +16,7 @@ const membershipdetail = () => {
               />
             </span>
           </Link>
-          <span className="mx-3 text-xl font-bold">Life of Pi</span>
+          <span className="mx-3 text-2xl font-bold">Life of Pi</span>
         </h2>
       </div>
 

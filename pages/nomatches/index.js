@@ -34,7 +34,7 @@ const nomatches = () => {
                       />
                     </span>
                   </Link>
-                  <span className="mx-3 text-[22px] font-bold">Buylocalbooks</span>
+                  <span className="mx-3 text-2xl font-bold">Buylocalbooks</span>
                 </h2>
 
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold text-[13px]">

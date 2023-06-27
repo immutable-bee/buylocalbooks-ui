@@ -20,11 +20,11 @@ const Booklist = () => {
     },
   ];
   return (
-    <div className="container mx-auto px-3 pt-4 sm:pt-10">
+    <div className="container mx-auto px-3  sm:pt-10">
       <section>
         <div>
           <div>
-            <div className="sm:flex items-center justify-between pt-2">
+            <div className="sm:flex items-center justify-between sm:pt-2">
               <div className="">
               <div className="pt-10">
         <h2 className="flex items-center">
@@ -36,7 +36,7 @@ const Booklist = () => {
               />
             </span>
           </Link>
-          <span className="mx-3 text-[22px] font-bold">Buylocalbooks</span>
+          <span className="mx-3 text-2xl font-bold">Buylocalbooks</span>
         </h2>
       </div>
                 <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">

@@ -16,7 +16,7 @@ const Bookdetail = () => {
               />
             </span>
           </Link>
-          <span className="mx-3 text-[22px] font-bold">Life of Pi</span>
+          <span className="mx-3 text-2xl font-bold">Life of Pi</span>
         </h2>
       </div>
 

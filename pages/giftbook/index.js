@@ -15,7 +15,7 @@ const giftbook = () => {
             <img src="./images/icons/back-arrow.svg" alt="back_arrow" />
           </span>
           </Link> 
-            <span className="mx-3 text-xl font-semibold"> Gift a Book</span>
+            <span className="mx-3 text-2xl font-bold"> Gift a Book</span>
         
         </h2>
       </div>
