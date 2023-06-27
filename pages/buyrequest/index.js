@@ -133,46 +133,70 @@ const Buyrequest = () => {
         <div>
           <h4 className="text-base font-semibold">Pick up or Delivery</h4>
         </div>
-
-        <div className="flex  mt-3">
+        <div className="sm:flex mt-3">
           <div className="">
-            <button className={`rounded-full flex items-center font-semibold px-[24px] py-3  ${isPickupSelected ? 'bg-sky-500 border border-black text-white' : 'border-gray-700 border text-gray-800'}`}
-          onClick={ () => setPickupSelected(true)}
-        >
-              <span className="mx-1 ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
+            <label className="w-full">
+              <input type="radio" name="radio" className="sr-only" />
+
+              <div className="">
+                <button
+                  className={` font-bold rounded-full flex !w-full sm:!w-32 justify-center text-[13px] py-3 ${
+                    isPickupSelected
+                      ? "bg-sky-500 border border-black text-white"
+                      : "border-gray-700 border text-gray-800"
+                  }`}
+                  onClick={() => setPickupSelected(true)}
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                  />
-                </svg>
-              </span>
-              <span className="mx-1 sm:text-[13px]">Pickup</span>
-            </button>
+                  <span className="mx-1 ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                      />
+                    </svg>
+                  </span>
+                  <span className="mx-1 sm:text-[13px] ">Pickup</span>
+                </button>
+              </div>
+            </label>
           </div>
 
-          <div className="mx-10 mb-0">
-            <button className={` rounded-full flex font-semibold px-[24px] py-3 border ${isPickupSelected ?  'border-gray-700 border text-gray-800' : 'bg-sky-500 border border-black text-white' }`}
-          onClick={ () => setPickupSelected(false)}
-        >
-              <span className="mx-1 text-gray-500">
-                <img src="./images/icons/delivery-icon.svg" alt="icon" />
-              </span>
-              <span className="mx-1 sm:text-[13px]">Delivery</span>
-            </button>
+          <div>
+            <label className="w-full">
+              <input type="radio" name="radio" className="sr-only" />
+
+              <div className="ml-2 sm:!my-0 !my-4">
+                <button
+                    className={` font-bold rounded-full flex !w-full sm:!w-32 justify-center text-[13px] py-3 ${
+                    isPickupSelected
+                      ? "border-gray-500 border"
+                      : "bg-sky-500 border border-black text-white"
+                  }`}
+                  onClick={() => setPickupSelected(false)}
+                >
+                  {/* <span className="mx-1 text-gray-600">
+                          <img
+                            src="./images/icons/light-pay-icon.svg"
+                            alt="icon"
+                          />
+                        </span> */}
+                  <span className="mx-1 text-sm sm:text-xs">Delivery</span>
+                </button>
+              </div>
+            </label>
           </div>
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-8">
         <div>
           <input
             type="checkbox"

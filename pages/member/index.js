@@ -58,11 +58,18 @@ const Member = () => {
             <div>
               <h3 className="text-sm font-semibold">Location preferences</h3>
             </div>
-            <div className="flex justify-center mt-3">
-              <div>
-                <button className={` mx-1 text-[13px] font-semibold rounded-full py-[17px] flex px-[29px]  ${isNationalSelected ? 'bg-sky-500 border border-black text-white' : 'border-gray-700 border text-gray-800'}`}
-          onClick={ () => setNationalSelected(true)}
-        >
+
+
+            <div className="sm:flex pt-2">
+          <div>
+            <label className="w-full">
+              <input type="radio" name="radio" className="sr-only" />
+
+              <div className="sm:ml-2">
+                <button
+                  className={` font-bold rounded-full flex justify-center w-full sm:!w-40 text-[13px] py-3 border  border-black  ${isNationalSelected ? 'bg-sky-500 border border-black text-white' : 'border-gray-700 border text-gray-800'}`}
+                  onClick={ () => setNationalSelected(true)}
+                >
                   <span>
                     <img
                       src="./images/icons/server-icon.svg"
@@ -70,13 +77,21 @@ const Member = () => {
                       className="px-2"
                     />
                   </span>
-                  <span className=""> National</span>
+                  <span className="mx-1 text-sm sm:text-xs">National</span>
                 </button>
               </div>
-              <div>
-                <button className={` mx-1  rounded-full py-[17px] items-center flex text-[13px] font-bold  px-[29px]  ${isNationalSelected ? 'border-gray-700 border text-gray-800' : 'bg-sky-500 border border-black text-white'}`}
-          onClick={ () => setNationalSelected(false)}
-        >
+            </label>
+          </div>
+
+          <div>
+            <label className="w-full">
+              <input type="radio" name="radio" className="sr-only" />
+
+              <div className="sm:ml-2 sm:!my-0 !my-4">
+                <button
+                  className={` font-bold rounded-full flex justify-center w-full sm:!w-40 text-[13px] py-3  ${isNationalSelected ? 'border-gray-700 border text-gray-800' : 'bg-sky-500 border border-black text-white'}`}
+                  onClick={ () => setNationalSelected(false)}
+                >
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -98,10 +113,21 @@ const Member = () => {
                       />
                     </svg>
                   </span>
+               
+                  <span className="mx-1 text-sm sm:text-xs">
                   By State
+                  </span>
                 </button>
               </div>
-            </div>
+            </label>
+          </div>
+        </div>
+
+
+
+
+
+         
           </div>
           <div className="flex justify-center">
             <Link href="" className="no-underline">

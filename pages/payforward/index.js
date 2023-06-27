@@ -38,12 +38,12 @@ const Payforward = () => {
               </div>
               <div className="sm:flex pt-2">
                 <div>
-                  <label>
+                  <label className="w-full">
                     <input type="radio" name="radio" className="sr-only" />
 
                     <div className="ml-2">
                       <button
-                        className={` font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3 ${
+                        className={` font-bold rounded-full flex justify-center w-full sm:!w-44 text-[13px] py-3 ${
                           isFriendSelected
                             ? "bg-sky-500 border border-black text-white"
                             : "border-gray-700 border text-gray-800"
@@ -65,12 +65,12 @@ const Payforward = () => {
                 </div>
 
                 <div>
-                  <label>
+                  <label className="w-full">
                     <input type="radio" name="radio" className="sr-only" />
 
                     <div className="ml-2 sm:!my-0 !my-4">
                       <button
-                        className={` font-bold rounded-full flex px-[120px] sm:px-[40px] text-[13px] py-3  ${
+                        className={` font-bold rounded-full flex justify-center w-full sm:!w-44 text-[13px] py-3  ${
                           isFriendSelected
                           ? "border-gray-700 border text-gray-800"
                           : "bg-sky-500 border border-black text-white"
@@ -208,66 +208,7 @@ const Payforward = () => {
               </button>
             </div>
           </div>
-          {/* <div className="row">
-            <div className="col-md-12">
-              <div className={styles.modal_content1}>
-                <div
-                  className={` ${showModal && styles.model_show} ${
-                    styles.modal_info
-                  } `}
-                >
-                  <div className={styles.icon_img}>
-                    <button
-                      onClick={() => setShowModal(false)}
-                      type="btn"
-                      className="bg-transparent border-0"
-                    >
-                      <Image
-                        src="./images/icons/modal-close-btn.svg"
-                        width={14}
-                        height={14}
-                        alt="close_icon"
-                        className=""
-                      />
-                    </button>
-                  </div>
-                  <div className={styles.modal_heading}>
-                    <h3>Gift Options</h3>
-                  </div>
-                  <div className={styles.modal_content}>
-                    <h6>
-                      <span>
-                        <Image
-                          src="./images/icons/profile-icon.svg"
-                          width={14}
-                          height={14}
-                          alt="profile-icon"
-                          className=""
-                        />
-                      </span>
-                      To a friend
-                    </h6>
-                    <p>Purchase a book for a friend to pick up or deliver.</p>
-                  </div>
-                  <div className={styles.modal_content}>
-                    <h6>
-                      <span>
-                        <Image
-                          src="./images/icons/modal-pay-icon.svg"
-                          width={14}
-                          height={14}
-                          alt="pay-icon"
-                          className=""
-                        />
-                      </span>
-                      To a friend
-                    </h6>
-                    <p>Purchase a book for a friend to pick up or deliver.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
+      
         </div>
       </div>
     </div>
