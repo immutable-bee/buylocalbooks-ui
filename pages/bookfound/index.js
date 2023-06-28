@@ -3,7 +3,7 @@ import styles from "./bookfound.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
-import Slidercomponent from "@/components/slidercomponent";
+import SearchBar from "../../components/SearchBar";
 const Bookfound = () => {
   var data = [
     {
@@ -67,37 +67,7 @@ const Bookfound = () => {
                     <input type="text" placeholder="Your Zip Code" class="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 py-2" /></div>
               </div>
 
-              <div className="flex  sm:!pt-0 !pt-4">
-                <div className="flex items-center border-2 py-2 border-gray-300 h-[50px] rounded-2xl pl-3">
-                  <Image
-                    src="./images/search-iconn.svg"
-                    width={15}
-                    height={14}
-                    alt="icon"
-                    className="mx-[6px] h-4 w-4"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Search Your Book"
-                    className="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 py-2"
-                  />
-                </div>
-
-                <div className="">
-                  <button
-                    type="button"
-                    className="bg-sky-500  ml-2 rounded-2xl w-[50px] h-[50px] flex items-center justify-center border-2 border-black"
-                  >
-                    <Image
-                      src="./images/filter.svg"
-                      width={15}
-                      height={14}
-                      alt="icon"
-                      className="w-5 h-5 "
-                    />
-                  </button>
-                </div>
-              </div>
+              <SearchBar placeholder="Search Here" />
             </div>
 
         
