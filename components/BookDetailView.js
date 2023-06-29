@@ -89,8 +89,12 @@ const BookDetailView = ({ book, store, isMember }) => {
               />
             </div>
             <div className="px-2">
-              <h5 className="text-sm font-semibold mb-0">Yann Martel</h5>
-              <label className="text-sm text-gray-400 py-2">Washington</label>
+              <h5 className="text-sm font-semibold mb-0">
+                {store.business_name}
+              </h5>
+              <label className="text-sm text-gray-400 py-2">
+                {store.business_state}
+              </label>
               <p className="flex text-sm text-sky-500 mb-2">
                 <Image
                   src="./images/icons/call-icon.svg"
@@ -99,7 +103,7 @@ const BookDetailView = ({ book, store, isMember }) => {
                   height={15}
                   className="px-1"
                 />
-                <span className="px-1 font-semibold">(603) 555-0123</span>
+                <span className="px-1 font-semibold">{store.phone_number}</span>
               </p>
 
               <p className="flex text-sm text-sky-500">
@@ -110,7 +114,9 @@ const BookDetailView = ({ book, store, isMember }) => {
                   alt="call_icon"
                   className="px-1"
                 />
-                <span className="px-1 font-semibold">bookstoreseattle.com</span>
+                <span className="px-1 font-semibold">
+                  {store.url ? store.url : store.email}
+                </span>
               </p>
             </div>
           </div>
@@ -124,9 +130,11 @@ const BookDetailView = ({ book, store, isMember }) => {
               </button>
             </div>
             <div className="sm:mx-6">
-              <button className="text-sm sm:my-0 my-2 text-gray-800 bg-yellow-400 rounded-full  font-bold sm:w-auto w-44 sm:px-[36px] py-[10px] border border-black">
-                Request To Buy
-              </button>
+              <Link href={`/bookdetail?id=${encodeURIComponent(book.id)}`}>
+                <button className="text-sm sm:my-0 my-2 text-gray-800 bg-yellow-400 rounded-full  font-bold sm:w-auto w-44 sm:px-[36px] py-[10px] border border-black">
+                  Request To Buy
+                </button>
+              </Link>
             </div>
           </div>
         ) : (
