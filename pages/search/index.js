@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./nomatches.module.scss";
+
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
