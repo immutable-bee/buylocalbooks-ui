@@ -59,7 +59,7 @@ const Home = () => {
                 </button>
               </Link>
 
-              <Link href="/nomatches">
+              <Link href="/search">
                 <button className="mx-2 text-sm text-blue-600 underline">
                   No Search Results
                 </button>
