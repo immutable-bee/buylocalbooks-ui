@@ -3,6 +3,7 @@ import styles from "./nomatches.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import SearchBar from "../../components/SearchBar";
 const nomatches = () => {
   var data = [
     {
@@ -52,37 +53,7 @@ const nomatches = () => {
                 </h6>
               </div>
 
-              <div className="flex  sm:!pt-0 !pt-4">
-                <div className="flex border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
-                  <Image
-                    src="./images/search-iconn.svg"
-                    width={15}
-                    height={14}
-                    alt="icon"
-                    className="mx-[6px] w-4"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Search Your Book"
-                    className="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 "
-                  />
-                </div>
-
-                <div className="">
-                  <button
-                    type="button"
-                    className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
-                  >
-                    <Image
-                      src="./images/filter.svg"
-                      width={15}
-                      height={14}
-                      alt="icon"
-                      className="w-5 h-5 "
-                    />
-                  </button>
-                </div>
-              </div>
+              <SearchBar placeholder="Search Here" />
             </div>
 
             <div className="border-2 text-center mx-auto border-black bg-gray-100 mb-0 rounded-3xl py-4 px-3 mt-4">
