@@ -6,7 +6,7 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { LocationProvider } from "../context/LocationContext";
-import { LocalStoresProvider } from "../context/localStoresContext";
+import { LocalStoresProvider } from "../context/LocalStoresContext";
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }: AppProps) {
