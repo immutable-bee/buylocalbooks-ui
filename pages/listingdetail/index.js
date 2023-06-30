@@ -5,6 +5,8 @@ import { getListingDetails } from "../../services/blbn";
 
 const listingdetail = () => {
   const [details, setDetails] = useState({});
+  const [store, setStore] = useState({});
+  const [isMember, setIsMember] = useState(true); // [TODO] create/get from context
   const router = useRouter();
 
   useEffect(() => {
@@ -12,7 +14,11 @@ const listingdetail = () => {
 
     const fetchDetails = async (id) => {
       const listingDetails = await getListingDetails(id);
-      setDetails(listingDetails);
+
+      const { owner, ...listing } = listingDetails;
+
+      setDetails(listing);
+      setStore(owner);
     };
 
     if (id) {
@@ -20,8 +26,7 @@ const listingdetail = () => {
     }
   }, [router.query]);
 
-  //return <BookDetailView />;
-  return <></>;
+  return <BookDetailView book={details} store={store} isMember={isMember} />;
 };
 
 export default listingdetail;
