@@ -20,7 +20,8 @@ const listingdetail = () => {
     }
   }, [router.query]);
 
-  return <BookDetailView />;
+  //return <BookDetailView />;
+  return <></>;
 };
 
 export default listingdetail;
