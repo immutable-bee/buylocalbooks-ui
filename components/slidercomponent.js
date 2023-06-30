@@ -6,6 +6,7 @@ import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.css";
 import "swiper/css";
 import { useState } from "react";
+import Link from "next/link";
 
 // import 'swiper/css/navigation';
 
@@ -48,25 +49,27 @@ const Slidercomponent = ({ storesNearYou }) => {
               className="border border-gray-300 h-96 rounded-xl p-[11px]"
             >
               <div>
-                <div>
-                  <div className="bg-sky-200 mx-auto py-8 rounded-xl">
-                    <img
-                      src="./images/icons/book.svg"
-                      alt="icon"
-                      className="mx-auto"
-                    />
+                <Link href={`/listingdetail?id=${store.listingId}`}>
+                  <div>
+                    <div className="bg-sky-200 mx-auto py-8 rounded-xl">
+                      <img
+                        src="./images/icons/book.svg"
+                        alt="icon"
+                        className="mx-auto"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <p className="mb-0 font-serif text-xs mt-[12px]">
-                    {store.title.length < 20
-                      ? store.title
-                      : store.title.slice(0, 20) + "..."}
-                  </p>
-                  <label className="font-serif text-xs mt-[6px] text-gray-400">
-                    {store.business_name}
-                  </label>
-                </div>
+                  <div>
+                    <p className="mb-0 font-serif text-xs mt-[12px]">
+                      {store.title.length < 20
+                        ? store.title
+                        : store.title.slice(0, 20) + "..."}
+                    </p>
+                    <label className="font-serif text-xs mt-[6px] text-gray-400">
+                      {store.business_name}
+                    </label>
+                  </div>
+                </Link>
               </div>
             </SwiperSlide>
           ))
