@@ -61,7 +61,7 @@ const Home = () => {
 
               <Link href="/search">
                 <button className="mx-2 text-sm text-blue-600 underline">
-                  No Search Results
+                  Search Results
                 </button>
               </Link>
 

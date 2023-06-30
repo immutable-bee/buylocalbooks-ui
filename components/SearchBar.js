@@ -2,28 +2,68 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filter, setFilter] = useState({ filter: "none", local: "true" });
-
   const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // filter dropdown & state/handlers
+  const filters = ["all", "author", "title", "isbn"];
+  const locations = ["local", "national"];
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [filter, setFilter] = useState({
+    all: true,
+    author: false,
+    title: false,
+    isbn: false,
+  });
+
+  const [location, setLocation] = useState({
+    local: true,
+    national: false,
+  });
+
+  const handleDropdownToggle = () => {
+    setShowDropdown((prevShowDropdown) => !prevShowDropdown);
+  };
+
+  const handleInputChange = (state, setState) => (event) => {
+    const { name, checked } = event.target;
+
+    if (state[name] === true) {
+      event.preventDefault();
+      return;
+    }
+
+    setState({
+      ...Object.fromEntries(Object.keys(state).map((k) => [k, false])),
+      [name]: checked,
+    });
+  };
+
+  // searchbar handlers
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleFilterChange = (event) => {};
-
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      handleSearch();
+      handleSearch(event);
     }
   };
 
   const handleSearch = (event) => {
+    let activeFilter = Object.keys(filter).find((key) => filter[key] === true);
+    if (activeFilter === "all") {
+      activeFilter = "none";
+    }
+
     event.preventDefault();
     router.push(
-      `/search?term=${searchTerm}&filter=${filter.filter}&local=${filter.local}`
+      `/search?term=${searchTerm}&filter=${activeFilter}&local=${location.local}`
     );
   };
 
@@ -67,6 +107,7 @@ const SearchBar = () => {
         <button
           type="button"
           className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border sm:border-2 border-black"
+          onClick={handleDropdownToggle}
         >
           <Image
             src="./images/filter.svg"
@@ -76,6 +117,51 @@ const SearchBar = () => {
             className="w-5 h-5 "
           />
         </button>
+
+        {
+          /* TODO: styling for dropdown in accordance with the brand */
+          showDropdown && (
+            <div className="absolute top-[70px] right-0 bg-white border border-gray-300 rounded-lg p-4">
+              <div>
+                <h2 className="font-medium mb-2">Filter Options</h2>
+                {filters.map((filterOption) => (
+                  <div className="flex items-center mb-2" key={filterOption}>
+                    <input
+                      type="checkbox"
+                      name={filterOption}
+                      id={filterOption}
+                      checked={filter[filterOption]}
+                      onChange={handleInputChange(filter, setFilter)}
+                      className="mr-2"
+                    />
+                    <label htmlFor={filterOption}>
+                      {capitalizeFirstLetter(filterOption)}
+                    </label>
+                  </div>
+                ))}
+              </div>
+              <hr className="my-4 border-black border-t-2 w-3/4 mx-auto" />
+              <div>
+                <h2 className="font-medium mb-2">Location</h2>
+                {locations.map((locationOption) => (
+                  <div className="flex items-center mb-2" key={locationOption}>
+                    <input
+                      type="checkbox"
+                      name={locationOption}
+                      id={locationOption}
+                      checked={location[locationOption]}
+                      onChange={handleInputChange(location, setLocation)}
+                      className="mr-2"
+                    />
+                    <label htmlFor={locationOption}>
+                      {capitalizeFirstLetter(locationOption)}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        }
       </div>
     </div>
   );

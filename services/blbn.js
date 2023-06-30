@@ -19,13 +19,20 @@ export const getLocalListings = async (storeIds) => {
   return data;
 };
 
-export const getSearchResults = async (storeIds, searchTerm) => {
+export const getSearchResults = async ({
+  storeIds = [],
+  searchTerm,
+  filter = "none",
+  local = true,
+}) => {
   const response = await fetch(
     "https://www.buylocalbooksnetwork.com/api/blb/search",
     {
       method: "POST",
-      headers: {},
-      body: JSON.stringify({ storeIds, searchTerm }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ storeIds, searchTerm, filter, local }),
     }
   );
   const data = await response.json();

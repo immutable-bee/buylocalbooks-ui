@@ -1,9 +1,39 @@
 import React from "react";
-
+import { useRouter } from "next/router";
+import { useEffect, useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import { getSearchResults } from "../../services/blbn";
+import { LocalStoresContext } from "../../context/LocalStoresContext";
+import SearchBar from "../../components/SearchBar";
+import { ro } from "date-fns/locale";
 const search = () => {
+  const [searchResults, setSearchResults] = useState([]);
+  const { storeIds: contextStoreIds } = useContext(LocalStoresContext);
+  const router = useRouter();
+
+  // get search results
+
+  useEffect(() => {
+    if (contextStoreIds.length === 0) return;
+    const { term, filter, local } = router.query;
+    const localBool = local === "true";
+
+    const searchArgs = {
+      storeIds: contextStoreIds,
+      searchTerm: term,
+      filter,
+      local: localBool,
+    };
+
+    const search = async () => {
+      const { data } = await getSearchResults(searchArgs);
+      setSearchResults(data);
+    };
+    search();
+  }, [contextStoreIds, router.query]);
+
   var data = [
     {
       name: "Bookstore Seattle",
@@ -51,38 +81,7 @@ const search = () => {
                   <span className="px-2">Your Zip Code</span>
                 </h6>
               </div>
-
-              <div className="flex  sm:!pt-0 !pt-4">
-                <div className="flex border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
-                  <Image
-                    src="./images/search-iconn.svg"
-                    width={15}
-                    height={14}
-                    alt="icon"
-                    className="mx-[6px] w-4"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Search Your Book"
-                    className="text-[14px] focus:outline-none rounded-2xl w-[250px] mx-2 "
-                  />
-                </div>
-
-                <div className="">
-                  <button
-                    type="button"
-                    className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border-2 border-black"
-                  >
-                    <Image
-                      src="./images/filter.svg"
-                      width={15}
-                      height={14}
-                      alt="icon"
-                      className="w-5 h-5 "
-                    />
-                  </button>
-                </div>
-              </div>
+              <SearchBar />
             </div>
 
             <div className="border-2 text-center mx-auto border-black bg-gray-100 mb-0 rounded-3xl py-4 px-3 mt-4">
@@ -125,7 +124,10 @@ const search = () => {
               <div className="">
                 {data.map((data, i) => {
                   return (
-                    <div className="border border-gray-400 mb-3 rounded-2xl my-1 justify-between w-full flex items-center py-3 px-3">
+                    <div
+                      key={data.email}
+                      className="border border-gray-400 mb-3 rounded-2xl my-1 justify-between w-full flex items-center py-3 px-3"
+                    >
                       <div className="flex items-start">
                         <div className="bg-sky-200 p-[12px] rounded-lg ">
                           <Image
