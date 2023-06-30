@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { getSearchResults } from "../../services/blbn";
 import { LocalStoresContext } from "../../context/LocalStoresContext";
 import SearchBar from "../../components/SearchBar";
-import { ro } from "date-fns/locale";
+
 const search = () => {
   const [searchResults, setSearchResults] = useState([]);
   const { storeIds: contextStoreIds } = useContext(LocalStoresContext);
