@@ -11,12 +11,12 @@ const listingdetail = () => {
     const { id } = router.query;
 
     const fetchDetails = async (id) => {
-      details = await getListingDetails(id);
+      const listingDetails = await getListingDetails(id);
+      setDetails(listingDetails);
     };
 
     if (id) {
       fetchDetails(id);
-      setDetails(details);
     }
   }, [router.query]);
 
