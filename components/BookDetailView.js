@@ -47,7 +47,7 @@ const BookDetailView = ({ book, store, isMember }) => {
               </Link>
             </div>
           </div>
-          {isMember ? (
+          {isMember && (
             <>
               <div className="flex mt-10">
                 <div>
@@ -73,7 +73,7 @@ const BookDetailView = ({ book, store, isMember }) => {
                 </h1>
               </div>
             </>
-          ) : null}
+          )}
         </div>
 
         <div>
