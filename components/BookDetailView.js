@@ -40,6 +40,7 @@ const BookDetailView = ({ book, store, isMember }) => {
                   href={`/search?term=${encodeURIComponent(
                     book.author
                   )}&filter=author`}
+                  style={{ textDecoration: "none" }}
                 >
                   <h5 className="text-sm text-sky-500 font-semibold">
                     Other books
@@ -66,9 +67,9 @@ const BookDetailView = ({ book, store, isMember }) => {
                 <div className="my-4">
                   <h1 className="font-semibold flex sm:justify-start justify-between text-base">
                     <span>Price</span>
-
+                    {/* TODO: Format price xx.xx */}
                     <span className="text-sky-400 font-bold mx-24">
-                      {book.price}
+                      {`$${book.price}`}
                     </span>
                   </h1>
                 </div>

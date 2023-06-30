@@ -49,7 +49,10 @@ const Slidercomponent = ({ storesNearYou }) => {
               className="border border-gray-300 h-96 rounded-xl p-[11px]"
             >
               <div>
-                <Link href={`/listingdetail?id=${store.listingId}`}>
+                <Link
+                  href={`/listingdetail?id=${store.listingId}`}
+                  style={{ textDecoration: "none" }}
+                >
                   <div>
                     <div className="bg-sky-200 mx-auto py-8 rounded-xl">
                       <img
