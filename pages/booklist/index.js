@@ -86,7 +86,7 @@ const Booklist = () => {
               </div>
             </div>
             <div>
-              <Slidercomponent />
+              <Slidercomponent storesNearYou={bookstoresNearYou} />
             </div>
 
             <div className="pt-[30px]">
