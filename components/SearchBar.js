@@ -119,7 +119,7 @@ const SearchBar = () => {
         </button>
 
         {
-          /* TODO: styling for dropdown in accordance with the brand */
+          /* TODO: styling for dropdown in accordance with the brand, also want it to close when a user clicks outside the dropdown */
           showDropdown && (
             <div className="absolute top-[70px] right-0 bg-white border border-gray-300 rounded-lg p-4">
               <div>
