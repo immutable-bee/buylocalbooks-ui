@@ -7,6 +7,7 @@ import Slidercomponent from "@/components/slidercomponent";
 import SearchBar from "../../components/SearchBar";
 import { useContext, useState } from "react";
 import { LocalStoresContext } from "../../context/LocalStoresContext";
+import LocationDisplay from "../../components/LocationDisplay";
 
 const Booklist = () => {
   const { localStores } = useContext(LocalStoresContext);
@@ -56,17 +57,7 @@ const Booklist = () => {
                     </span>
                   </h2>
                 </div>
-                <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">
-                  <span className="">
-                    <Image
-                      src="./images/location.svg"
-                      alt="icon"
-                      width={10}
-                      height={12}
-                    />
-                  </span>
-                  <span className="px-2 font-serif">Your Zip Code</span>
-                </h6>
+                <LocationDisplay />
               </div>
 
               <SearchBar placeholder="Search Here" />
