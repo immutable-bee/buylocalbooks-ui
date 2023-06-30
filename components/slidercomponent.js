@@ -59,9 +59,9 @@ const Slidercomponent = ({ storesNearYou }) => {
                 </div>
                 <div>
                   <p className="mb-0 font-serif text-xs mt-[12px]">
-                    {store.title.length < 22
+                    {store.title.length < 20
                       ? store.title
-                      : store.title.slice(0, 22) + "..."}
+                      : store.title.slice(0, 20) + "..."}
                   </p>
                   <label className="font-serif text-xs mt-[6px] text-gray-400">
                     {store.business_name}
