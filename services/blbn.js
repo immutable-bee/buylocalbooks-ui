@@ -3,7 +3,7 @@ export const getLocalStores = async (lat, lon) => {
     `https://www.buylocalbooksnetwork.com/api/blb/get-local-stores?userLat=${lat}&userLon=${lon}`
   );
   const data = await response.json();
-  return data;
+  return { localStores: data.localStores, localStoreIds: data.localStoreIds };
 };
 
 export const getLocalListings = async (storeIds) => {
