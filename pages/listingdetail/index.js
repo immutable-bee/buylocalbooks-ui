@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BookDetailView from "../../components/BookDetailView";
 import { useRouter } from "next/router";
 import { getListingDetails } from "../../services/blbn";
