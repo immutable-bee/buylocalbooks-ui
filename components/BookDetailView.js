@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import { useState } from "react";
 
-const BookDetailView = ({ book, store, isMember }) => {
+const BookDetailView = ({ book, store }) => {
+  // for demo purposes, after demo isMember will be provided as a prop
+  const [isMember, setIsMember] = useState(false);
+
   if (book && store) {
     return (
       <div className="container mx-auto px-3">
@@ -24,6 +28,19 @@ const BookDetailView = ({ book, store, isMember }) => {
 
         <div className="pt-3 max-w-3xl w-full">
           <div>
+            {
+              /* for demo purposes */ <>
+                {" "}
+                <input
+                  type="checkbox"
+                  checked={isMember}
+                  className="mr-2"
+                  onChange={(e) => setIsMember(e.target.checked)}
+                  name="isMember"
+                />
+                <label htmlFor="isMember">Member view</label>
+              </>
+            }
             <h3 className="text-base font-bold">Author</h3>
             <div className="flex pt-1">
               <div className="bg-sky-50 rounded-2xl p-[28px]">
