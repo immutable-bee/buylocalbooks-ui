@@ -100,26 +100,31 @@ const Booklist = () => {
                 {(newBooks || data).map((data, i) => {
                   return (
                     <div key={data.id}>
-                      <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
-                        <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
-                          <Image
-                            src="./images/icons/recently-book1.svg"
-                            width={23}
-                            height={23}
-                            alt="icon"
-                          />
+                      <Link
+                        href={`/listingdetail?id=${data.id}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
+                          <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
+                            <Image
+                              src="./images/icons/recently-book1.svg"
+                              width={23}
+                              height={23}
+                              alt="icon"
+                            />
+                          </div>
+                          <div className="px-3">
+                            <h6 className="font-serif text-xs text-gray-600">
+                              {data.title.length < 30
+                                ? data.title
+                                : data.title.slice(0, 30) + "..."}
+                            </h6>
+                            <p className="m-0 font-serif text-xs text-gray-400 pt-1">
+                              {data.owner.business_name}
+                            </p>
+                          </div>
                         </div>
-                        <div className="px-3">
-                          <h6 className="font-serif text-xs text-gray-600">
-                            {data.title.length < 30
-                              ? data.title
-                              : data.title.slice(0, 30) + "..."}
-                          </h6>
-                          <p className="m-0 font-serif text-xs text-gray-400 pt-1">
-                            {data.owner.business_name}
-                          </p>
-                        </div>
-                      </div>
+                      </Link>
                     </div>
                   );
                 })}
