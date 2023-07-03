@@ -163,18 +163,30 @@ const Home = () => {
                 more aspiring readers that are community driven.
               </p>
             </div>
-            <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 border-black text-xs sm:text-sm mx-auto bg-yellow-400 text-black font-semibold hover:bg-white">
-              Apply Now
-            </button>
+            <Link
+              href={"https://www.buylocalbooksnetwork.com"}
+              style={{ textDecoration: "none" }}
+              className="text-black"
+            >
+              <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 border-black text-xs sm:text-sm mx-auto bg-yellow-400 text-black font-semibold hover:bg-white">
+                Apply Now
+              </button>
+            </Link>
           </div>
 
           <div className="sm:flex text-center py-5 w-screen">
             <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-sky-500 text-white font-semibold">
               Share this Page
             </button>
-            <button className="sm:ml-2 duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-yellow-400 font-semibold">
-              Become a Member
-            </button>
+            <Link
+              href={"/membarshipoption"}
+              style={{ textDecoration: "none" }}
+              className="text-black"
+            >
+              <button className="sm:ml-2 duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 hover:!text-black hover:bg-white border-black text-xs sm:text-sm bg-yellow-400 font-semibold">
+                Become a Member
+              </button>
+            </Link>
           </div>
         </div>
       </section>
