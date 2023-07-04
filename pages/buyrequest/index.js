@@ -3,13 +3,17 @@ import styles from "./buyrequest.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import { useNavigationContext } from "../../context/NavigationContext";
 const Buyrequest = () => {
   const [isPickupSelected, setPickupSelected] = useState(true);
+
+  const { previousPage } = useNavigationContext();
+
   return (
     <div className="container mx-auto px-3 pt-10">
       <div>
         <h2 className="flex items-center">
-          <Link href="/">
+          <Link href={previousPage ? previousPage : "/"}>
             <span>
               <Image
                 src="./images/icons/back-arrow.svg"
