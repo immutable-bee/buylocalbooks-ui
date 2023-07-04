@@ -117,29 +117,41 @@ const Home = () => {
             </p>
           </div>
           <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2">
-            <h6 className="flex items-center">
-              <span>
-                <Image
-                  src="./images/book-icon.svg"
-                  alt="icon"
-                  className="w-4"
-                  width={14}
-                  height={14}
-                />
-              </span>
-              <span className="px-2 font-bold text-sm">
-                How do you buy books?
-              </span>
-            </h6>
-            <p className="text-gray-500 font-normal text-[13px] leading-6">
-              Search for your desired book and if a bookstore has the book in
-              stock, you can 'request to buy' the book for pick up or delivery.
-            </p>
-            <p className="text-gray-500 font-normal text-[13px] leading-6">
-              If no bookstore has the book you are looking for, then place a
-              'request a book' with the nearest bookstore to you and they will
-              seek out the book on your behalf.
-            </p>
+            <div>
+              <h6 className="flex items-center">
+                <span>
+                  <Image
+                    src="./images/book-icon.svg"
+                    alt="icon"
+                    className="w-4"
+                    width={14}
+                    height={14}
+                  />
+                </span>
+                <span className="px-2 font-bold text-sm">
+                  How do you buy books?
+                </span>
+              </h6>
+              <p className="text-gray-500 font-normal text-[13px] leading-6">
+                Search for your desired book and if a bookstore has the book in
+                stock, you can 'request to buy' the book for pick up or
+                delivery.
+              </p>
+              <p className="text-gray-500 font-normal text-[13px] leading-6">
+                If no bookstore has the book you are looking for, then place a
+                'request a book' with the nearest bookstore to you and they will
+                seek out the book on your behalf.
+              </p>
+              <Link
+                href={"/booklist"}
+                style={{ textDecoration: "none" }}
+                className="text-black"
+              >
+                <button className=" duration-300 ease-in-out rounded-full w-full sm:w-[180px] my-2 sm:my-0 py-[12px] sm:py-[12px] border sm:border-2 border-black text-xs sm:text-sm mx-auto bg-yellow-400 text-black font-semibold hover:bg-white">
+                  Browse Local Books
+                </button>
+              </Link>
+            </div>
           </div>
           <div className="py-3 px-4 w-full sm:w-64 shadow rounded sm:mr-4 my-2 flex flex-col justify-between">
             <div>
