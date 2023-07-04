@@ -19,7 +19,7 @@ const SignInPage = () => {
 
     // else successful
     console.log(result);
-    return router.push("/admin");
+    return router.push("/member");
   };
   return (
     <div className="wrapper">
