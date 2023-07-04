@@ -3,16 +3,21 @@ import styles from "./membershipoption.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import { useNavigationContext } from "../../context/NavigationContext";
 const Membarshipoption = () => {
+  const { previousPage } = useNavigationContext();
   return (
     <div className="container mx-auto px-3 pt-10">
-      <div className="flex justify-end">
-        <Link href="/">
-          <button type="button">
-            <Image src="./images/icons/close-icon.svg" alt="icon"    width={31}
-            height={31} />
-         
-          </button>
+      <div className="flex justify-start">
+        <Link href={previousPage ? previousPage : "/"}>
+          <span className="">
+            <Image
+              src="./images/icons/back-arrow.svg"
+              width={24}
+              height={24}
+              alt="Picture of the author"
+            />
+          </span>
         </Link>
       </div>
       <div className="text-center mx-auto">

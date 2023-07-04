@@ -149,9 +149,11 @@ const BookDetailView = ({ book, store }) => {
           {isMember ? (
             <div className="flex sm:justify-start justify-center  mt-20">
               <div>
-                <button className="mr-4 text-sm sm:my-0 my-2 bg-sky-400 text-white rounded-full font-bold sm:!w-auto w-36  sm:px-[36px] py-[10px] border border-black">
-                  Gift
-                </button>
+                <Link href={"/giftbook"} style={{ textDecoration: "none" }}>
+                  <button className="mr-4 text-sm sm:my-0 my-2 bg-sky-400 text-white rounded-full font-bold sm:!w-auto w-36  sm:px-[36px] py-[10px] border border-black">
+                    Gift
+                  </button>
+                </Link>
               </div>
               <div className="sm:mx-6">
                 <Link href={"/buyrequest"} style={{ textDecoration: "none" }}>
@@ -164,16 +166,16 @@ const BookDetailView = ({ book, store }) => {
           ) : (
             <div>
               <div className="my-8">
-                <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
-                  <Link href="" className="no-underline">
+                <Link href="/membarshipoption" className="no-underline">
+                  <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
                     <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
                       Become a Member
                     </h5>
                     <p className="font-serif no-underline text-xs mb-0 text-center pt-1 text-black">
                       Discover format, notes, price and more!
                     </p>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
             </div>
           )}
