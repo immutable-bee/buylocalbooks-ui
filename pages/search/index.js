@@ -10,6 +10,7 @@ import SearchBar from "../../components/SearchBar";
 import NoResultsFound from "../../components/searchresults/noresultsfound";
 import LocationDisplay from "../../components/LocationDisplay";
 import ResultsFound from "../../components/searchresults/resultsfound";
+import { useNavigationContext } from "../../context/NavigationContext";
 
 const search = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -17,6 +18,8 @@ const search = () => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+
+  const { previousPage } = useNavigationContext();
 
   // get search results
 
@@ -52,7 +55,7 @@ const search = () => {
         <div className="sm:flex items-center justify-between px-2 pt-2">
           <div className="">
             <h2 className="flex items-center">
-              <Link href="/">
+              <Link href={previousPage ? previousPage : "/"}>
                 <span className="">
                   <Image
                     src="./images/icons/back-arrow.svg"

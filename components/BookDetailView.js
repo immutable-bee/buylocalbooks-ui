@@ -2,17 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
+import { useNavigationContext } from "../context/NavigationContext";
 
 const BookDetailView = ({ book, store }) => {
   // for demo purposes, after demo isMember will be provided as a prop
   const [isMember, setIsMember] = useState(false);
+  //
+
+  const { previousPage } = useNavigationContext();
 
   if (book && store) {
     return (
       <div className="container mx-auto px-3">
         <div className="pt-10">
           <h2 className="flex items-center">
-            <Link href="/">
+            <Link href={previousPage ? previousPage : "/"}>
               <span className="">
                 <Image
                   src="./images/icons/back-arrow.svg"
