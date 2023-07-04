@@ -7,7 +7,6 @@ import SearchBar from "../../components/SearchBar";
 import { useContext, useState } from "react";
 import { LocalStoresContext } from "../../context/LocalStoresContext";
 import LocationDisplay from "../../components/LocationDisplay";
-import { set } from "date-fns";
 
 const Booklist = () => {
   const { localStores, newListings } = useContext(LocalStoresContext);
