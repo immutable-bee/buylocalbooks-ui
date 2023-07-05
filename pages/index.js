@@ -12,70 +12,14 @@ const Home = () => {
         <div>
           <div>
             <div className="">
-              <Link href="/bookdetail">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Book Detail
-                </button>
-              </Link>
-              <Link href="/bookstoredetail">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Bookstore Detail
-                </button>
-              </Link>
-
-              <Link href="/booklist">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Book List
-                </button>
-              </Link>
-
-              <Link href="/buyrequest">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Buy Request
-                </button>
-              </Link>
-
-              <Link href="/giftbook">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Gift Book
-                </button>
-              </Link>
-
-              <Link href="/membarshipoption">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Membership Options
-                </button>
-              </Link>
 
               <Link href="/member">
                 <button className="mx-2 text-sm text-blue-600 underline">
-                  Member
+                  Profile Page Example
                 </button>
               </Link>
 
-              <Link href="/membershipdetail">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Membership View
-                </button>
-              </Link>
-
-              <Link href="/search">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Search Results
-                </button>
-              </Link>
-
-              <Link href="/payforward">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Pay Forward
-                </button>
-              </Link>
-
-              <Link href="/tofriend">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  To Friend
-                </button>
-              </Link>
+              
             </div>
 
             <div className="sm:flex items-center justify-between px-2 pt-2">
