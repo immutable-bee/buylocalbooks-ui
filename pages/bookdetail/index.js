@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 
-// TODO: this page and membershipdetail page will be folded into one page "/detail", page will only be accessed using query param "id" - E.G.  "/detail?id={prisma.listing.id}" the page will utilize the BookDetailView component. When a user clicks a book the prisma id for the book will be passed to /detail as a query param. The page will then use the id to query the prisma db for the book details and render the BookDetailView component with the data.
+// TODO: this page and membershipdetail page will be folded into one page "/listingdetail", page will only be accessed using query param "id" - E.G.  "/listingdetail?id={prisma.listing.id}" the page will utilize the BookDetailView component. When a user clicks a book the prisma id for the book will be passed to /detail as a query param. The page will then use the id to query the prisma db for the book details and render the BookDetailView component with the data.
 const Bookdetail = () => {
   return (
     <div className="container mx-auto px-3">
