@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import LocationDisplay from "../components/LocationDisplay";
+import UserAvatar from "../components/UserAvatar";
 import SearchBar from "../components/SearchBar";
 const Home = () => {
   return (
@@ -11,71 +12,74 @@ const Home = () => {
       <section className="container mx-auto px-3 sm:pt-10 pt-4">
         <div>
           <div>
-            <div className="">
-              <Link href="/bookdetail">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Book Detail
-                </button>
-              </Link>
-              <Link href="/bookstoredetail">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Bookstore Detail
-                </button>
-              </Link>
+            <div className="flex">
+              <div className="">
+                <Link href="/bookdetail">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Book Detail
+                  </button>
+                </Link>
+                <Link href="/bookstoredetail">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Bookstore Detail
+                  </button>
+                </Link>
 
-              <Link href="/booklist">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Book List
-                </button>
-              </Link>
+                <Link href="/booklist">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Book List
+                  </button>
+                </Link>
 
-              <Link href="/buyrequest">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Buy Request
-                </button>
-              </Link>
+                <Link href="/buyrequest">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Buy Request
+                  </button>
+                </Link>
 
-              <Link href="/giftbook">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Gift Book
-                </button>
-              </Link>
+                <Link href="/giftbook">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Gift Book
+                  </button>
+                </Link>
 
-              <Link href="/membarshipoption">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Membership Options
-                </button>
-              </Link>
+                <Link href="/membarshipoption">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Membership Options
+                  </button>
+                </Link>
 
-              <Link href="/member">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Member
-                </button>
-              </Link>
+                <Link href="/member">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Member
+                  </button>
+                </Link>
 
-              <Link href="/membershipdetail">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Membership View
-                </button>
-              </Link>
+                <Link href="/membershipdetail">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Membership View
+                  </button>
+                </Link>
 
-              <Link href="/nomatches">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  No Search Results
-                </button>
-              </Link>
+                <Link href="/nomatches">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    No Search Results
+                  </button>
+                </Link>
 
-              <Link href="/payforward">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Pay Forward
-                </button>
-              </Link>
+                <Link href="/payforward">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Pay Forward
+                  </button>
+                </Link>
 
-              <Link href="/tofriend">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  To Friend
-                </button>
-              </Link>
+                <Link href="/tofriend">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    To Friend
+                  </button>
+                </Link>
+              </div>
+              <UserAvatar avatarLink="https:www.google.com" imageUrl='' />
             </div>
 
             <div className="sm:flex items-center justify-between px-2 pt-2">
