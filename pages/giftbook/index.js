@@ -2,14 +2,16 @@ import React from "react";
 import styles from "./giftbook.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-// import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.css";
+import { useNavigationContext } from "../../context/NavigationContext";
 const giftbook = () => {
+  const { previousPage } = useNavigationContext();
+
   return (
     <div className="container mx-auto px-3 pt-5">
       <div>
         <h2 className="flex items-center">
-          <Link href="/">
+          <Link href={previousPage ? previousPage : "/"}>
             <span className="">
               <Image
                 src="./images/icons/back-arrow.svg"
@@ -30,7 +32,11 @@ const giftbook = () => {
 
         <div className="flex flex-wrap mt-3">
           <div>
-            <a>
+            <Link
+              href={"/tofriend"}
+              className="text-black"
+              style={{ textDecoration: "none" }}
+            >
               <div className="py-3 sm:h-[104px] h-[114px] p-[10px] flex bg-yellow-400 sm:rounded-2xl rounded-3xl items-start sm:w-[310px] sm::border border-2 border-black">
                 <div className="mx-2 bg-yellow-300 rounded-lg px-[16px] py-[15px]">
                   <Image
@@ -50,11 +56,11 @@ const giftbook = () => {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a>
+            <Link href={"/payforward"} style={{ textDecoration: "none" }}>
               <div className="py-3 sm:h-[104px] h-[114px] p-[10px] sm:mx-3 sm:!my-0 !my-5 flex bg-sky-500 sm:rounded-2xl rounded-3xl items-start sm:w-[310px] sm::border border-2 border-black">
                 <div className="mx-2 bg-sky-300 rounded-lg px-[16px] py-[15px]">
                   <Image
@@ -65,6 +71,7 @@ const giftbook = () => {
                     className="w-14"
                   />
                 </div>
+
                 <div className="mx-2">
                   <h4 className="text-white hover:text-black sm:text-xs text-lg mb-0 font-bold">
                     Pay it forward
@@ -75,7 +82,7 @@ const giftbook = () => {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

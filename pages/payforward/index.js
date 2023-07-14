@@ -3,9 +3,11 @@ import styles from "./payforward.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import { useNavigationContext } from "../../context/NavigationContext";
 // import Modal from "src/components/Modal";
 
 const Payforward = () => {
+  const { previousPage } = useNavigationContext();
   const [isFriendSelected, setFriendSelected] = useState(true);
   const [showModal, setShowModal] = useState(false);
   return (
@@ -14,7 +16,7 @@ const Payforward = () => {
         <div>
           <div>
             <h2 className="flex">
-              <Link href="/">
+              <Link href={previousPage ? previousPage : "/"}>
                 <span className="">
                   <Image
                     src="./images/icons/back-arrow.svg"

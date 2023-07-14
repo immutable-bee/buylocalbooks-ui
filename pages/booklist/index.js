@@ -1,23 +1,40 @@
-import React from "react";
-import styles from "./booklist.module.scss";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import Slidercomponent from "@/components/slidercomponent";
 import SearchBar from "../../components/SearchBar";
+import { useContext, useState } from "react";
+import { LocalStoresContext } from "../../context/LocalStoresContext";
+import LocationDisplay from "../../components/LocationDisplay";
+
 const Booklist = () => {
+  const { localStores, newListings } = useContext(LocalStoresContext);
+  const [bookstoresNearYou, setBookstoresNearYou] = useState([]);
+  const [newBooks, setNewBooks] = useState([]);
+
+  useEffect(() => {
+    if (localStores) {
+      setBookstoresNearYou(localStores);
+      setNewBooks(newListings);
+    }
+  }, [localStores]);
+
   var data = [
     {
-      head: "Life of Pi",
-      para: "Bookstore NYC",
+      title: "Life of Pi",
+      owner: { business_name: "Bookstore NYC" },
+      id: 1,
     },
     {
-      head: "The Lost Symbol",
-      para: "Bookstore Boston",
+      title: "The Lost Symbol",
+      owner: { business_name: "Bookstore Boston" },
+      id: 2,
     },
     {
-      head: "The Alchemist",
-      para: "Bookstore Seattle",
+      title: "The Alchemist",
+      owner: { business_name: "Bookstore Seattle" },
+      id: 3,
     },
   ];
   return (
@@ -27,28 +44,24 @@ const Booklist = () => {
           <div>
             <div className="sm:flex items-center justify-between sm:pt-2">
               <div className="">
-              <div className="pt-10">
-        <h2 className="flex items-center">
-          <Link href="/">
-            <span className="">
-              <Image
-                src="./images/icons/back-arrow.svg"
-                width={24}
-                height={24}
-                alt="Picture of the author"
-              />
-            </span>
-          </Link>
-          <span className="mx-3 text-2xl font-bold">Buylocalbooks</span>
-        </h2>
-      </div>
-                <h6 className="flex items-center text-yellow-400 pt-1 font-semibold font-serif text-[13px]">
-                  <span className="">
-                    <Image src="./images/location.svg" alt="icon"                         width={10}
-                        height={12} />
-                  </span>
-                  <span className="px-2 font-serif">Your Zip Code</span>
-                </h6>
+                <div className="pt-10">
+                  <h2 className="flex items-center">
+                    <Link href="/">
+                      <span className="">
+                        <Image
+                          src="./images/icons/back-arrow.svg"
+                          width={24}
+                          height={24}
+                          alt="Picture of the author"
+                        />
+                      </span>
+                    </Link>
+                    <span className="mx-3 text-2xl font-bold">
+                      Buylocalbooks
+                    </span>
+                  </h2>
+                </div>
+                <LocationDisplay />
               </div>
 
               <SearchBar placeholder="Search Here" />
@@ -68,14 +81,14 @@ const Booklist = () => {
               </div>
             </div>
             <div>
-              <Slidercomponent />
+              <Slidercomponent storesNearYou={bookstoresNearYou} />
             </div>
 
             <div className="pt-[30px]">
               <div className="col-12 ">
                 <div className="flex justify-between">
                   <h4 className="text-base font-serif font-semibold">
-                    Books Recently Bought
+                    Newly Added
                   </h4>
                   <h6 className="text-yellow-400 font-semibold text-xs font-serif">
                     See All
@@ -83,27 +96,34 @@ const Booklist = () => {
                 </div>
               </div>
               <div className="grid sm:grid-cols-3">
-                {data.map((data, i) => {
+                {(newBooks || data).map((data, i) => {
                   return (
-                    <div>
-                      <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
-                        <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
-                          <Image
-                            src="./images/icons/recently-book1.svg"
-                            width={23}
-                            height={23}
-                            alt="icon"
-                          />
+                    <div key={data.id}>
+                      <Link
+                        href={`/listingdetail?id=${data.id}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
+                          <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
+                            <Image
+                              src="./images/icons/recently-book1.svg"
+                              width={23}
+                              height={23}
+                              alt="icon"
+                            />
+                          </div>
+                          <div className="px-3">
+                            <h6 className="font-serif text-xs text-gray-600">
+                              {data.title.length < 30
+                                ? data.title
+                                : data.title.slice(0, 30) + "..."}
+                            </h6>
+                            <p className="m-0 font-serif text-xs text-gray-400 pt-1">
+                              {data.owner.business_name}
+                            </p>
+                          </div>
                         </div>
-                        <div className="px-3">
-                          <h6 className="font-serif text-xs text-gray-600">
-                            {data.head}
-                          </h6>
-                          <p className="m-0 font-serif text-xs text-gray-400 pt-1">
-                            {data.para}
-                          </p>
-                        </div>
-                      </div>
+                      </Link>
                     </div>
                   );
                 })}
