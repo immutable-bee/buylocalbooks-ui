@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import LocationDisplay from "../components/LocationDisplay";
+import UserAvatar from "../components/UserAvatar";
 import SearchBar from "../components/SearchBar";
 const Home = () => {
   return (
@@ -11,15 +12,15 @@ const Home = () => {
       <section className="container mx-auto px-3 sm:pt-10 pt-4">
         <div>
           <div>
-            <div className="">
-
-              <Link href="/member">
-                <button className="mx-2 text-sm text-blue-600 underline">
-                  Profile Page Example
-                </button>
-              </Link>
-
-              
+            <div className="flex justify-between items-center">
+              <div className="">
+                <Link href="/member">
+                  <button className="mx-2 text-sm text-blue-600 underline">
+                    Profile Page Example
+                  </button>
+                </Link>
+              </div>
+              <UserAvatar avatarLink="/profile" imageUrl="" />
             </div>
 
             <div className="sm:flex items-center justify-between px-2 pt-2">

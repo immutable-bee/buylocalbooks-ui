@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./buyrequest.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
