@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
-import { auth } from "../../../firebase/config";
-import Loading from "../../../components/utility/Loading";
+import { auth } from "../../firebase/config";
+import Loading from "../../components/utility/Loading";
 
 const ResetPassword = ({ mode, actionCode }) => {
   const [newPassword, setNewPassword] = useState("");
