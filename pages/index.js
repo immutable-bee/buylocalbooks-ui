@@ -130,7 +130,7 @@ const Home = () => {
               Share this Page
             </button>
             <Link
-              href={"/membarshipoption"}
+              href={"/membership"}
               style={{ textDecoration: "none" }}
               className="text-black"
             >

@@ -169,7 +169,7 @@ const BookDetailView = ({ book, store }) => {
           ) : (
             <div>
               <div className="my-8">
-                <Link href="/membarshipoption" className="no-underline">
+                <Link href="/membership" className="no-underline">
                   <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
                     <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
                       Become a Member

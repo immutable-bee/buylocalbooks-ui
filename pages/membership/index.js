@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import { useNavigationContext } from "../../context/NavigationContext";
-const Membarshipoption = () => {
+const Membership = () => {
   const { previousPage } = useNavigationContext();
   return (
     <div className="container mx-auto px-3 pt-10">
@@ -152,4 +152,4 @@ const Membarshipoption = () => {
   );
 };
 
-export default Membarshipoption;
+export default Membership;
