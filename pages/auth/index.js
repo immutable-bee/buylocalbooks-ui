@@ -16,7 +16,7 @@ import addData from "../../firebase/firestore/addData";
 import { LocationContext } from "../../context/LocationContext";
 import Image from "next/image";
 
-// ToDO's
+// TODO
 // Add forgot password/password reset email
 // Add email verification
 

@@ -8,7 +8,7 @@ import { auth } from "../../firebase/config";
 import { useRouter } from "next/router";
 import getDocument from "../../firebase/firestore/getData";
 
-// ToDo's:
+// TODO:
 // Add profile pic storage/update
 // Add update email & verify email
 // Add update password
