@@ -7,13 +7,14 @@ import {
   confirmPasswordReset,
 } from "firebase/auth";
 import { auth } from "../../../firebase/config";
+import ResetPassword from "../../../components/auth/ResetPassword";
 
 const Firebase = () => {
   const router = useRouter();
   const { mode, actionCode } = router.query;
 
   const [loading, setLoading] = useState(false);
-
+  /*
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [resetStatus, setResetStatus] = useState(null);
@@ -53,76 +54,10 @@ const Firebase = () => {
         setResetStatus("errorReset");
       });
   };
-
+*/
   switch (mode) {
     case "resetPassword":
-      return (
-        <div className="min-h-screen bg-pink-100 flex items-center justify-center">
-          <div className="bg-white shadow-lg p-8 rounded-lg">
-            <h1 className="text-3xl text-purple-600 mb-8">Reset Password</h1>
-            {resetStatus === "inputNewPassword" ? (
-              <form onSubmit={resetPassword}>
-                <label className="block">
-                  New Password:
-                  <input
-                    type="password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    required
-                    className="mt-1 p-2 w-full border rounded-lg"
-                  />
-                </label>
-                <label className="block">
-                  {confirmPassword && confirmPassword === newPassword
-                    ? "Passwords do not match"
-                    : "Confirm Password:"}
-                  <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                    className={`mt-1 p-2 w-full border rounded-lg ${
-                      confirmPassword &&
-                      (newPassword === confirmPassword
-                        ? "bg-blb-blue"
-                        : "bg-red-100")
-                    }`}
-                  />
-                </label>
-                {loading ? (
-                  <Loading />
-                ) : (
-                  <button
-                    type="submit"
-                    className="flex-grow bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors"
-                  >
-                    Confirm New Password
-                  </button>
-                )}
-              </form>
-            ) : resetStatus === "success" ? (
-              <>
-                <h1 className="text-2xl text-blb-blue-600 mb-8">
-                  Password Reset!
-                </h1>
-                <div className="flex justify-center gap-2">
-                  <h1 className="text-2xl">Redirecting</h1>
-                  <div className="pt-4">
-                    <Loading />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className="flex justify-center gap-2">
-                <h1 className="text-2xl">Authenticating</h1>
-                <div className="pt-4">
-                  <Loading />
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      );
+      return <ResetPassword mode={mode} actionCode={actionCode} />;
 
     case "verifyEmail":
       applyActionCode(auth, actionCode);
