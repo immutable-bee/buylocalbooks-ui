@@ -33,6 +33,7 @@ export const LocationProvider = ({ children }) => {
         // If the request was successful, add the postal code to the location
         if (response.ok) {
           newLocation.postalCode = data.postalCode;
+          newLocation.state = data.stateLongName;
         }
 
         // Set and store the new location

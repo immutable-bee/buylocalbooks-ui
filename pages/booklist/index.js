@@ -7,6 +7,7 @@ import SearchBar from "../../components/SearchBar";
 import { useContext, useState } from "react";
 import { LocalStoresContext } from "../../context/LocalStoresContext";
 import LocationDisplay from "../../components/LocationDisplay";
+import UserAvatar from "../../components/UserAvatar";
 
 const Booklist = () => {
   const { localStores, newListings } = useContext(LocalStoresContext);
@@ -42,28 +43,25 @@ const Booklist = () => {
       <section>
         <div>
           <div>
-            <div className="sm:flex items-center justify-between sm:pt-2">
-              <div className="">
-                <div className="pt-10">
-                  <h2 className="flex items-center">
-                    <Link href="/">
-                      <span className="">
-                        <Image
-                          src="./images/icons/back-arrow.svg"
-                          width={24}
-                          height={24}
-                          alt="Picture of the author"
-                        />
-                      </span>
-                    </Link>
-                    <span className="mx-3 text-2xl font-bold">
-                      Buylocalbooks
-                    </span>
-                  </h2>
-                </div>
-                <LocationDisplay />
-              </div>
+            <div className="flex justify-between items-center">
+              <h2 className="flex items-center">
+                <Link href="/">
+                  <span className="">
+                    <Image
+                      src="./images/icons/back-arrow.svg"
+                      width={24}
+                      height={24}
+                      alt="Picture of the author"
+                    />
+                  </span>
+                </Link>
+                <span className="mx-3 text-2xl font-bold">Buylocalbooks</span>
+              </h2>
+              <UserAvatar avatarLink="/profile" />
+            </div>
+            <LocationDisplay />
 
+            <div className="sm:flex items-center justify-end sm:pt-2">
               <SearchBar placeholder="Search Here" />
             </div>
 

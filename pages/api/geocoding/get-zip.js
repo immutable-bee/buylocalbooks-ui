@@ -23,10 +23,18 @@ const handler = async (req, res) => {
     return;
   }
 
+  const stateLongNameComponent = firstResult.address_components.find(
+    (component) => component.types.includes("administrative_area_level_1")
+  );
+  if (!stateLongNameComponent) {
+    res.status(404).json({ message: "No state found" });
+  }
+
   const postalCode = postalCodeComponent.long_name;
+  const stateLongName = stateLongNameComponent.long_name;
 
   // Return the postal code
-  res.status(200).json({ postalCode });
+  res.status(200).json({ postalCode, stateLongName });
 };
 
 export default handler;

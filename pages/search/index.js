@@ -11,6 +11,7 @@ import NoResultsFound from "../../components/searchresults/noresultsfound";
 import LocationDisplay from "../../components/LocationDisplay";
 import ResultsFound from "../../components/searchresults/resultsfound";
 import { useNavigationContext } from "../../context/NavigationContext";
+import UserAvatar from "../../components/UserAvatar";
 
 const search = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -51,8 +52,8 @@ const search = () => {
 
   return (
     <section>
-      <div className="container mx-auto px-3 pt-10">
-        <div className="sm:flex items-center justify-between px-2 pt-2">
+      <div className="container mx-auto px-3 pt-5">
+        <div className="sm:flex items-center justify-between">
           <div className="">
             <h2 className="flex items-center">
               <Link href={previousPage ? previousPage : "/"}>
@@ -70,7 +71,10 @@ const search = () => {
 
             <LocationDisplay />
           </div>
-          <SearchBar />
+          <UserAvatar avatarLink="/profile" />
+        </div>
+        <div className="sm:flex items-center justify-end sm:pt-2 px-2 pt-4">
+          <SearchBar placeholder="Search Here" />
         </div>
         {loading ? (
           <h1>Loading...</h1>

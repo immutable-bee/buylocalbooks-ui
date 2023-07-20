@@ -7,81 +7,46 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/router";
-
-//
-/*
-createUserWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-  //
-
-
-  //
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-  //
-
-  //
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      const uid = user.uid;
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
-  //
-
-  const googleProvider = new GoogleAuthProvider();
-
-  signInWithPopup(auth, googleProvider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-*/
+import getDocument from "../../firebase/firestore/getData";
+import addData from "../../firebase/firestore/addData";
+import { LocationContext } from "../../context/LocationContext";
 
 const AuthPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
+  const { location } = useContext(LocationContext);
+
   const router = useRouter();
+
+  const updateFirestoreUserState = async (user) => {
+    const { result, error } = await getDocument("users", user.uid);
+
+    if (!location.state) {
+      console.log("No state data available in location context");
+      return;
+    }
+
+    // Document exists, but 'state' field doesn't exist or is empty
+    if (
+      result.exists() &&
+      (!result.data().state || result.data().state === "")
+    ) {
+      await addData("users", user.uid, { state: location.state });
+    }
+
+    // Document doesn't exist
+    if (!result.exists()) {
+      await addData("users", user.uid, { state: location.state });
+    }
+
+    if (error) {
+      console.error(error);
+    }
+  };
 
   const handleForm = async (event) => {
     event.preventDefault();
@@ -93,6 +58,7 @@ const AuthPage = () => {
           email,
           password
         );
+        await updateFirestoreUserState(userCredential.user);
         console.log(userCredential.user);
         router.push("/profile");
       } catch (error) {
@@ -105,6 +71,7 @@ const AuthPage = () => {
           email,
           password
         );
+        await updateFirestoreUserState(userCredential.user);
         router.push("/profile");
         console.log(userCredential.user);
       } catch (error) {
@@ -118,6 +85,7 @@ const AuthPage = () => {
 
     try {
       const result = await signInWithPopup(auth, provider);
+      await updateFirestoreUserState(result.user);
       console.log(result.user);
       router.push("/profile");
     } catch (error) {

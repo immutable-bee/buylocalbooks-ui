@@ -6,6 +6,10 @@ import MembershipModal from "@/components/MembershipModal";
 import { onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useRouter } from "next/router";
+import getDocument from "../../firebase/firestore/getData";
+
+// ToDo's:
+// Add profile pic storage/update
 
 const Profile = () => {
   const [isNationalSelected, setNationalSelected] = useState(true);
@@ -31,13 +35,23 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        setUser(currentUser);
+        const { result, error } = await getDocument("users", currentUser.uid);
+
+        if (error) {
+          setUser(currentUser);
+          return;
+        }
+
+        if (result.exists()) {
+          // Merge Firestore user document with auth user
+          const userData = { ...currentUser, ...result.data() };
+          setUser(userData);
+        }
       } else {
         setUser(null);
         router.push("/auth");
-        return <></>;
       }
     });
     return () => {
@@ -126,7 +140,9 @@ const Profile = () => {
                     alt="icon"
                   />
                 </span>
-                <span className="text-gray-500">Washington</span>
+                <span className="text-gray-500">
+                  {user.state ? user.state : "Location not added"}
+                </span>
               </label>
             </div>
             <div className="flex justify-center pt-6">

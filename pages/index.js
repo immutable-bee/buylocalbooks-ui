@@ -13,14 +13,8 @@ const Home = () => {
         <div>
           <div>
             <div className="flex justify-between items-center">
-              <div className="">
-                <Link href="/member">
-                  <button className="mx-2 text-sm text-blue-600 underline">
-                    Profile Page Example
-                  </button>
-                </Link>
-              </div>
-              <UserAvatar avatarLink="/profile" imageUrl="" />
+              <div className=""></div>
+              <UserAvatar avatarLink="/profile" />
             </div>
 
             <div className="sm:flex items-center justify-between px-2 pt-2">
