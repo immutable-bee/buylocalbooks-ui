@@ -3,6 +3,9 @@ import { applyActionCode } from "firebase/auth";
 import { useRouter } from "next/router";
 import Loading from "../utility/Loading";
 
+// TODO:
+// Add handler/ui for error codes
+
 const VerifyEmail = ({ auth, actionCode }) => {
   const router = useRouter();
   const [verified, setVerified] = useState(false);

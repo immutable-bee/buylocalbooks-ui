@@ -4,6 +4,9 @@ import { auth } from "../../firebase/config";
 import Loading from "../../components/utility/Loading";
 import { useRouter } from "next/router";
 
+// TODO:
+// Add handlers/ui for error codes
+
 const ResetPassword = ({ mode, actionCode }) => {
   const router = useRouter();
 
