@@ -5,6 +5,8 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useState, useContext } from "react";
@@ -12,12 +14,19 @@ import { useRouter } from "next/router";
 import getDocument from "../../firebase/firestore/getData";
 import addData from "../../firebase/firestore/addData";
 import { LocationContext } from "../../context/LocationContext";
+import Image from "next/image";
+
+// ToDO's
+// Add forgot password/password reset email
+// Add email verification
 
 const AuthPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
+  const [isForgotpass, setIsForgotPass] = useState(false);
+
   const { location } = useContext(LocationContext);
 
   const router = useRouter();
@@ -51,31 +60,42 @@ const AuthPage = () => {
   const handleForm = async (event) => {
     event.preventDefault();
 
-    if (isSignUp) {
+    if (isForgotpass) {
       try {
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        await updateFirestoreUserState(userCredential.user);
-        console.log(userCredential.user);
-        router.push("/profile");
-      } catch (error) {
-        console.log(error.code, error.message);
+        const resetPassword = await sendPasswordResetEmail(auth, email);
+      } catch (err) {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        console.log({ ErrorCode: errorCode, ErrorMessage: errorMessage });
       }
     } else {
-      try {
-        const userCredential = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        await updateFirestoreUserState(userCredential.user);
-        router.push("/profile");
-        console.log(userCredential.user);
-      } catch (error) {
-        console.log(error.code, error.message);
+      if (isSignUp) {
+        try {
+          const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          await updateFirestoreUserState(userCredential.user);
+          await sendEmailVerification(auth.currentUser);
+          console.log(userCredential.user);
+          router.push("/profile");
+        } catch (error) {
+          console.log(error.code, error.message);
+        }
+      } else {
+        try {
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          await updateFirestoreUserState(userCredential.user);
+          router.push("/profile");
+          console.log(userCredential.user);
+        } catch (error) {
+          console.log(error.code, error.message);
+        }
       }
     }
   };
@@ -96,8 +116,21 @@ const AuthPage = () => {
   return (
     <div className="min-h-screen bg-pink-100 flex items-center justify-center">
       <div className="bg-white shadow-lg p-8 rounded-lg">
+        {isForgotpass && (
+          <div
+            className="pb-4 cursor-pointer"
+            onClick={() => setIsForgotPass(!isForgotpass)}
+          >
+            <Image
+              src="./images/icons/back-arrow.svg"
+              width={24}
+              height={24}
+              alt="Picture of the author"
+            />
+          </div>
+        )}
         <h1 className="text-3xl text-purple-600 mb-8">
-          {isSignUp ? "Sign Up" : "Sign In"}
+          {isForgotpass ? "Reset Password" : isSignUp ? "Sign Up" : "Sign In"}
         </h1>
         <form onSubmit={handleForm} className="space-y-5">
           <label className="block">
@@ -110,16 +143,18 @@ const AuthPage = () => {
               className="mt-1 p-2 w-full border rounded-lg"
             />
           </label>
-          <label className="block">
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="mt-1 p-2 w-full border rounded-lg"
-            />
-          </label>
+          {!isForgotpass && (
+            <label className="block">
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="mt-1 p-2 w-full border rounded-lg"
+              />
+            </label>
+          )}
           {isSignUp && (
             <label className="block">
               Display Name:
@@ -137,22 +172,38 @@ const AuthPage = () => {
               type="submit"
               className="flex-grow bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors"
             >
-              {isSignUp ? "Sign Up" : "Sign In"}
+              {isForgotpass
+                ? "Reset Password"
+                : isSignUp
+                ? "Sign Up"
+                : "Sign In"}
             </button>
-            <button
-              onClick={() => setIsSignUp(!isSignUp)}
-              className="flex-grow bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors"
-            >
-              {isSignUp ? "Switch to Sign In" : "Switch to Sign Up"}
-            </button>
+            {!isForgotpass && (
+              <button
+                onClick={() => setIsSignUp(!isSignUp)}
+                className="flex-grow bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors"
+              >
+                {isSignUp ? "Switch to Sign In" : "Switch to Sign Up"}
+              </button>
+            )}
           </div>
+          {!isSignUp && !isForgotpass && (
+            <h6
+              className="text-blb-blue cursor-pointer"
+              onClick={() => setIsForgotPass(!isForgotpass)}
+            >
+              Forgot Password?
+            </h6>
+          )}
         </form>
-        <button
-          onClick={handleGoogleSignIn}
-          className="mt-8 bg-red-500 text-white p-2 w-full rounded hover:bg-red-600 transition-colors"
-        >
-          Sign In with Google
-        </button>
+        {!isForgotpass && (
+          <button
+            onClick={handleGoogleSignIn}
+            className="mt-8 bg-red-500 text-white p-2 w-full rounded hover:bg-red-600 transition-colors"
+          >
+            Sign In with Google
+          </button>
+        )}
       </div>
     </div>
   );

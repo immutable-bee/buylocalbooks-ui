@@ -10,6 +10,8 @@ import getDocument from "../../firebase/firestore/getData";
 
 // ToDo's:
 // Add profile pic storage/update
+// Add update email & verify email
+// Add update password
 
 const Profile = () => {
   const [isNationalSelected, setNationalSelected] = useState(true);
