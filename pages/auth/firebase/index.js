@@ -14,47 +14,7 @@ const Firebase = () => {
   const { mode, oobCode } = router.query;
 
   const [loading, setLoading] = useState(false);
-  /*
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [resetStatus, setResetStatus] = useState(null);
 
-  useEffect(() => {
-    if (mode === "resetPassword" && actionCode) {
-      verifyPasswordResetCode(auth, actionCode)
-        .then((email) => {
-          // This will give you the email of the user, now ask user for the new password.
-          setResetStatus("inputNewPassword");
-        })
-        .catch((error) => {
-          // Invalid or expired action code. Ask user to try to reset the password again.
-          console.error(error);
-          setResetStatus("errorCode");
-        });
-    }
-  }, [actionCode]);
-
-  const resetPassword = (event) => {
-    event.preventDefault();
-
-    if (newPassword !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    setLoading(true);
-    confirmPasswordReset(auth, actionCode, newPassword)
-      .then((resp) => {
-        // Password has been reset successfully.
-        setLoading(false);
-        setResetStatus("success");
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.error(error);
-        setResetStatus("errorReset");
-      });
-  };
-*/
   switch (mode) {
     case "resetPassword":
       return <ResetPassword mode={mode} actionCode={oobCode} />;

@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import Loading from "../../components/utility/Loading";
+import { useRouter } from "next/router";
 
 const ResetPassword = ({ mode, actionCode }) => {
+  const router = useRouter();
+
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [resetStatus, setResetStatus] = useState(null);
@@ -36,6 +39,9 @@ const ResetPassword = ({ mode, actionCode }) => {
         // Password has been reset successfully.
         setLoading(false);
         setResetStatus("success");
+        setTimeout(() => {
+          router.push("/");
+        }, [5000]);
       })
       .catch((error) => {
         setLoading(false);
@@ -61,9 +67,11 @@ const ResetPassword = ({ mode, actionCode }) => {
               />
             </label>
             <label className="block">
-              {confirmPassword && confirmPassword === newPassword
-                ? "Passwords do not match"
-                : "Confirm Password:"}
+              {confirmPassword === ""
+                ? "Confirm Password:"
+                : confirmPassword === newPassword
+                ? "Passwords match"
+                : "Passwords do not match"}
               <input
                 type="password"
                 value={confirmPassword}
@@ -78,11 +86,13 @@ const ResetPassword = ({ mode, actionCode }) => {
               />
             </label>
             {loading ? (
-              <Loading />
+              <div className="mt-4">
+                <Loading />
+              </div>
             ) : (
               <button
                 type="submit"
-                className="flex-grow bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors"
+                className="flex-grow bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors mt-4"
               >
                 Confirm New Password
               </button>
@@ -101,7 +111,7 @@ const ResetPassword = ({ mode, actionCode }) => {
         ) : (
           <div className="flex justify-center gap-2">
             <h1 className="text-2xl">Authenticating</h1>
-            <div className="pt-4">
+            <div className="pt-3">
               <Loading />
             </div>
           </div>
