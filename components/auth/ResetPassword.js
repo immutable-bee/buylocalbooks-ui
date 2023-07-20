@@ -13,7 +13,6 @@ const ResetPassword = ({ mode, actionCode }) => {
     if (mode === "resetPassword" && actionCode) {
       verifyPasswordResetCode(auth, actionCode)
         .then((email) => {
-          // This will give you the email of the user, now ask user for the new password.
           setResetStatus("inputNewPassword");
         })
         .catch((error) => {

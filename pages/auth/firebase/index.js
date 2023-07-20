@@ -11,7 +11,7 @@ import ResetPassword from "../../../components/auth/ResetPassword";
 
 const Firebase = () => {
   const router = useRouter();
-  const { mode, actionCode } = router.query;
+  const { mode, oobCode } = router.query;
 
   const [loading, setLoading] = useState(false);
   /*
@@ -57,7 +57,7 @@ const Firebase = () => {
 */
   switch (mode) {
     case "resetPassword":
-      return <ResetPassword mode={mode} actionCode={actionCode} />;
+      return <ResetPassword mode={mode} actionCode={oobCode} />;
 
     case "verifyEmail":
       applyActionCode(auth, actionCode);
