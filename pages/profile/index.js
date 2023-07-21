@@ -133,10 +133,10 @@ const Profile = () => {
                 <h4 className="font-semibold">{user?.displayName}</h4>
               )}
               <p className="text-sky-500 font-normal mb-0">{user?.email}</p>
-              <label>
+              <div className="flex gap-1 justify-center mt-2">
                 <span>
                   <Image
-                    src="./images/icons/black-location-icon.svg"
+                    src="/images/icons/black-location-icon.svg"
                     width={18}
                     height={18}
                     alt="icon"
@@ -145,7 +145,7 @@ const Profile = () => {
                 <span className="text-gray-500">
                   {user.state ? user.state : "Location not added"}
                 </span>
-              </label>
+              </div>
             </div>
             <div className="flex justify-center pt-6">
               <div className="border border-black py-[14px] mx-2 bg-yellow-400 rounded-2xl w-32">
