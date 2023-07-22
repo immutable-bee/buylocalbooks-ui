@@ -39,6 +39,7 @@ const updateFirestoreUser = async (uid, type) => {
 
     if (userData && "membership" in userData) {
       const membership = userData.membership;
+      console.log(`Membership: ${membership}, Type: ${type}`); // Debugging line
       if (membership === "recurring" && type === "single") {
         return;
       }
