@@ -33,8 +33,9 @@ const getRawBody = async (req) => {
 
 const updateFirestoreUser = async (uid, type) => {
   const userDoc = await getDocument("users", uid);
-  console.log(userDoc.data());
-
+  const userData = userDoc.data();
+  console.log(userData);
+  /*
   if (userDoc && userDoc.exists) {
     const userData = userDoc.data();
     console.log(userData);
@@ -46,7 +47,7 @@ const updateFirestoreUser = async (uid, type) => {
       }
     }
   }
-
+*/
   try {
     await addData("users", uid, { membership: type });
   } catch (err) {
