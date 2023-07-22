@@ -32,8 +32,8 @@ const getRawBody = async (req) => {
 };
 
 const updateFirestoreUser = async (uid, type) => {
-  const userDoc = await getDocument("users", uid);
-  const userData = userDoc.data();
+  const { result, error } = await getDocument("users", uid);
+  const userData = result.data();
   console.log(userData);
   /*
   if (userDoc && userDoc.exists) {
