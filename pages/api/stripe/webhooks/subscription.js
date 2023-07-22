@@ -1,6 +1,7 @@
 import Stripe from "stripe";
-import addData from "../../../../firebase/firestore/addData";
+import { updateData } from "../../../../firebase/firestore/deleteData";
 import getDocument from "../../../../firebase/firestore/getData";
+import { deleteFields } from "../../../../firebase/firestore/deleteData";
 
 const stripe = new Stripe(process.env.STRIPE_SK, {
   apiVersion: "2022-11-15",
@@ -30,32 +31,21 @@ const getRawBody = async (req) => {
   });
 };
 
-const updateFirestoreUser = async (uid, type) => {
+const updateFirestoreUser = async (uid) => {
   const { result, error } = await getDocument("users", uid);
-
-  if (result && result.exists()) {
-    const userData = result.data();
-
-    if (userData && "membership" in userData) {
-      const membership = userData.membership;
-      if (membership === "recurring" && type === "single") {
-        await addData("users", uid, { madeSinglePayment: true });
-        return;
-      }
+  const userData = result.data();
+  if (userData.madeSinglePayment === true) {
+    try {
+      await updateData("users", uid, { membership: "single" });
+    } catch (err) {
+      console.log(err);
     }
-  }
-
-  try {
-    if (type === "single") {
-      await addData("users", uid, {
-        membership: type,
-        madeSinglePayment: true,
-      });
-    } else {
-      await addData("users", uid, { membership: type });
+  } else {
+    try {
+      await deleteFields("users", uid, "membership");
+    } catch (err) {
+      console.log(err);
     }
-  } catch (err) {
-    console.log(err);
   }
 };
 
@@ -71,27 +61,20 @@ const handleStripeWebhook = async (req, res) => {
     event = stripe.webhooks.constructEvent(
       rawBody,
       signature,
-      process.env.STRIPE_WEBHOOK_CHECKOUT_SECRET
+      process.env.STRIPE_WEBHOOK_SUBSCRIPTION_SECRET
     );
   } catch (err) {
     console.error(`Webhook signature verification failed: ${err.message}`);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  if (event.type === "checkout.session.completed") {
-    const customerId = event.data.object.client_reference_id;
-    const isSubscription = event.data.object.subscription ? true : false;
+  if (event.type === "customer.subscription.deleted") {
     const stripeCustomerId = event.data.object.customer;
 
     try {
-      if (isSubscription) {
-        await updateFirestoreUser(customerId, "recurring");
-        const customer = await stripe.customers.update(stripeCustomerId, {
-          metadata: { firebase_uid: customerId },
-        });
-      } else {
-        await updateFirestoreUser(customerId, "single");
-      }
+      const customer = await stripe.customers.retrieve(stripeCustomerId);
+      const firebaseID = customer.metadata.firebase_uid;
+      await updateFirestoreUser(firebaseID);
     } catch (error) {
       console.log(error);
       return res
