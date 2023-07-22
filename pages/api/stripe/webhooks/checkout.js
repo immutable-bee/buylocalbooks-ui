@@ -73,10 +73,14 @@ const handleStripeWebhook = async (req, res) => {
   if (event.type === "checkout.session.completed") {
     const customerId = event.data.object.client_reference_id;
     const isSubscription = event.data.object.subscription ? true : false;
+    const stripeCustomerId = event.data.object.customer;
 
     try {
       if (isSubscription) {
         await updateFirestoreUser(customerId, "recurring");
+        const customer = await stripe.customers.update(stripeCustomerId, {
+          metadata: { firebase_uid: customerId },
+        });
       } else {
         await updateFirestoreUser(customerId, "single");
       }
