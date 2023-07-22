@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { updateData } from "../../../../firebase/firestore/deleteData";
+import addData from "../../../../firebase/firestore/addData";
 import getDocument from "../../../../firebase/firestore/getData";
 import { deleteFields } from "../../../../firebase/firestore/deleteData";
 
@@ -37,7 +37,7 @@ const updateFirestoreUser = async (uid) => {
   console.log(userData);
   if (userData.madeSinglePayment === true) {
     try {
-      await updateData("users", uid, { membership: "single" });
+      await addData("users", uid, { membership: "single" });
     } catch (err) {
       console.log(err);
     }
