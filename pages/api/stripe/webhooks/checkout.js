@@ -33,6 +33,7 @@ const getRawBody = async (req) => {
 
 const updateFirestoreUser = async (uid, type) => {
   const userDoc = await getDocument("users", uid);
+  console.log(userDoc);
 
   if (userDoc && userDoc.exists) {
     const userData = userDoc.data();
