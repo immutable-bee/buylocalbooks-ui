@@ -1,5 +1,4 @@
 import Stripe from "stripe";
-import { auth } from "../../../../firebase/config";
 import addData from "../../../../firebase/firestore/addData";
 import getDocument from "../../../../firebase/firestore/getData";
 
@@ -36,10 +35,9 @@ const updateFirestoreUser = async (uid, type) => {
 
   if (result && result.exists()) {
     const userData = result.data();
-    console.log(userData);
+
     if (userData && "membership" in userData) {
       const membership = userData.membership;
-      console.log(`Membership: ${membership}, Type: ${type}`); // Debugging line
       if (membership === "recurring" && type === "single") {
         return;
       }
