@@ -1,11 +1,11 @@
-import React from "react";
-import styles from "./home.module.scss";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import LocationDisplay from "../components/LocationDisplay";
 import UserAvatar from "../components/UserAvatar";
 import SearchBar from "../components/SearchBar";
+
 const Home = () => {
   return (
     <>
