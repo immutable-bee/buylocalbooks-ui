@@ -32,17 +32,16 @@ const getRawBody = async (req) => {
 };
 
 const updateFirestoreUser = async (uid, type) => {
-  let membership;
-
   const userDoc = await getDocument("users", uid);
 
-  if (userDoc) {
-    membership = userDoc.data.membership;
-  }
+  if (userDoc && userDoc.exists) {
+    const userData = userDoc.data();
 
-  if (membership) {
-    if (membership === "recurring" && type === "single") {
-      return;
+    if (userData && "membership" in userData) {
+      const membership = userData.membership;
+      if (membership === "recurring" && type === "single") {
+        return;
+      }
     }
   }
 
