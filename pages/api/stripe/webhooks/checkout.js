@@ -40,7 +40,7 @@ const updateFirestoreUser = async (uid, type) => {
     membership = userDoc.data.membership;
   }
 
-  if (membership === "recurring" && type === "single") {
+  if (membership && membership === "recurring" && type === "single") {
     return;
   }
 
