@@ -34,6 +34,7 @@ const getRawBody = async (req) => {
 const updateFirestoreUser = async (uid) => {
   const { result, error } = await getDocument("users", uid);
   const userData = result.data();
+  console.log(userData);
   if (userData.madeSinglePayment === true) {
     try {
       await updateData("users", uid, { membership: "single" });
