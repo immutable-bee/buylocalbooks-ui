@@ -36,7 +36,7 @@ const updateFirestoreUser = async (uid, type) => {
 
   if (userDoc && userDoc.exists) {
     const userData = userDoc.data();
-
+    console.log(userData);
     if (userData && "membership" in userData) {
       const membership = userData.membership;
       console.log(`Membership: ${membership}, Type: ${type}`); // Debugging line
