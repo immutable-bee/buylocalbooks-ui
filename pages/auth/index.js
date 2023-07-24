@@ -114,8 +114,8 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-pink-100 flex items-center justify-center">
-      <div className="bg-white shadow-lg p-8 rounded-lg">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="sm:bg-white w-full sm:max-w-lg sm:shadow sm:p-8 p-4 rounded-lg">
         {isForgotpass && (
           <div
             className="pb-4 cursor-pointer"
@@ -129,7 +129,7 @@ const AuthPage = () => {
             />
           </div>
         )}
-        <h1 className="text-3xl text-purple-600 mb-8">
+        <h1 className="text-3xl font-semibold text-black mb-6">
           {isForgotpass ? "Reset Password" : isSignUp ? "Sign Up" : "Sign In"}
         </h1>
         <form onSubmit={handleForm} className="space-y-5">
@@ -167,42 +167,56 @@ const AuthPage = () => {
               />
             </label>
           )}
-          <div className="flex space-x-4">
-            <button
-              type="submit"
-              className="flex-grow bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors"
-            >
-              {isForgotpass
-                ? "Reset Password"
-                : isSignUp
-                ? "Sign Up"
-                : "Sign In"}
-            </button>
-            {!isForgotpass && (
-              <button
-                onClick={() => setIsSignUp(!isSignUp)}
-                className="flex-grow bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors"
-              >
-                {isSignUp ? "Switch to Sign In" : "Switch to Sign Up"}
-              </button>
-            )}
-          </div>
           {!isSignUp && !isForgotpass && (
             <h6
-              className="text-blb-blue cursor-pointer"
+              className="text-sm text-blb-blue !mt-2 text-right hover:underline cursor-pointer"
               onClick={() => setIsForgotPass(!isForgotpass)}
             >
               Forgot Password?
             </h6>
           )}
+          <div className="flex !mt-6">
+            <button
+              type="submit"
+              className="flex-grow bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              {isForgotpass
+                ? "Reset Password"
+                : isSignUp
+                  ? "Sign Up"
+                  : "Sign In"}
+            </button>
+
+          </div>
+          <div className="flex justify-end !mt-3">
+            {!isForgotpass && (
+              <>
+                <h6
+                  className="text-sm text-gray-700"
+                >
+                  {isSignUp ? "Already have an account?" : "Don't have an account?"}
+                </h6>&nbsp;
+                <h6
+                  className="text-sm text-blb-blue hover:underline cursor-pointer"
+                  onClick={() => setIsSignUp(!isSignUp)}
+                >
+                  {isSignUp ? "Sign In" : "Sign Up"}
+                </h6>
+              </>
+            )}
+          </div>
+
         </form>
         {!isForgotpass && (
-          <button
-            onClick={handleGoogleSignIn}
-            className="mt-8 bg-red-500 text-white p-2 w-full rounded hover:bg-red-600 transition-colors"
-          >
-            Sign In with Google
-          </button>
+          <>  <div class="relative py-2 mb-3 mt-0"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-300"></div></div><div class="relative flex justify-center text-sm"><label class="px-2 bg-white text-gray-500"> Or </label></div></div>
+
+            <button
+              onClick={handleGoogleSignIn}
+              className=" bg-white text-black border border-gray-500 p-2 w-full rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Sign In with Google
+            </button>
+          </>
         )}
       </div>
     </div>
