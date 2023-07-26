@@ -16,11 +16,11 @@ const Buyrequest = () => {
   const { previousPage } = useNavigationContext();
   const router = useRouter();
 
-  const { listingId } = router.query;
+  const { id } = router.query;
 
   const handleSubmit = async () => {
     if (displayName && email && phoneNumber) {
-      const response = await sendBuyRequest(listingId, {
+      const response = await sendBuyRequest(id, {
         displayName,
         email,
         phoneNumber,

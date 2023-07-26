@@ -52,14 +52,21 @@ export const getSearchResults = async ({
 };
 
 export const sendBuyRequest = async ({ listingId, user }) => {
-  const response = await fetch(
-    "https://www.buylocalbooksnetwork.com/api/blb/sendBuyRequest",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ listingId, user }),
-    }
-  );
-  const data = await response.json();
-  return { data, statusCode: response.status };
+  try {
+    const response = await fetch(
+      "https://www.buylocalbooksnetwork.com/api/blb/sendBuyRequest",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ listingId, user }),
+      }
+    );
+    const data = await response.json();
+    return { data, statusCode: response.status };
+  } catch (error) {
+    console.error("Fetch failed:", error);
+    throw error;
+  }
 };
