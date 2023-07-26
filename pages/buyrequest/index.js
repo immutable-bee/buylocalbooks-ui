@@ -3,10 +3,37 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import { useNavigationContext } from "../../context/NavigationContext";
+import { sendBuyRequest } from "../../services/blbn";
+import { useRouter } from "next/router";
+
 const Buyrequest = () => {
   const [isPickupSelected, setPickupSelected] = useState(true);
 
+  const [displayName, setDisplayName] = useState();
+  const [email, setEmail] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+
   const { previousPage } = useNavigationContext();
+  const router = useRouter();
+
+  const { listingId } = router.query;
+
+  const handleSubmit = async () => {
+    if (displayName && email && phoneNumber) {
+      const response = await sendBuyRequest(listingId, {
+        displayName,
+        email,
+        phoneNumber,
+      });
+      if (response.statusCode !== 200) {
+        alert(
+          "Failed to submit buy request. Please check your contact information and try again."
+        );
+      }
+    } else {
+      alert("Please fill contact information fields");
+    }
+  };
 
   return (
     <div className="container mx-auto px-3 pt-10">
@@ -43,6 +70,7 @@ const Buyrequest = () => {
             <input
               type="text"
               placeholder="Your Name"
+              onChange={(e) => setDisplayName(e.target.value)}
               className="text-[14px] rounded-xl w-full px-[6px] focus:outline-none py-[12px]"
             />
           </div>
@@ -58,6 +86,7 @@ const Buyrequest = () => {
             <input
               type="text"
               placeholder="Your Email"
+              onChange={(e) => setEmail(e.target.value)}
               className="text-[14px] rounded-xl w-full px-[6px] focus:outline-none py-[12px]"
             />
           </div>
@@ -73,6 +102,7 @@ const Buyrequest = () => {
             <input
               type="text"
               placeholder="Your Phone Number"
+              onChange={(e) => setPhoneNumber(e.target.value)}
               className="text-[14px] rounded-xl w-full px-[6px] focus:outline-none py-[12px]"
             />
           </div>
@@ -353,7 +383,10 @@ const Buyrequest = () => {
         </div>
 
         <div className="my-10 flex sm:!justify-start !justify-center">
-          <button className="bg-yellow-400 text-gray-800 text-sm !font-bold rounded-full flex px-[96px] hover:bg-white py-3 border border-black">
+          <button
+            onClick={handleSubmit}
+            className="bg-yellow-400 text-gray-800 text-sm !font-bold rounded-full flex px-[96px] hover:bg-white py-3 border border-black"
+          >
             Submit Request
           </button>
         </div>
