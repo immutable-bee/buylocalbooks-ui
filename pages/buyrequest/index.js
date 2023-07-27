@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
@@ -47,6 +47,14 @@ const Buyrequest = () => {
       alert("Please fill contact information fields");
     }
   };
+
+  useEffect(() => {
+    if (submitSucceeded) {
+      setTimeout(() => {
+        router.push("/");
+      }, [5000]);
+    }
+  }, [submitSucceeded]);
 
   return (
     <div className="container mx-auto px-3 pt-10">
