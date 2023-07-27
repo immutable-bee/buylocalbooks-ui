@@ -10,13 +10,17 @@ export const getLocalStores = async (lat, lon) => {
   };
 };
 
-export const getLocalListings = async (storeIds) => {
+export const getLocalListings = async ({
+  storeIds,
+  firstQuery = true,
+  cursor = null,
+}) => {
   const response = await fetch(
     "https://www.buylocalbooksnetwork.com/api/blb/get-local-listings",
     {
       method: "POST",
       headers: {},
-      body: JSON.stringify({ storeIds }),
+      body: JSON.stringify({ storeIds, firstQuery, cursor }),
     }
   );
   const data = await response.json();
@@ -44,6 +48,8 @@ export const getSearchResults = async ({
   searchTerm,
   filter = "none",
   local = true,
+  firstQuery = true,
+  cursor = null,
 }) => {
   const response = await fetch(
     "https://www.buylocalbooksnetwork.com/api/blb/search",
@@ -52,7 +58,14 @@ export const getSearchResults = async ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ storeIds, searchTerm, filter, local }),
+      body: JSON.stringify({
+        storeIds,
+        searchTerm,
+        filter,
+        local,
+        firstQuery,
+        cursor,
+      }),
     }
   );
   const data = await response.json();

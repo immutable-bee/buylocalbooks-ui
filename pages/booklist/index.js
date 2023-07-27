@@ -130,7 +130,7 @@ const Booklist = () => {
             <div>
               <div className="my-8">
                 <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
-                  <Link href="" className="no-underline">
+                  <Link href="/membership" className="no-underline">
                     <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
                       Become a Member
                     </h5>

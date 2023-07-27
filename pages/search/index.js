@@ -19,8 +19,9 @@ const search = () => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
-
   const { previousPage } = useNavigationContext();
+
+  const [cursor, setCursor] = useState(null);
 
   // get search results
 
@@ -35,20 +36,24 @@ const search = () => {
       searchTerm: term,
       filter,
       local: localBool,
+      firstQuery: cursor ? false : true,
+      cursor: cursor,
     };
 
     const search = async () => {
+      if (!cursor) {
+        setLoading(true);
+      }
       const data = await getSearchResults(searchArgs);
-      setLoading(true);
       if (data) {
-        setSearchResults(data);
+        setSearchResults((prevResults) => [...prevResults, ...data]);
       } else {
         setSearchResults([]);
       }
       setLoading(false);
     };
     search();
-  }, [contextStoreIds, router.query]);
+  }, [contextStoreIds, router.query, cursor]);
 
   return (
     <section>
@@ -79,7 +84,7 @@ const search = () => {
         {loading ? (
           <h1>Loading...</h1>
         ) : searchResults.length > 0 ? (
-          <ResultsFound results={searchResults} />
+          <ResultsFound results={searchResults} setCursor={setCursor} />
         ) : (
           <NoResultsFound searchTerm={searchTerm} />
         )}

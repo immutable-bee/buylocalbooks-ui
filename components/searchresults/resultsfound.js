@@ -1,8 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
+import { useRef, useEffect } from "react";
 
-const ResultsFound = ({ results }) => {
+const ResultsFound = ({ results, setCursor }) => {
+  const sentinel = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setCursor(results[results.length - 1].id);
+      }
+    });
+
+    // If there's a sentinel, observe it
+    if (sentinel.current) {
+      observer.observe(sentinel.current);
+    }
+
+    // On cleanup, stop observing the sentinel
+    return () => {
+      if (sentinel.current) {
+        observer.unobserve(sentinel.current);
+      }
+    };
+  }, [results, setCursor]);
+
   return (
     <div className="pt-[30px]">
       <div className="col-12 ">
@@ -43,6 +66,7 @@ const ResultsFound = ({ results }) => {
             </div>
           );
         })}
+        <div ref={sentinel}>Loading...</div>
       </div>
     </div>
   );
