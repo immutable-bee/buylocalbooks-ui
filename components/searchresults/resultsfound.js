@@ -4,8 +4,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useRef, useEffect } from "react";
 import Loading from "../../components/utility/Loading";
 
-const ResultsFound = ({ results, setCursor }) => {
+const ResultsFound = ({ results, setCursor, isResultsEnd }) => {
   const sentinel = useRef();
+
+  const formatTitle = (title) => {
+    if (title.length > 32) {
+      return title.slice(0, 28).concat("...");
+    } else {
+      return title;
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -32,9 +40,6 @@ const ResultsFound = ({ results, setCursor }) => {
       <div className="col-12 ">
         <div className="flex justify-between">
           <h4 className="text-base font-serif font-semibold">Results</h4>
-          <h6 className="text-yellow-400 font-semibold text-xs font-serif">
-            See All
-          </h6>
         </div>
       </div>
       <div className="grid sm:grid-cols-3">
@@ -56,7 +61,7 @@ const ResultsFound = ({ results, setCursor }) => {
                   </div>
                   <div className="px-3">
                     <h6 className="font-serif text-xs text-gray-600">
-                      {result.title}
+                      {formatTitle(result.title)}
                     </h6>
                     <p className="m-0 font-serif text-xs text-gray-400 pt-1">
                       {result.owner.business_name}
@@ -67,9 +72,15 @@ const ResultsFound = ({ results, setCursor }) => {
             </div>
           );
         })}
-        <div className="flex w-screen justify-center" ref={sentinel}>
-          <Loading />
-        </div>
+        {isResultsEnd ? (
+          <div className="flex w-screen justify-center">
+            <h4>End of Results</h4>
+          </div>
+        ) : (
+          <div className="flex w-screen justify-center" ref={sentinel}>
+            <Loading />
+          </div>
+        )}
       </div>
     </div>
   );
