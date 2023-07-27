@@ -106,7 +106,7 @@ const Home = () => {
                 </span>
                 <span className="px-2 font-bold text-sm">
                   {" "}
-                  Do you own bookstore?
+                  Do you own a bookstore?
                 </span>
               </h6>
               <p className="text-gray-500 font-normal text-[13px] leading-6">
