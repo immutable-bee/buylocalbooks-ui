@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import { useRef, useEffect } from "react";
+import Loading from "../../components/utility/Loading";
 
 const ResultsFound = ({ results, setCursor }) => {
   const sentinel = useRef();
@@ -66,7 +67,9 @@ const ResultsFound = ({ results, setCursor }) => {
             </div>
           );
         })}
-        <div ref={sentinel}>Loading...</div>
+        <div className="flex w-screen justify-center" ref={sentinel}>
+          <Loading />
+        </div>
       </div>
     </div>
   );
