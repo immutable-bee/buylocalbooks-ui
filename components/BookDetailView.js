@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useEffect, useState } from "react";
 import { useNavigationContext } from "../context/NavigationContext";
 import { useAuthContext } from "../context/AuthContext";
+import { formatPhoneNumber } from "../utils/format";
 
 const BookDetailView = ({ book, store }) => {
   const [userMembership, setUserMembership] = useState(null);
@@ -119,7 +120,7 @@ const BookDetailView = ({ book, store }) => {
                     className="px-1"
                   />
                   <span className="px-1 font-semibold">
-                    {store.phone_number}
+                    {formatPhoneNumber(store.phone_number)}
                   </span>
                 </p>
 

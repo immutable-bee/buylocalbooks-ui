@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useRouter } from "next/router";
 import { getStoreDetails } from "../../services/blbn";
 import Loading from "../../components/utility/Loading";
+import { formatPhoneNumber } from "../../utils/format";
 import { useNavigationContext } from "../../context/NavigationContext";
 
 const Bookstoredetail = () => {
@@ -78,7 +79,9 @@ const Bookstoredetail = () => {
                   alt="call_icon"
                   className="pr-2"
                 />
-                <span className=" mb-0">{storeDetails.phone_number}</span>
+                <span className=" mb-0">
+                  {formatPhoneNumber(storeDetails.phone_numbe)}
+                </span>
               </a>
               <a
                 href="mailto:ibrahim@justibrahim.com"
