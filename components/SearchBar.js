@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -26,7 +26,8 @@ const SearchBar = () => {
     national: false,
   });
 
-  const handleDropdownToggle = () => {
+  const handleDropdownToggle = (event) => {
+    event.stopPropagation();
     setShowDropdown((prevShowDropdown) => !prevShowDropdown);
   };
 
@@ -67,6 +68,27 @@ const SearchBar = () => {
     );
   };
 
+  const dropdownRef = useRef();
+  const buttonRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
+        buttonRef.current !== event.target
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="flex  sm:!pt-0 !pt-4">
       <div className="flex border sm:border-2 border-gray-300 rounded-2xl pl-3 h-[50px]">
@@ -105,6 +127,7 @@ const SearchBar = () => {
 
       <div className="">
         <button
+          ref={buttonRef}
           type="button"
           className="bg-sky-500  ml-2 rounded-2xl h-[50px] w-[50px] flex items-center justify-center border sm:border-2 border-black"
           onClick={handleDropdownToggle}
@@ -121,7 +144,10 @@ const SearchBar = () => {
         {
           /* TODO: styling for dropdown in accordance with the brand, also want it to close when a user clicks outside the dropdown */
           showDropdown && (
-            <div className="absolute top-[70px] right-0 bg-white border border-gray-300 rounded-lg p-4">
+            <div
+              ref={dropdownRef}
+              className="absolute top-[160px] right-10 bg-white border border-gray-300 rounded-lg p-4"
+            >
               <div>
                 <h2 className="font-medium mb-2">Filter Options</h2>
                 {filters.map((filterOption) => (
