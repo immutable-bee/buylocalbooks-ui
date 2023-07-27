@@ -50,7 +50,7 @@ const Slidercomponent = ({ storesNearYou }) => {
             >
               <div>
                 <Link
-                  href={`/listingdetail?id=${store.listingId}`}
+                  href={`/bookstoredetail?id=${store.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <div>
@@ -64,12 +64,10 @@ const Slidercomponent = ({ storesNearYou }) => {
                   </div>
                   <div>
                     <p className="mb-0 font-serif text-xs mt-[12px]">
-                      {store.title.length < 20
-                        ? store.title
-                        : store.title.slice(0, 20) + "..."}
+                      {store.business_name}
                     </p>
                     <label className="font-serif text-xs mt-[6px] text-gray-400">
-                      {store.business_name}
+                      {`${store.business_city}, ${store.business_state}`}
                     </label>
                   </div>
                 </Link>

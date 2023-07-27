@@ -31,6 +31,14 @@ export const getListingDetails = async (listingId) => {
   return data;
 };
 
+export const getStoreDetails = async (storeId) => {
+  const response = await fetch(
+    `https://www.buylocalbooksnetwork.com/api/blb/get-store-details?id=${storeId}`
+  );
+  const data = await response.json();
+  return data;
+};
+
 export const getSearchResults = async ({
   storeIds = [],
   searchTerm,
