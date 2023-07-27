@@ -20,10 +20,13 @@ const Buyrequest = () => {
 
   const handleSubmit = async () => {
     if (displayName && email && phoneNumber) {
-      const response = await sendBuyRequest(id, {
-        displayName,
-        email,
-        phoneNumber,
+      const response = await sendBuyRequest({
+        listingId: id,
+        user: {
+          displayName,
+          email,
+          phoneNumber,
+        },
       });
       if (response.statusCode !== 200) {
         alert(

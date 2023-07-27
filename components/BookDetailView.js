@@ -157,7 +157,7 @@ const BookDetailView = ({ book, store }) => {
               </div>
               <div className="sm:mx-6">
                 <Link
-                  href={`/buyrequest?id=${book.id}store=${store.id}`}
+                  href={`/buyrequest?id=${book.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <button className="text-sm sm:my-0 my-2 text-gray-800 bg-yellow-400 rounded-full  font-bold sm:w-auto w-44 sm:px-[36px] py-[10px] border border-black">
