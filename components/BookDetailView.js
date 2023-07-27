@@ -1,15 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigationContext } from "../context/NavigationContext";
+import { useAuthContext } from "../context/AuthContext";
 
 const BookDetailView = ({ book, store }) => {
-  // for demo purposes, after demo isMember will be provided as a prop
-  const [isMember, setIsMember] = useState(false);
-  //
+  const [userMembership, setUserMembership] = useState(null);
 
   const { previousPage } = useNavigationContext();
+  const { membership } = useAuthContext();
+
+  useEffect(() => {
+    if (membership) {
+      setUserMembership(membership);
+    }
+  }, [membership]);
 
   if (book && store) {
     return (
@@ -32,19 +38,6 @@ const BookDetailView = ({ book, store }) => {
 
         <div className="pt-3 max-w-3xl w-full">
           <div>
-            {
-              /* for demo purposes */ <>
-                {" "}
-                <input
-                  type="checkbox"
-                  checked={isMember}
-                  className="mr-2"
-                  onChange={(e) => setIsMember(e.target.checked)}
-                  name="isMember"
-                />
-                <label htmlFor="isMember">Member view</label>
-              </>
-            }
             <h3 className="text-base font-bold">Author</h3>
             <div className="flex pt-1">
               <div className="bg-sky-50 rounded-2xl p-[28px]">
@@ -69,7 +62,7 @@ const BookDetailView = ({ book, store }) => {
                 </Link>
               </div>
             </div>
-            {isMember && (
+            {userMembership !== null && (
               <>
                 <div className="flex mt-10">
                   <div>
@@ -146,7 +139,7 @@ const BookDetailView = ({ book, store }) => {
             </div>
           </div>
 
-          {isMember ? (
+          {userMembership === "recurring" ? (
             <div className="flex sm:justify-start justify-center  mt-20">
               <div>
                 <Link href={"/giftbook"} style={{ textDecoration: "none" }}>
@@ -163,6 +156,21 @@ const BookDetailView = ({ book, store }) => {
                   <button className="text-sm sm:my-0 my-2 text-gray-800 bg-yellow-400 rounded-full  font-bold sm:w-auto w-44 sm:px-[36px] py-[10px] border border-black">
                     Request To Buy
                   </button>
+                </Link>
+              </div>
+            </div>
+          ) : userMembership === "single" ? (
+            <div>
+              <div className="my-8">
+                <Link href="/membership" className="no-underline">
+                  <div className="border border-black rounded-2xl w-80 sm:!mx-0 !mx-auto bg-yellow-400 py-[18px] ">
+                    <h5 className="font-serif no-underline text-center text-xs text-black font-semibold">
+                      Become a Subscribed Member
+                    </h5>
+                    <p className="font-serif no-underline text-xs mb-0 text-center pt-1 text-black">
+                      Enable purchase requests online
+                    </p>
+                  </div>
                 </Link>
               </div>
             </div>
