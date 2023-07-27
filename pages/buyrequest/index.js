@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useNavigationContext } from "../../context/NavigationContext";
 import { sendBuyRequest } from "../../services/blbn";
 import { useRouter } from "next/router";
+import Loading from "../../components/utility/Loading";
 
 const Buyrequest = () => {
   const [isPickupSelected, setPickupSelected] = useState(true);
@@ -13,12 +14,16 @@ const Buyrequest = () => {
   const [email, setEmail] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
 
+  const [loading, setLoading] = useState(false);
+  const [submitSucceeded, setSubmitSucceeded] = useState(false);
+
   const { previousPage } = useNavigationContext();
   const router = useRouter();
 
   const { id } = router.query;
 
   const handleSubmit = async () => {
+    setLoading(true);
     if (displayName && email && phoneNumber) {
       const response = await sendBuyRequest({
         listingId: id,
@@ -29,11 +34,16 @@ const Buyrequest = () => {
         },
       });
       if (response.statusCode !== 200) {
+        setLoading(false);
         alert(
           "Failed to submit buy request. Please check your contact information and try again."
         );
+      } else {
+        setLoading(false);
+        setSubmitSucceeded(true);
       }
     } else {
+      setLoading(false);
       alert("Please fill contact information fields");
     }
   };
@@ -386,12 +396,18 @@ const Buyrequest = () => {
         </div>
 
         <div className="my-10 flex sm:!justify-start !justify-center">
-          <button
-            onClick={handleSubmit}
-            className="bg-yellow-400 text-gray-800 text-sm !font-bold rounded-full flex px-[96px] hover:bg-white py-3 border border-black"
-          >
-            Submit Request
-          </button>
+          {!submitSucceeded && !loading ? (
+            <button
+              onClick={handleSubmit}
+              className="bg-yellow-400 text-gray-800 text-sm !font-bold rounded-full flex px-[96px] hover:bg-white py-3 border border-black"
+            >
+              Submit Request
+            </button>
+          ) : !loading && submitSucceeded ? (
+            <h4 className="text-base font-semibold">Buy Request Submitted!</h4>
+          ) : (
+            <Loading />
+          )}
         </div>
       </div>
     </div>
