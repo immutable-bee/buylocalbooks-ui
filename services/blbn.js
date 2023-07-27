@@ -19,7 +19,9 @@ export const getLocalListings = async ({
     "https://www.buylocalbooksnetwork.com/api/blb/get-local-listings",
     {
       method: "POST",
-      headers: {},
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ storeIds, firstQuery, cursor }),
     }
   );

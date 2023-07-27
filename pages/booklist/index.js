@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 import { LocalStoresContext } from "../../context/LocalStoresContext";
 import LocationDisplay from "../../components/LocationDisplay";
 import UserAvatar from "../../components/UserAvatar";
+import Loading from "../../components/utility/Loading";
 
 const Booklist = () => {
   const { localStores, newListings } = useContext(LocalStoresContext);
@@ -21,23 +22,6 @@ const Booklist = () => {
     }
   }, [localStores]);
 
-  var data = [
-    {
-      title: "Life of Pi",
-      owner: { business_name: "Bookstore NYC" },
-      id: 1,
-    },
-    {
-      title: "The Lost Symbol",
-      owner: { business_name: "Bookstore Boston" },
-      id: 2,
-    },
-    {
-      title: "The Alchemist",
-      owner: { business_name: "Bookstore Seattle" },
-      id: 3,
-    },
-  ];
   return (
     <div className="container mx-auto px-3  sm:pt-10">
       <section>
@@ -73,9 +57,14 @@ const Booklist = () => {
               </div>
 
               <div>
-                <h6 className="text-yellow-400 font-semibold text-xs font-serif mb-0">
-                  See All
-                </h6>
+                <Link
+                  href={"/seeall?type=stores"}
+                  style={{ textDecoration: "none" }}
+                >
+                  <h6 className="text-yellow-400 font-semibold text-xs font-serif mb-0">
+                    See All
+                  </h6>
+                </Link>
               </div>
             </div>
             <div>
@@ -88,43 +77,54 @@ const Booklist = () => {
                   <h4 className="text-base font-serif font-semibold">
                     Newly Added
                   </h4>
-                  <h6 className="text-yellow-400 font-semibold text-xs font-serif">
-                    See All
-                  </h6>
+                  <Link
+                    href={"/seeall?type=listings"}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <h6 className="text-yellow-400 font-semibold text-xs font-serif">
+                      See All
+                    </h6>
+                  </Link>
                 </div>
               </div>
               <div className="grid sm:grid-cols-3">
-                {(newBooks || data).map((data, i) => {
-                  return (
-                    <div key={data.id}>
-                      <Link
-                        href={`/listingdetail?id=${data.id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
-                          <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
-                            <Image
-                              src="./images/icons/recently-book1.svg"
-                              width={23}
-                              height={23}
-                              alt="icon"
-                            />
+                {newBooks.length === 0 ? (
+                  <div className="pt-2">
+                    <Loading />
+                  </div>
+                ) : (
+                  newBooks.map((data, i) => {
+                    return (
+                      <div key={data.id}>
+                        <Link
+                          href={`/listingdetail?id=${data.id}`}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
+                            <div className="p-[12px] bg-sky-200 mb-0 rounded-lg ">
+                              <Image
+                                src="./images/icons/recently-book1.svg"
+                                width={23}
+                                height={23}
+                                alt="icon"
+                              />
+                            </div>
+                            <div className="px-3">
+                              <h6 className="font-serif text-xs text-gray-600">
+                                {data.title.length < 30
+                                  ? data.title
+                                  : data.title.slice(0, 30) + "..."}
+                              </h6>
+                              <p className="m-0 font-serif text-xs text-gray-400 pt-1">
+                                {data.owner.business_name}
+                              </p>
+                            </div>
                           </div>
-                          <div className="px-3">
-                            <h6 className="font-serif text-xs text-gray-600">
-                              {data.title.length < 30
-                                ? data.title
-                                : data.title.slice(0, 30) + "..."}
-                            </h6>
-                            <p className="m-0 font-serif text-xs text-gray-400 pt-1">
-                              {data.owner.business_name}
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  );
-                })}
+                        </Link>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
             <div>

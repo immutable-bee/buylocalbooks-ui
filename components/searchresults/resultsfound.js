@@ -4,7 +4,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useRef, useEffect } from "react";
 import Loading from "../../components/utility/Loading";
 
-const ResultsFound = ({ results, setCursor, isResultsEnd }) => {
+const ResultsFound = ({
+  type = "listings",
+  results,
+  setCursor,
+  isResultsEnd,
+}) => {
   const sentinel = useRef();
 
   const formatTitle = (title) => {
@@ -16,11 +21,14 @@ const ResultsFound = ({ results, setCursor, isResultsEnd }) => {
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setCursor(results[results.length - 1].id);
-      }
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setCursor(results[results.length - 1].id);
+        }
+      },
+      { rootMargin: "0px 0px 100px 0px" }
+    );
 
     // If there's a sentinel, observe it
     if (sentinel.current) {
@@ -47,7 +55,11 @@ const ResultsFound = ({ results, setCursor, isResultsEnd }) => {
           return (
             <div key={result.id}>
               <Link
-                href={`/listingdetail?id=${encodeURIComponent(result.id)}`}
+                href={
+                  type === "listings"
+                    ? `/listingdetail?id=${encodeURIComponent(result.id)}`
+                    : `/bookstoredetail?id=${encodeURIComponent(result.id)}`
+                }
                 style={{ textDecoration: "none" }}
               >
                 <div className="flex border border-gray-400 rounded-2xl px-3 mr-3 my-2 py-3">
@@ -61,10 +73,14 @@ const ResultsFound = ({ results, setCursor, isResultsEnd }) => {
                   </div>
                   <div className="px-3">
                     <h6 className="font-serif text-xs text-gray-600">
-                      {formatTitle(result.title)}
+                      {type === "listings"
+                        ? formatTitle(result.title)
+                        : result.business_name}
                     </h6>
                     <p className="m-0 font-serif text-xs text-gray-400 pt-1">
-                      {result.owner.business_name}
+                      {type === "listings"
+                        ? result.owner.business_name
+                        : `${result.business_city}, ${result.business_state}`}
                     </p>
                   </div>
                 </div>
@@ -74,7 +90,7 @@ const ResultsFound = ({ results, setCursor, isResultsEnd }) => {
         })}
         {isResultsEnd ? (
           <div className="flex w-screen justify-center">
-            <h4>End of Results</h4>
+            <h5>End of Results</h5>
           </div>
         ) : (
           <div className="flex w-screen justify-center" ref={sentinel}>

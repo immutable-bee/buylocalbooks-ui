@@ -1,9 +1,8 @@
-import { useRouter } from "next/router";
 import { useEffect, useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
-import { getSearchResults } from "../../services/blbn";
+import { getLocalListings } from "../../services/blbn";
 import { LocalStoresContext } from "../../context/LocalStoresContext";
 import SearchBar from "../../components/SearchBar";
 import NoResultsFound from "../../components/searchresults/noresultsfound";
@@ -11,53 +10,59 @@ import LocationDisplay from "../../components/LocationDisplay";
 import ResultsFound from "../../components/searchresults/resultsfound";
 import { useNavigationContext } from "../../context/NavigationContext";
 import UserAvatar from "../../components/UserAvatar";
+import { useRouter } from "next/router";
 
-const search = () => {
-  const [searchResults, setSearchResults] = useState([]);
-  const { storeIds: contextStoreIds } = useContext(LocalStoresContext);
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState("");
+const SeeAll = () => {
+  const [results, setResults] = useState([]);
+  const { storeIds: contextStoreIds, localStores } =
+    useContext(LocalStoresContext);
   const [loading, setLoading] = useState(true);
   const { previousPage } = useNavigationContext();
 
   const [cursor, setCursor] = useState(null);
   const [isResultsEnd, setIsResultsEnd] = useState(false);
 
-  // get search results
+  const router = useRouter();
+
+  const { type } = router.query;
 
   useEffect(() => {
     if (contextStoreIds.length === 0) return;
     if (isResultsEnd) return;
-    const { term, filter, local } = router.query;
-    setSearchTerm(term);
-    const localBool = local === "true";
 
-    const searchArgs = {
-      storeIds: contextStoreIds,
-      searchTerm: term,
-      filter,
-      local: localBool,
-      firstQuery: cursor ? false : true,
-      cursor: cursor,
-    };
-
-    const search = async () => {
-      if (!cursor) {
-        setLoading(true);
-      }
-      const data = await getSearchResults(searchArgs);
-      if (data) {
-        setSearchResults((prevResults) => [...prevResults, ...data]);
-        if (data.length < 12) {
+    if (type) {
+      if (type === "stores") {
+        if (localStores.length > 0) {
+          setResults(localStores);
+          setLoading(false);
           setIsResultsEnd(true);
         }
       } else {
-        setSearchResults([]);
+        const fetchArgs = {
+          storeIds: contextStoreIds,
+          firstQuery: cursor ? false : true,
+          cursor: cursor,
+        };
+
+        const search = async () => {
+          if (!cursor) {
+            setLoading(true);
+          }
+          const data = await getLocalListings(fetchArgs);
+          if (data) {
+            setResults((prevResults) => [...prevResults, ...data]);
+            if (data.length < 12) {
+              setIsResultsEnd(true);
+            }
+          } else {
+            setResults([]);
+          }
+          setLoading(false);
+        };
+        search();
       }
-      setLoading(false);
-    };
-    search();
-  }, [contextStoreIds, router.query, cursor]);
+    }
+  }, [contextStoreIds, cursor, isResultsEnd, type, localStores]);
 
   return (
     <section>
@@ -87,9 +92,10 @@ const search = () => {
         </div>
         {loading ? (
           <h1>Loading...</h1>
-        ) : searchResults.length > 0 ? (
+        ) : results.length > 0 ? (
           <ResultsFound
-            results={searchResults}
+            type={type}
+            results={results}
             setCursor={setCursor}
             isResultsEnd={isResultsEnd}
           />
@@ -101,4 +107,4 @@ const search = () => {
   );
 };
 
-export default search;
+export default SeeAll;
