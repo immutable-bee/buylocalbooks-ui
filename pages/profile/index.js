@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
@@ -7,7 +7,8 @@ import { onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useRouter } from "next/router";
 import getDocument from "../../firebase/firestore/getData";
-
+import { updateProfileImage } from "../../firebase/storage/updateProfileImage";
+import validateImageFile from "../../utils/clientValidateProfileImage";
 // TODO:
 // Add profile pic storage/update
 // Add update email & verify email
@@ -20,6 +21,10 @@ const Profile = () => {
   const [isMember, setIsMember] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [displayName, setDisplayName] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
+
+  const fileInputRef = useRef();
+
   const router = useRouter();
 
   const isEditingHandler = () => {
@@ -61,6 +66,21 @@ const Profile = () => {
     };
   }, []);
 
+  const handleUserUpdate = (updatedUser) => {
+    setUser(updatedUser);
+  };
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+
+    try {
+      validateImageFile(file);
+      const downloadURL = await updateProfileImage(file, handleUserUpdate);
+    } catch (error) {
+      console.error("Failed to upload or validate image:", error);
+      alert(error.message);
+    }
+  };
+
   const handleSignOut = () => {
     signOut(auth).then(() => {
       router.push("/");
@@ -86,7 +106,11 @@ const Profile = () => {
           <div className="!max-w-xs relative text-center  mx-auto">
             <div className="-mt-[67px] ">
               <div>
-                <div className="border-2 border-black rounded-full overflow-hidden inline-block">
+                <div
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  className="relative border-2 border-black rounded-full overflow-hidden inline-block"
+                >
                   <Image
                     src={
                       user.photoURL
@@ -97,6 +121,22 @@ const Profile = () => {
                     height={129}
                     className="mx-auto rounded-full"
                     alt="icon"
+                  />
+                  {isHovered && (
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-black bg-opacity-50 flex items-center justify-center">
+                      <span
+                        className="text-white text-sm cursor-pointer"
+                        onClick={() => fileInputRef.current.click()}
+                      >
+                        Update
+                      </span>
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    style={{ display: "none" }}
+                    onChange={handleImageUpload}
                   />
                 </div>
               </div>
